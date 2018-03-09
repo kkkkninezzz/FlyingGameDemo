@@ -303,6 +303,7 @@
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
     <Compile Include="Assets\Scripts\FlyingController.cs" />
+    <Compile Include="Assets\Scripts\FlyingController2.cs" />
     <Compile Include="Assets\Scripts\MoveController.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
   </ItemGroup>
