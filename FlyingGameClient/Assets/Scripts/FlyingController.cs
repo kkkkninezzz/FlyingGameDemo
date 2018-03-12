@@ -33,36 +33,58 @@ public class FlyingController : MonoBehaviour {
 
     private Rigidbody thisRigibody;
 
-	// Use this for initialization
-	void Start () {
+    // 垂直物体向上的力
+    private float baseTransUpForce;
+
+    private float transUpForce;
+
+    // 垂直方向额外的力
+    private float verticalExtraForce;
+
+    // 水平方向额外的力
+    private float horizontalExtraForce;
+
+    // Use this for initialization
+    void Start () {
         thisRigibody = GetComponent<Rigidbody>();
-        forcePoint = thisRigibody.worldCenterOfMass;
+        forcePoint = thisRigibody.centerOfMass;
 
         Debug.Log(forcePoint);
-        upwardForce = gravity = thisRigibody.mass * 9.81f;
+        gravity = thisRigibody.mass * 9.81f;
+
+        transUpForce = baseTransUpForce = gravity / 4;
 
 	}
 	
 	void FixedUpdate () {
+        //Debug.Log(thisRigibody.centerOfMass);
+        thisRigibody.AddForceAtPosition(transform.up * upwardForce, forcePoint);
+
+        thisRigibody.AddForceAtPosition(transform.up * transUpForce, forceLeftHead.position);
+        thisRigibody.AddForceAtPosition(transform.up * transUpForce, forceRightHead.position);
+        thisRigibody.AddForceAtPosition(transform.up * transUpForce, forceLeftTail.position);
+        thisRigibody.AddForceAtPosition(transform.up * transUpForce, forceRightTail.position);
         
-        //thisRigibody.AddForceAtPosition(transform.up * upwardForce, forcePoint);
-        
-        thisRigibody.AddForceAtPosition(transform.up * upwardForce / 4, forceLeftHead.position);
-        thisRigibody.AddForceAtPosition(transform.up * upwardForce / 4, forceRightHead.position);
-        thisRigibody.AddForceAtPosition(transform.up * upwardForce / 4, forceLeftTail.position);
-        thisRigibody.AddForceAtPosition(transform.up * upwardForce / 4, forceRightTail.position);
-        
+        //verticalExtraForce = 
+
         if (Input.GetKey(KeyCode.W))
             thisRigibody.AddForceAtPosition(transform.forward * forwardForce, forceTail.position);
         
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            thisRigibody.AddForceAtPosition(-transform.up * upwardForce / 8, forceLeftTail.position);
-            thisRigibody.AddForceAtPosition(-transform.up * upwardForce / 8, forceRightTail.position);
+            /*
+            thisRigibody.AddForceAtPosition(-transform.up * transUpForce / 32, forceLeftTail.position);
+            thisRigibody.AddForceAtPosition(-transform.up * transUpForce / 32, forceRightTail.position);
+            */
+            //Debug.Log(this.transform.rotation.eulerAngles.x);
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.eulerAngles.x - 2f, 0, 0);
         }else if (Input.GetKey(KeyCode.DownArrow))
         {
-            thisRigibody.AddForceAtPosition(transform.up * upwardForce / 8, forceLeftTail.position);
-            thisRigibody.AddForceAtPosition(transform.up * upwardForce / 8, forceRightTail.position);
+            /*
+            thisRigibody.AddForceAtPosition(transform.up * transUpForce / 32, forceLeftTail.position);
+            thisRigibody.AddForceAtPosition(transform.up * transUpForce / 32, forceRightTail.position);
+            */
+            this.transform.rotation = Quaternion.Euler(this.transform.rotation.eulerAngles.x + 2f, 0, 0);
         }
     }
 }
