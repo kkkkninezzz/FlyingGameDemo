@@ -48,17 +48,18 @@ namespace Flight
             isRun = false;
         }
 
-        // 左右移动
+        // 左右移动（平移）
         public override void MoveLR(float speed)
         {
             if (isInStuntState)
                 return;
 
-            autoBalanceLR = false;
+            Vector3 vector = body.right;
+            vector.y = 0;
 
-            Rote(speed * Vector3.up * config.RoteLRSpeed * Time.deltaTime * curSpeed / config.MoveFBSpeed);
+            Move(speed * vector * config.MoveLRSpeed * Time.deltaTime * curSpeed / config.MoveFBSpeed);
 
-            Balance(Quaternion.Euler(body.eulerAngles.x, body.eulerAngles.y, -config.AxisLR * speed), config.RoteLRSpeed * Time.deltaTime);
+            Balance(Quaternion.Euler(body.eulerAngles.x, body.eulerAngles.y, -config.AxisFB * speed), config.RoteLRSpeed * Time.deltaTime * 3);
         }
 
         // 上下旋转
@@ -85,7 +86,7 @@ namespace Flight
             curSpeed = Mathf.Clamp(curSpeed, 0, config.MaxSpeed);
         }
 
-        // 左右旋转
+        // 左右旋转（可以进行转向）
         public override void RoteLR(float speed)
         {
             //左右旋转
