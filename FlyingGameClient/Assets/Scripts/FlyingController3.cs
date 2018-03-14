@@ -34,8 +34,8 @@ public class FlyingController3 : MonoBehaviour {
         {
             //按下AD
             //Debug.Log("按下AD: " + Input.GetAxis(InputConstans.RLR));
-            // flight.RoteLR(Input.GetAxis(InputConstans.RLR));
-            flight.MoveLR(Input.GetAxis(InputConstans.RLR));
+             flight.RoteLR(Input.GetAxis(InputConstans.RLR));
+            //flight.MoveLR(Input.GetAxis(InputConstans.RLR));
         }
 
         flight.Operational();
