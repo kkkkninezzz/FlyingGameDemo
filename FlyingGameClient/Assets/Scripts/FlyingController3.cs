@@ -40,4 +40,9 @@ public class FlyingController3 : MonoBehaviour {
 
         flight.Operational();
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("进入墙体了");
+    }
 }
