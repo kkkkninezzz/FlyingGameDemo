@@ -317,6 +317,7 @@
     <Compile Include="Assets\Scripts\FlyingController.cs" />
     <Compile Include="Assets\Scripts\FlyingController2.cs" />
     <Compile Include="Assets\Scripts\FlyingController3.cs" />
+    <Compile Include="Assets\Scripts\Game\GameLogicSystem.cs" />
     <Compile Include="Assets\Scripts\MoveController.cs" />
     <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
   </ItemGroup>
