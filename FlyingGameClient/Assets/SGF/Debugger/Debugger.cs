@@ -9,7 +9,7 @@ namespace UnityEngine
         public static bool EnableTime = true;
         public static bool EnableSave = false;
         public static bool EnableStack = false;
-        public static string LogFileDir = "/Log/DebuggerLog/";
+        public static string LogFileDir = "Assets/Log/DebuggerLog/";
         public static string LogFileName = "";
         public static string Prefix = "> ";
         public static StreamWriter LogFileWriter = null;
@@ -103,6 +103,20 @@ namespace UnityEngine
             ErrorLogToFile(message, true);
         }
 
+        public static void LogWarning(string tag, string message)
+        {
+            message = GetLogText(tag, message);
+            Debug.LogWarning(Prefix + message);
+            WarningLogToFile(message, true);
+        }
+
+        public static void LogWarning(string tag, string format, params object[] args)
+        {
+            string message = GetLogText(tag, string.Format(format, args));
+            Debug.LogWarning(Prefix + message);
+            WarningLogToFile(message, true);
+        }
+
 
         private static string GetLogText(string tag, string message)
         {
@@ -156,6 +170,7 @@ namespace UnityEngine
                         Directory.CreateDirectory(LogFileDir);
 
                     LogFileWriter = File.AppendText(fullPath);
+                    Debug.Log(fullPath);
                     LogFileWriter.AutoFlush = true;
                 } catch (Exception e)
                 {
