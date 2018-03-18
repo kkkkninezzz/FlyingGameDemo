@@ -49,9 +49,14 @@ namespace Kurisu.Service.Core
                 return m_mapModules[name];
 
             BusinessModule module = CreateModuleInstance(name);
+            m_mapModules.Add(name, module);
 
+            // 处理预监听事件
             InitPreListenEventsForModule(module);
 
+            module.Create(args);
+
+            // 处理缓存的消息
             InitCacheMessageForModule(module);
 
             return module;

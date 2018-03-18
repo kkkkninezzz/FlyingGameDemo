@@ -25,6 +25,7 @@ namespace Kurisu.Service.Core
         {
             // 先获取所有非public的构造方法
             ConstructorInfo[] cis = typeof(T).GetConstructors(BindingFlags.Instance | BindingFlags.NonPublic);
+
             // 从ctors中获取无参的构造方法
             ConstructorInfo ci = Array.Find(cis, c => c.GetParameters().Length == 0);
             if (ci == null)
