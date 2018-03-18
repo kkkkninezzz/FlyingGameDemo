@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-namespace FlyingGame.Service.Core
+namespace Kurisu.Service.Core
 {
     public class ModuleEvent : UnityEvent<object>
     {
@@ -35,7 +35,7 @@ namespace FlyingGame.Service.Core
             return m_mapEvents[type];
         }
 
-        public void clear()
+        public void Clear()
         {
             if (m_mapEvents == null)
                 return;

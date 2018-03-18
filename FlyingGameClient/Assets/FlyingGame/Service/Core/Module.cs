@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using SGF;
 
-namespace FlyingGame.Service.Core
+namespace Kurisu.Service.Core
 {
     public abstract class Module
     {
