@@ -3,19 +3,23 @@ using System.Collections;
 
 namespace Kurisu.Service.UIManager
 {
-    public class UIRes : MonoBehaviour
+    /// <summary>
+    /// UI资源
+    /// </summary>
+    public static class UIRes
     {
+        public static string UIResRoot = "ui/";
 
-        // Use this for initialization
-        void Start()
+        /// <summary>
+        /// 加载UI的Prefab
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static GameObject LoadPrefab(string name)
         {
+            GameObject asset = Resources.Load(UIResRoot + name) as GameObject;
 
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            return asset;
         }
     }
 }

@@ -379,6 +379,7 @@
     <Compile Include="Assets\SGF\Constants\ConfigConstants.cs" />
     <Compile Include="Assets\SGF\Debugger\Debugger.cs" />
     <Compile Include="Assets\SGF\Debugger\DebuggerExtension.cs" />
+    <Compile Include="Assets\SGF\Utils\GameObjectUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameResource\Character\NormalBody\UnityChan\Stage\Shader\AlphaMask.shader" />
