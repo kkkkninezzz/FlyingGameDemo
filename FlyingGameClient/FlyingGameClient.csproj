@@ -299,6 +299,11 @@
     <Compile Include="Assets\FlyingGame\Service\Core\Module.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\ModuleManager.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\ServiceModule.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\Example\Example.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\Example\UIPage1.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\Example\UIPage2.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\Example\UIWidget1.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\Example\UIWindow1.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIManager.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIPage.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIPanel.cs" />

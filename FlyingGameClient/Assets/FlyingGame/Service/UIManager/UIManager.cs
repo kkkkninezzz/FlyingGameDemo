@@ -117,7 +117,7 @@ namespace Kurisu.Service.UIManager
                     m_loadedPanelList[i].Close();
             }
 
-            m_loadedPanelList.Clear();
+            // m_loadedPanelList.Clear();
         }
 
         /// <summary>

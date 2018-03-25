@@ -8,7 +8,7 @@ namespace Kurisu.Service.Core
     {
         protected static T ms_instance = null;
 
-        public static T Intstance
+        public static T Instance
         {
             get
             {

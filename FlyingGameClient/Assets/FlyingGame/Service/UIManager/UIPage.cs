@@ -74,7 +74,7 @@ namespace Kurisu.Service.UIManager
         private void OnGoBackBtn()
         {
             this.Log("OnGoBackBtn() ");
-            UIManager.Intstance.GoBackPage();
+            UIManager.Instance.GoBackPage();
         }
 
         /// <summary>

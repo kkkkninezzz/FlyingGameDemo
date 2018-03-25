@@ -11,15 +11,15 @@ namespace Kurisu.Service.Core.Example
             base.Create(args);
 
             // 业务层模块之间，通过Message进行通讯
-            ModuleManager.Intstance.SendMessage("ModuleB", "MessageFromA_1", 1, 2, 3);
-            ModuleManager.Intstance.SendMessage("ModuleB", "MessageFromA_2", "abc", 123);
+            ModuleManager.Instance.SendMessage("ModuleB", "MessageFromA_1", 1, 2, 3);
+            ModuleManager.Instance.SendMessage("ModuleB", "MessageFromA_2", "abc", 123);
 
             // 业务模块之间，通过Event进行通讯
-            ModuleManager.Intstance.Event("ModuleB", "OnModuleEventB").AddListener(OnModuleEventB);
+            ModuleManager.Instance.Event("ModuleB", "OnModuleEventB").AddListener(OnModuleEventB);
 
             // 业务层调用服务层，通过事件监听回调
-            ModuleC.Intstance.OnEvent.AddListener(OnModuleEventC);
-            ModuleC.Intstance.DoSomething();
+            ModuleC.Instance.OnEvent.AddListener(OnModuleEventC);
+            ModuleC.Instance.DoSomething();
 
             // 全局事件
             GlobalEvent.OnLogin.AddListener(OnLogin);
@@ -95,11 +95,11 @@ namespace Kurisu.Service.Core.Example
     {
         public void Init()
         {
-            ModuleC.Intstance.Init();
-            ModuleManager.Intstance.Init("Kurisu.Service.Core.Example");
+            ModuleC.Instance.Init();
+            ModuleManager.Instance.Init("Kurisu.Service.Core.Example");
 
-            ModuleManager.Intstance.CreateModule("ModuleA");
-            ModuleManager.Intstance.CreateModule("ModuleB");
+            ModuleManager.Instance.CreateModule("ModuleA");
+            ModuleManager.Instance.CreateModule("ModuleB");
 
             GlobalEvent.OnLogin.Invoke(true);
         }
