@@ -31,7 +31,7 @@ namespace Kurisu.Service.UIManager
         /// <summary>
         /// 调用它关闭UI
         /// </summary>
-        public sealed override void Close()
+        public sealed override void Close(object arg = null)
         {
             base.Close();
 
@@ -40,7 +40,7 @@ namespace Kurisu.Service.UIManager
                 this.gameObject.SetActive(false);
             }
 
-            OnClose();
+            OnClose(arg);
         }
     }
 }

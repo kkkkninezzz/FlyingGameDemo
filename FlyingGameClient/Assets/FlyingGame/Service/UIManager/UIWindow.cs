@@ -9,7 +9,7 @@ namespace Kurisu.Service.UIManager
     public class UIWindow : UIPanel
     {
         //===========================================================
-        public delegate void CloseEvent();
+        public delegate void CloseEvent(object arg = null);
         //===========================================================
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Kurisu.Service.UIManager
         /// <summary>
         /// 调用它关闭UIWindow
         /// </summary>
-        public sealed override void Close()
+        public sealed override void Close(object arg = null)
         {
             base.Close();
 
@@ -123,10 +123,10 @@ namespace Kurisu.Service.UIManager
                 this.gameObject.SetActive(false);
             }
 
-            OnClose();
+            OnClose(arg);
             if (OnCloseEvent != null)
             {
-                OnCloseEvent();
+                OnCloseEvent(arg);
                 OnCloseEvent = null;
             }
         }

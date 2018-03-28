@@ -13,9 +13,10 @@ namespace Kurisu.Service.UIManager.Example
             UIManager.Instance.OpenWindow<UIWindow1>().OnCloseEvent += OnWindow1Close;
         }
 
-        private void OnWindow1Close()
+        private void OnWindow1Close(object arg = null)
         {
             this.Log("OnWindow1Close() ");
+
         }
 
         public void OnOpenWidget1Btn()

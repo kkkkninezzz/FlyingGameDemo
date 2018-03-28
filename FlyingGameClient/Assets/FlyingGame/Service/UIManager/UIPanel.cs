@@ -16,9 +16,9 @@ namespace Kurisu.Service.UIManager
             this.Log("Open() arg: {0}", arg);
         }
 
-        public virtual void Close()
+        public virtual void Close(object arg = null)
         {
-            this.Log("Close()");
+            this.Log("Close() arg: {0}", arg);
         }
 
         /// <summary>
@@ -36,9 +36,9 @@ namespace Kurisu.Service.UIManager
         /// 当UI关闭时，会响应这个函数
         /// 该函数在重写时，需要支持重复调用
         /// </summary>
-        public virtual void OnClose()
+        public virtual void OnClose(object arg = null)
         {
-            this.Log("OnClose() ");
+            this.Log("OnClose() arg: {0}", arg);
         }
 
         /// <summary>

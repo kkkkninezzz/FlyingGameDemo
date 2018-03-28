@@ -310,6 +310,7 @@
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIUtils.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIWidget.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIWindow.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Common\UIMsgBox.cs" />
     <Compile Include="Assets\GameResource\Character\NormalBody\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlinkforSD.cs" />
