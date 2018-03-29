@@ -32,8 +32,42 @@ namespace Kurisu.Service.UIManager
             if (string.IsNullOrEmpty(text))
                 return;
 
-            GameObject textUI = new GameObject("title", typeof(Text));
-            textUI.transform.parent = ui.transform;
+            Text textUI = ui.transform.GetComponentInChildren<Text>();
+            if (textUI != null)
+                textUI.text = text;
+        }
+
+        /// <summary>
+        /// 为button添加文本
+        /// </summary>
+        /// <param name="btn"></param>
+        /// <param name="text"></param>
+        public static void SetButtonText(Button btn, string text)
+        {
+            if (string.IsNullOrEmpty(text))
+                return;
+
+            Text textUI = btn.GetComponentInChildren<Text>();
+            if (textUI != null)
+            {
+                textUI.text = text;
+            }
+        }
+
+        /// <summary>
+        /// 获取button上的文本
+        /// </summary>
+        /// <param name="btn"></param>
+        /// <returns></returns>
+        public static string GetButtonText(Button btn)
+        {
+            Text textUI = btn.GetComponentInChildren<Text>();
+            if (textUI != null)
+            {
+                return textUI.text;
+            }
+
+            return string.Empty;
         }
     }
 
