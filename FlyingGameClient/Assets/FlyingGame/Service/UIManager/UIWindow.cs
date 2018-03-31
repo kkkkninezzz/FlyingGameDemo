@@ -60,6 +60,7 @@ namespace Kurisu.Service.UIManager
         protected void OnDisable()
         {
             this.Log("OnDisable() ");
+            /*
 #if UNITY_EDITOR
             if (m_isOpenedOnce)
             {
@@ -74,7 +75,7 @@ namespace Kurisu.Service.UIManager
                 }
             }
 #endif
-
+*/
             if (m_closeBtn != null)
             {
                 m_closeBtn.onClick.RemoveAllListeners();
@@ -116,7 +117,7 @@ namespace Kurisu.Service.UIManager
         /// </summary>
         public sealed override void Close(object arg = null)
         {
-            base.Close();
+            base.Close(arg);
 
             if (this.gameObject.activeSelf)
             {

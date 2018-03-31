@@ -47,7 +47,7 @@ namespace Kurisu.Service.UIManager
         /// <param name="arg"></param>
         public virtual void OnOpen(object arg = null)
         {
-            this.Log("OnOpen() ");
+            this.Log("OnOpen() arg: {0}", arg);
         }
     }
 }

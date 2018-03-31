@@ -46,10 +46,24 @@ namespace Kurisu.UI.Ccommon
             {
                 if (i < btnTexts.Length)
                 {
-
+                    UIUtils.SetButtonText(buttons[i], btnTexts[i]);
+                    UIUtils.SetActive(buttons[i], true);
+                    Vector3 pos = buttons[i].transform.localPosition;
+                    pos.x = btnStartX + i * btnWidth;
+                    buttons[i].transform.localPosition = pos;
+                }
+                else
+                {
+                    UIUtils.SetActive(buttons[i], false);
                 }
             }
         }
+
+        public void OnBtnClick(int btnIndex)
+        {
+            this.Close(btnIndex);
+        }
+        
     }
 }
 

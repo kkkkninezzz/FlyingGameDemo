@@ -12,8 +12,7 @@ public class AppMain : MonoBehaviour {
 	void Start () {
         Debugger.EnableLog = true;
 
-        Example ex = new Example();
-        ex.Init();
+        
 	}
 	
 	// Update is called once per frame
