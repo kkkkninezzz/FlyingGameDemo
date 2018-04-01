@@ -36,7 +36,7 @@ namespace Kurisu.Service.UIManager
         /// 当UI关闭时，会响应这个函数
         /// 该函数在重写时，需要支持重复调用
         /// </summary>
-        public virtual void OnClose(object arg = null)
+        protected virtual void OnClose(object arg = null)
         {
             this.Log("OnClose() arg: {0}", arg);
         }
@@ -45,7 +45,7 @@ namespace Kurisu.Service.UIManager
         /// 当UI打开时，会响应这个函数
         /// </summary>
         /// <param name="arg"></param>
-        public virtual void OnOpen(object arg = null)
+        protected virtual void OnOpen(object arg = null)
         {
             this.Log("OnOpen() arg: {0}", arg);
         }

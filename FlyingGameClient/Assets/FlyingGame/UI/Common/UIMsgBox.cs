@@ -23,7 +23,7 @@ namespace Kurisu.UI.Ccommon
         public UIBehaviour ctlTitle;
         public Button[] buttons;
 
-        public override void OnOpen(object arg = null)
+        protected override void OnOpen(object arg = null)
         {
             base.OnOpen(arg);
             m_arg = arg as UIMsgBoxArg;

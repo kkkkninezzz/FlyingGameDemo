@@ -288,9 +288,14 @@
     <Reference Include="UnityEngine.StandardEvents">
       <HintPath>Library\UnityAssemblies\UnityEngine.StandardEvents.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Plugins\Json\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
+    <Compile Include="Assets\FlyingGame\Setting\AppConfigData.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\BusinessModule.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\EventTable.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\Example\Example.cs" />
@@ -316,6 +321,7 @@
     <Compile Include="Assets\FlyingGame\UI\Example\Example_MsBox.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
+    <Compile Include="Assets\FlyingGame\UI\UIHomePage.cs" />
     <Compile Include="Assets\GameResource\Character\NormalBody\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlinkforSD.cs" />
@@ -389,6 +395,7 @@
     <Compile Include="Assets\SGF\Debugger\Debugger.cs" />
     <Compile Include="Assets\SGF\Debugger\DebuggerExtension.cs" />
     <Compile Include="Assets\SGF\Utils\GameObjectUtils.cs" />
+    <Compile Include="Assets\SGF\Utils\JsonUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\GameResource\Character\NormalBody\UnityChan\Stage\Shader\AlphaMask.shader" />

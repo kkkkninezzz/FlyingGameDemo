@@ -5,18 +5,24 @@ using SGF;
 
 using Kurisu.Service.UIManager.Example;
 
-public class AppMain : MonoBehaviour {
+namespace Kurisu
+{
+    public class AppMain : MonoBehaviour
+    {
 
-	// Use this for initialization
+        // Use this for initialization
 
-	void Start () {
-        Debugger.EnableLog = true;
+        void Start()
+        {
+            Debugger.EnableLog = true;
+    
+        }
 
-        
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
+    }
 }
+
