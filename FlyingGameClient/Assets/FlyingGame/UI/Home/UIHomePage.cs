@@ -31,7 +31,8 @@ namespace Kurisu.UI.Home
 
             if (Input.GetKey(KeyCode.D))
             {
-                CharactorAnim.SetBool("TouchAbdomen", true);
+                // CharactorAnim.SetTrigger("TouchAbdomen");
+                CharactorAnim.Play("TouchAbdomen", 0, 0f);
             }
         }
     }
