@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -293,6 +295,9 @@
   <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
+    <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
+    <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
+    <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\BusinessModule.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\EventTable.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\Example\Example.cs" />
@@ -317,9 +322,9 @@
     <Compile Include="Assets\FlyingGame\Setting\AppConfigData.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIMsgBox.cs" />
     <Compile Include="Assets\FlyingGame\UI\Example\Example_MsBox.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Home\UIHomePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
-    <Compile Include="Assets\FlyingGame\UI\UIHomePage.cs" />
     <Compile Include="Assets\GameResource\Character\NormalBody\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlinkforSD.cs" />
