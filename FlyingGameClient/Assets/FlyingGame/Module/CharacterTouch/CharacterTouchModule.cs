@@ -48,7 +48,7 @@ namespace Kurisu.Module.CharacterTouch
             // 如果不是处于idle状态，不允许触发动画
             if (!characterAnim.GetCurrentAnimatorStateInfo(0).IsName(CharacterAnimStateDef.IdleState))
                 return;
-
+           
             switch(touchPart)
             {
                 case BodyPart.Face:

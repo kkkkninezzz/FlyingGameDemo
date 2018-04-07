@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using SGF;
 
-using Kurisu.Service.UIManager.Example;
+using Kurisu.Service.Core;
+using Kurisu.Service.UIManager;
+using Kurisu.Module;
 
 namespace Kurisu
 {
@@ -15,7 +17,21 @@ namespace Kurisu
         void Start()
         {
             Debugger.EnableLog = true;
-    
+
+            InitServiceModules();
+            InitBusinessModules();
+        }
+
+        private void InitServiceModules()
+        {
+            ModuleManager.Instance.Init();
+
+            UIManager.Instance.Init("ui/");
+        }
+
+        private void InitBusinessModules()
+        {
+            ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
         }
 
         // Update is called once per frame

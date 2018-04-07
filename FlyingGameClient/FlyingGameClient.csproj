@@ -296,6 +296,7 @@
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
+    <Compile Include="Assets\FlyingGame\Module\ModuleDef.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\BusinessModule.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\EventTable.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\Example\Example.cs" />

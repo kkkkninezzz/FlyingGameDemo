@@ -67,6 +67,7 @@ namespace Kurisu.Service.Core
             BusinessModule module = null;
 
             Type type = Type.GetType(m_domain + "." + name);
+
             if (type != null)
             {
                 module = Activator.CreateInstance(type) as BusinessModule;
