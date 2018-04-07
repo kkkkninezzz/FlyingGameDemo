@@ -304,6 +304,8 @@
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityFactory.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\Recycler.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewFactory.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameEvent.cs" />
@@ -414,6 +416,7 @@
     <Compile Include="Assets\SGF\Constants\ConfigConstants.cs" />
     <Compile Include="Assets\SGF\Debugger\Debugger.cs" />
     <Compile Include="Assets\SGF\Debugger\DebuggerExtension.cs" />
+    <Compile Include="Assets\SGF\Extension\DictionaryEx.cs" />
     <Compile Include="Assets\SGF\Utils\GameObjectUtils.cs" />
     <Compile Include="Assets\SGF\Utils\JsonUtils.cs" />
   </ItemGroup>
