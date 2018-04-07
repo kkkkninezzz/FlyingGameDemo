@@ -6,6 +6,7 @@ using SGF;
 using Kurisu.Service.Core;
 using Kurisu.Service.UIManager;
 using Kurisu.Module;
+using Kurisu.UI;
 
 namespace Kurisu
 {
@@ -18,8 +19,12 @@ namespace Kurisu
         {
             Debugger.EnableLog = true;
 
+            AppConfig.Init();
+
             InitServiceModules();
             InitBusinessModules();
+
+            UIManager.Instance.EnterMainPage();
         }
 
         private void InitServiceModules()
@@ -27,6 +32,7 @@ namespace Kurisu
             ModuleManager.Instance.Init();
 
             UIManager.Instance.Init("ui/");
+            UIManager.MainPage = UIDef.UIHomePage;
         }
 
         private void InitBusinessModules()

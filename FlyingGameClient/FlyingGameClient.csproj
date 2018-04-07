@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -293,9 +295,22 @@
   <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\FlyingVehicleData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\GameMode.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\GameParam.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\GameVkey.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
+    <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
+    <Compile Include="Assets\FlyingGame\Game\GameEvent.cs" />
+    <Compile Include="Assets\FlyingGame\Game\GameInput.cs" />
+    <Compile Include="Assets\FlyingGame\Game\GameLogicManager.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
+    <Compile Include="Assets\FlyingGame\Module\Home\HomeModule.cs" />
+    <Compile Include="Assets\FlyingGame\Module\ModuleAPI.cs" />
     <Compile Include="Assets\FlyingGame\Module\ModuleDef.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\BusinessModule.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\EventTable.cs" />

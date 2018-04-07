@@ -2,7 +2,6 @@
 using System.Collections;
 using Kurisu.Service.UIManager;
 using Kurisu.Module.CharacterTouch;
-using Kurisu.Service.Core;
 
 using Kurisu.Module;
 
@@ -20,15 +19,16 @@ namespace Kurisu.UI.Home
 
         public void Update()
         {
-            
+
         }
 
+        #region 看板娘触摸
         /// <summary>
         /// 摸脸
         /// </summary>
         public void TouchFace()
         {
-            TouchCharacter(BodyPart.Face);   
+            TouchCharacter(BodyPart.Face);
         }
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Kurisu.UI.Home
         {
             TouchCharacter(BodyPart.Chest);
         }
-        
+
         /// <summary>
         /// 摸腹部
         /// </summary>
@@ -59,15 +59,53 @@ namespace Kurisu.UI.Home
         {
             if (CharacterAnim == null)
                 return;
-            
-                
-            CharacterTouchModule touchModule = ModuleManager.Instance.GetModule(ModuleDef.CharacterTouchModule) as CharacterTouchModule;
+
+
+            CharacterTouchModule touchModule = ModuleAPI.CharacterTouchModule;
 
             if (touchModule != null)
             {
                 touchModule.TouchCharacter(CharacterAnim, part);
             }
         }
+        #endregion
+
+        #region 主界面按钮功能
+
+        /// <summary>
+        /// 出击按钮功能
+        /// </summary>
+        public void OnPlayGameBtn()
+        {
+
+        }
+
+        /// <summary>
+        /// 装扮按钮
+        /// </summary>
+        public void OnDressUpBtn()
+        {
+
+        }
+
+        /// <summary>
+        /// 背包按钮
+        /// </summary>
+        public void OnBagBtn()
+        {
+
+        }
+
+        /// <summary>
+        /// 设置按钮
+        /// </summary>
+        public void OnSettingBtn()
+        {
+
+        }
+
+
+        #endregion
     }
 }
 
