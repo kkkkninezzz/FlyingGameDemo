@@ -70,7 +70,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 271}
   m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
-  controlID: 87
+  controlID: 86
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 426
     width: 578
     height: 350
-  m_MinSize: {x: 102, y: 121}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 392}
   m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
-  controlID: 127
+  controlID: 119
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -138,8 +138,8 @@ MonoBehaviour:
     y: 0
     width: 310
     height: 776
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 279, y: 71}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -210,10 +210,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 776
-  m_MinSize: {x: 913, y: 392}
-  m_MaxSize: {x: 22008, y: 14042}
+  m_MinSize: {x: 917, y: 392}
+  m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
-  controlID: 126
+  controlID: 118
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 271
     height: 426
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: ee440000
+    m_SelectedIDs: dc360000
     m_LastClickedID: 0
-    m_ExpandedIDs: 924bffff9efbffff00000000b0350000c2350000de350000
+    m_ExpandedIDs: 9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -517,7 +517,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/FlyingGame/Game/Data
+    - Assets/FlyingGame/Game/Entity/Factory
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 48280000
     m_LastClickedID: 10312
-    m_ExpandedIDs: 000000006a28000090280000922800002c2900004e290000602900006c290000e8290000562a0000642a0000002b0000042b00001c2b0000522b0000be2b0000c42b0000c62b00003c2c00007a2c0000002d0000862d0000042e0000002f0000582f00005a2f0000ba2f0000483000008c30000090300000a6300000c8300000f83000006631000036320000683200007a3200009c320000a0320000e2320000663300006c3300009c330000283400004a340000203a0000223a0000
+    m_ExpandedIDs: 0000000084280000ac2800004c2900006e290000802900008c290000082a0000762a0000842a0000202b0000242b00003c2b0000722b0000de2b0000e42b0000e62b00005c2c00009a2c00001a2d0000202d0000a62d0000a82d0000282e0000242f00002a2f00007e2f0000802f0000e02f00006e300000b2300000cc300000ee3000001e3100008e3100005e32000090320000a2320000c83200000a3300008e33000094330000c63300005234000074340000b0360000b2360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -556,7 +556,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000006a280000922800002c2900004e290000602900006c290000e8290000562a0000642a0000002b0000042b00001c2b0000522b0000be2b0000c42b0000c62b00003c2c00007a2c0000fa2c0000002d0000862d0000042e0000002f0000582f00005a2f0000ba2f0000483000008c300000a6300000c8300000f83000006631000036320000683200007a320000a0320000e2320000663300006c3300009c330000283400004a340000203a0000223a00005e440000b2440000
+    m_ExpandedIDs: 0000000084280000ac2800004c2900006e290000802900008c290000082a0000762a0000842a0000202b0000242b00003c2b0000722b0000de2b0000e42b0000e62b00005c2c00009a2c00001a2d0000202d0000a62d0000a82d0000282e0000242f00002a2f00007e2f0000802f0000e02f00006e300000b2300000cc300000ee3000001e310000583100008e3100005e32000090320000a2320000c83200000a3300008e33000094330000c63300005234000074340000b0360000b2360000d8360000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

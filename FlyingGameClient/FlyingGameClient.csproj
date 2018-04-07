@@ -301,6 +301,9 @@
     <Compile Include="Assets\FlyingGame\Game\Data\GameVkey.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityFactory.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityObject.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Factory\Recycler.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameEvent.cs" />
