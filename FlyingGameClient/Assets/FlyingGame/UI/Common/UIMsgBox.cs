@@ -9,7 +9,7 @@ using SGF;
 
 namespace Kurisu.UI.Ccommon
 {
-    public class UIMsgBox : UIWindow
+    public class UIMsgBox : Kurisu.Service.UIManager.UIWindow
     {
         public class UIMsgBoxArg
         {

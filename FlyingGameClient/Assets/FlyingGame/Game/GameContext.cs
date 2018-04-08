@@ -2,15 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameContext : MonoBehaviour {
+using Kurisu.Game.Data;
+using SGF;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+namespace Kurisu.Game
+{
+    /// <summary>
+    /// 单局游戏的上下文
+    /// 用来保存单局游戏中所有逻辑都关心的数据
+    /// </summary>
+    public class GameContext
+    {
+
+        /// <summary>
+        /// 游戏的启动参数
+        /// </summary>
+        public GameParam param = null;
+
+        /// <summary>
+        /// 随机数生成器
+        /// </summary>
+        public SGFRandom random = new SGFRandom();
+
+        /// <summary>
+        /// 当前是第几帧
+        /// </summary>
+        public int curFrameIndex = 0;
+
+
+    }
 }
+

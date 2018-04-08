@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -293,6 +291,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FlyingGameClient.Plugins.csproj">
+      <Project>{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}</Project>
+      <Name>FlyingGameClient.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlyingVehicleData.cs" />
@@ -311,6 +315,10 @@
     <Compile Include="Assets\FlyingGame\Game\GameEvent.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameInput.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameLogicManager.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Map\GameMap.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Map\MapScript.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Player\Component\PlayerComponent.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Player\FlyingPlayer.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
@@ -412,11 +420,11 @@
     <Compile Include="Assets\Scripts\FlyingController3.cs" />
     <Compile Include="Assets\Scripts\Game\GameLogicSystem.cs" />
     <Compile Include="Assets\Scripts\MoveController.cs" />
-    <Compile Include="Assets\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\SGF\Constants\ConfigConstants.cs" />
     <Compile Include="Assets\SGF\Debugger\Debugger.cs" />
     <Compile Include="Assets\SGF\Debugger\DebuggerExtension.cs" />
     <Compile Include="Assets\SGF\Extension\DictionaryEx.cs" />
+    <Compile Include="Assets\SGF\Math\SGFRandom.cs" />
     <Compile Include="Assets\SGF\Utils\GameObjectUtils.cs" />
     <Compile Include="Assets\SGF\Utils\JsonUtils.cs" />
   </ItemGroup>
@@ -434,6 +442,13 @@
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\readme.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\Documentation\Version 2.0.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\ReleaseNotes.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\Readme.txt" />
     <None Include="Assets\README_SD_UnityChan.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />

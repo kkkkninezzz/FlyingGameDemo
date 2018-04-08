@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
+﻿
 using Kurisu.Service.UIManager;
 using Kurisu.UI.Ccommon;
 namespace Kurisu.UI
@@ -16,14 +14,14 @@ namespace Kurisu.UI
         /// <param name="btnText">MagBox的按钮内容，格式为 "确定|取消"</param>
         /// <param name="onCloseEvent">当按钮关闭时调用的事件</param>
         /// <returns></returns>
-        public static UIWindow ShowMsgBox(string title, string content, string btnText, UIWindow.CloseEvent onCloseEvent = null)
+        public static Kurisu.Service.UIManager.UIWindow ShowMsgBox(string title, string content, string btnText, Kurisu.Service.UIManager.UIWindow.CloseEvent onCloseEvent = null)
         {
             UIMsgBox.UIMsgBoxArg arg = new UIMsgBox.UIMsgBoxArg();
             arg.content = content;
             arg.title = title;
             arg.btnText = btnText;
 
-            UIWindow wnd = UIManager.Instance.OpenWindow(UIDef.UIMsgBox, arg);
+            Kurisu.Service.UIManager.UIWindow wnd = UIManager.Instance.OpenWindow(UIDef.UIMsgBox, arg);
 
             if (wnd != null && onCloseEvent != null)
             {
@@ -43,7 +41,7 @@ namespace Kurisu.UI
         /// <param name="btnText">MagBox的按钮内容，格式为 "确定|取消"</param>
         /// <param name="onCloseEvent">当按钮关闭时调用的事件</param>
         /// <returns></returns>
-        public static UIWindow ShowMsgBox(string content, string btnText, UIWindow.CloseEvent onCloseEvent = null)
+        public static Kurisu.Service.UIManager.UIWindow ShowMsgBox(string content, string btnText, Kurisu.Service.UIManager.UIWindow.CloseEvent onCloseEvent = null)
         {
             return ShowMsgBox(string.Empty, content, btnText, onCloseEvent);
         }

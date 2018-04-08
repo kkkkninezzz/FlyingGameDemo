@@ -1,9 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingGameClient.Plugins", "FlyingGameClient.Plugins.csproj", "{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingGameClient", "FlyingGameClient.csproj", "{47C95E74-0206-CEE4-A107-B3D6CC99D4C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingGameClient.Editor", "FlyingGameClient.Editor.csproj", "{C5750FAF-1924-2EF8-4081-2BA866754388}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyingGameClient.Editor.Plugins", "FlyingGameClient.Editor.Plugins.csproj", "{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,6 +15,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47C95E74-0206-CEE4-A107-B3D6CC99D4C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47C95E74-0206-CEE4-A107-B3D6CC99D4C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47C95E74-0206-CEE4-A107-B3D6CC99D4C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -19,6 +27,10 @@ Global
 		{C5750FAF-1924-2EF8-4081-2BA866754388}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5750FAF-1924-2EF8-4081-2BA866754388}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5750FAF-1924-2EF8-4081-2BA866754388}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

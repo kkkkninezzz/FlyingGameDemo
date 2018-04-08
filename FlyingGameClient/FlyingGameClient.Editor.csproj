@@ -291,9 +291,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="FlyingGameClient.Plugins.csproj">
+      <Project>{39AC81DC-4BD9-C8CD-AF0C-7E082E7B1D06}</Project>
+      <Name>FlyingGameClient.Plugins</Name>
+    </ProjectReference>
     <ProjectReference Include="FlyingGameClient.csproj">
       <Project>{47C95E74-0206-CEE4-A107-B3D6CC99D4C7}</Project>
       <Name>FlyingGameClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="FlyingGameClient.Editor.Plugins.csproj">
+      <Project>{EA660CCA-C8B5-9FAC-07B8-05B5CB59F6D3}</Project>
+      <Name>FlyingGameClient.Editor.Plugins</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -314,6 +322,13 @@
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair.shader" />
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_hair_ds.shader" />
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\readme.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\RealseNotes.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouch\_Documentation\How to migrate from EasyTouch 4.X.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\Documentation\Version 2.0.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\Issues in button behavior (MAC).txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\EasyTouchControls\ReleaseNotes.txt" />
+    <None Include="Assets\Plugins\EasyTouchBundle\Readme.txt" />
     <None Include="Assets\README_SD_UnityChan.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />

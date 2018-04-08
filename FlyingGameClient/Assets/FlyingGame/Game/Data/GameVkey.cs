@@ -4,10 +4,11 @@ using System.Collections;
 namespace Kurisu.Game.Data
 {
     /// <summary>
-    /// 游戏的虚拟按键值
+    /// 游戏的输入
     /// </summary>
     public enum GameVkey
     {
+        #region 玩家的输入
         /// <summary>
         /// 在垂直方向移动
         /// </summary>
@@ -26,7 +27,20 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 减速
         /// </summary>
-        SpeedDown
+        SpeedDown,
+        #endregion
+
+        #region 全局输入
+        /// <summary>
+        /// 创建玩家
+        /// </summary>
+        CreatePlayer,
+
+        /// <summary>
+        /// 销毁玩家
+        /// </summary>
+        ReleasePlayer,
+        #endregion
     }
 }
 
