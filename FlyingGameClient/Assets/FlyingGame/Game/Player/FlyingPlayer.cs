@@ -18,6 +18,8 @@ namespace Kurisu.Game.Player
 
         private GameContext m_context;
 
+        private PlayerGameState m_gameState = PlayerGameState.Normal;
+
         //=====================================================
 
         public uint Id
@@ -33,6 +35,14 @@ namespace Kurisu.Game.Player
             get
             {
                 return m_data;
+            }
+        }
+
+        public PlayerGameState GameState
+        {
+            get
+            {
+                return m_gameState;
             }
         }
         

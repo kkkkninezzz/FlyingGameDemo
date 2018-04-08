@@ -206,11 +206,31 @@ namespace Kurisu.Game
                 m_context.curFrameIndex = frameIndex;
             }
 
+            // 清理被释放的对象
             EntityFactory.ClearReleasedObjects();
 
+            // 更新玩家动作
             foreach (FlyingPlayer player in m_playerList)
             {
                 player.EnterFrame(frameIndex);
+            }
+
+            // 更新地图逻辑
+            if (m_map != null)
+            {
+                m_map.EnterFrame(frameIndex);
+            }
+
+            // 如果有玩家死亡，调用玩家死亡事件
+            if (onPlayerDie != null)
+            {
+                foreach (FlyingPlayer player in m_playerList)
+                {
+                    if (player.GameState == PlayerGameState.Death)
+                    {
+                        onPlayerDie(player.Id);
+                    }
+                }
             }
         }
         //==============================================================================================================
