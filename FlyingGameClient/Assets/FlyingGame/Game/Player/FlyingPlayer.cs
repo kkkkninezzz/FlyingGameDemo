@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+using Kurisu.Game.Data;
 
 namespace Kurisu.Game.Player
 {
     /// <summary>
     /// 玩家飞行逻辑
     /// </summary>
-    public class FlyingPlayer : MonoBehaviour
+    public class FlyingPlayer
     {
         private string LOG_TAG = "FlyingPlayer";
         //=====================================================
@@ -19,6 +20,8 @@ namespace Kurisu.Game.Player
         private GameContext m_context;
 
         private PlayerGameState m_gameState = PlayerGameState.Normal;
+
+        private GameObject m_flyingVehicle;
 
         //=====================================================
 
@@ -40,6 +43,10 @@ namespace Kurisu.Game.Player
 
         public PlayerGameState GameState
         {
+            set
+            {
+                m_gameState = value;
+            }
             get
             {
                 return m_gameState;

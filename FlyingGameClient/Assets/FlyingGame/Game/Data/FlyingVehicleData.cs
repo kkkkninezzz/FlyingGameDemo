@@ -18,6 +18,11 @@ namespace Kurisu.Game.Data
         /// 飞行载具的名称
         /// </summary>
         public string name;
+
+        /// <summary>
+        /// 飞行载具的基本配置
+        /// </summary>
+        public FlightConfig config;
     }
 }
 

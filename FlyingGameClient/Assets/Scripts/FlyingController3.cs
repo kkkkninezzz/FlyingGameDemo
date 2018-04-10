@@ -43,6 +43,6 @@ public class FlyingController3 : MonoBehaviour {
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("进入墙体了");
+        //Debug.Log("进入墙体了");
     }
 }

@@ -322,6 +322,7 @@ GameObject:
   - component: {fileID: 258830888}
   - component: {fileID: 258830887}
   - component: {fileID: 258830892}
+  - component: {fileID: 258830894}
   - component: {fileID: 258830893}
   m_Layer: 0
   m_Name: FlyingVehicle3
@@ -329,7 +330,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &258830887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +437,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &258830894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 258830886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8082d4ce52e39a943a2c7c0e10a354b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &298539876
 GameObject:
   m_ObjectHideFlags: 0
@@ -1875,7 +1887,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 100268, guid: e39dd657be7298d408f1a135c76c3d9a, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e39dd657be7298d408f1a135c76c3d9a, type: 2}
