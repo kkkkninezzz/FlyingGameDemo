@@ -58,7 +58,12 @@ namespace Kurisu.Game.Player
 
         public void Create(PlayerData data, Vector3 pos)
         {
+            LOG_TAG = LOG_TAG + "[" + data.id + "]";
 
+            m_data = data;
+            m_context = GameLogicManager.Instance.Context;
+
+            //m_flyingVehicle = 
         }
 
         public void Release()

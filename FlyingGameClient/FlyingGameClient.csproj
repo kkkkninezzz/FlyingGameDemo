@@ -307,6 +307,8 @@
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\Recycler.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewFactory.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewObject.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\FlyingVehicle.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\TransData.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameEvent.cs" />
@@ -316,7 +318,7 @@
     <Compile Include="Assets\FlyingGame\Game\Map\MapScript.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\Component\PlayerComponent.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\FlyingPlayer.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Player\FlyingVehicle.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Player\FlyingVehicleController.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\FlyingVehicleTrigger.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\PlayerGameState.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
