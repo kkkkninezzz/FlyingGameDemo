@@ -9,29 +9,28 @@ using UnityEngine;
 /// </summary>
 namespace Kurisu.Game.Entity.FlyingVehicle
 {
-    /// <summary>
-    /// 移动数据
-    /// </summary>
-    /*
-    public interface TranslateData
+    public enum TransDataType
     {
-       
+        TranslateData,
+
+        RotateData,
+
+        RotationData
     }
-    */
+    public struct TransData
+    {
+        public TransDataType type;
+
+        public TranslateData translateData;
+
+        public RotateData rotateData;
+
+        public RotationData rotationData;
+    }
     public delegate Vector3 TranslateData(Transform trans);
 
     public delegate Vector3 RotateData(Transform tans);
-    /*
-    public interface RotateData
-    {
-        Vector3 calculate(Transform trans);
-    }
-    */
+
     public delegate Quaternion RotationData(Transform tans);
-    /*
-    public interface RotationData
-    {
-        Quaternion calculate(Transform trans);
-    }
-    */
+    
 }

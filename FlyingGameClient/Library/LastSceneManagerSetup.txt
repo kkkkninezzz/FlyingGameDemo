@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Secens/Demo.unity
+- path: Assets/Secens/Main.unity
   isLoaded: 1
   isActive: 1

@@ -42,108 +42,62 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
         #region 操作队列
         /// <summary>
-        /// 保存translate数据
+        /// 保存transData数据
         /// </summary>
-        private Queue<TranslateData> m_translateDataQueue = new Queue<TranslateData>();
-
-        /// <summary>
-        /// 保存rotate数据
-        /// </summary>
-        private Queue<RotateData> m_rotateDataQueue = new Queue<RotateData>();
-
-        /// <summary>
-        /// 保存rotation数据
-        /// </summary>
-        private Queue<RotationData> m_rotationDataQueue = new Queue<RotationData>();
+        private Queue<TransData> m_transDataQueue = new Queue<TransData>();
+       
 
         /// <summary>
         /// 是否有下个数据
         /// </summary>
-        public bool HasNextTranslateData
+        public bool HasNextTransData
         {
             get
             {
-                return m_translateDataQueue.Count > 0;
+                return m_transDataQueue.Count > 0;
             }
         }
 
         /// <summary>
         /// 获取下个数据，如果队列为空，则返回null
         /// </summary>
-        public TranslateData NextTranslateData
+        public TransData NextTransData
         {
             get
             {
-                if (HasNextTranslateData)
-                    return m_translateDataQueue.Dequeue();
+                if (HasNextTransData)
+                    return m_transDataQueue.Dequeue();
 
-                return null;
+                throw new Exception("m_transDataQueue 为空，不能获取数据");
             }
         }
 
         private void SaveTransData(TranslateData data)
         {
-            m_translateDataQueue.Enqueue(data);
-        }
+            TransData transData = new TransData();
+            transData.type = TransDataType.TranslateData;
+            transData.translateData = data;
 
-        /// <summary>
-        /// 是否有下个数据
-        /// </summary>
-        public bool HasNextRotateData
-        {
-            get
-            {
-                return m_rotateDataQueue.Count > 0;
-            }
-        }
-
-        /// <summary>
-        /// 获取下个数据，如果队列为空，则返回null
-        /// </summary>
-        public RotateData NextRotateData
-        {
-            get
-            {
-                if (HasNextRotateData)
-                    return m_rotateDataQueue.Dequeue();
-
-                return null;
-            }
+            m_transDataQueue.Enqueue(transData);
         }
 
         private void SaveTransData(RotateData data)
         {
-            m_rotateDataQueue.Enqueue(data);
+            TransData transData = new TransData();
+            transData.type = TransDataType.RotateData;
+            transData.rotateData = data;
+
+            m_transDataQueue.Enqueue(transData);
         }
 
-        /// <summary>
-        /// 是否有下个数据
-        /// </summary>
-        public bool HasNextRotationData
-        {
-            get
-            {
-                return m_rotationDataQueue.Count > 0;
-            }
-        }
-
-        /// <summary>
-        /// 获取下个数据，如果队列为空，则返回null
-        /// </summary>
-        public RotationData NextRotationData
-        {
-            get
-            {
-                if (HasNextRotationData)
-                    return m_rotationDataQueue.Dequeue();
-
-                return null;
-            }
-        }
 
         private void SaveTransData(RotationData data)
         {
-            m_rotationDataQueue.Enqueue(data);
+            TransData transData = new TransData();
+            transData.type = TransDataType.RotationData;
+            transData.rotationData = data;
+
+            m_transDataQueue.Enqueue(transData);
         }
         #endregion
 
