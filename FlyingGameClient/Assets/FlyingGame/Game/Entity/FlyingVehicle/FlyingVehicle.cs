@@ -15,6 +15,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
         private PlayerData m_playerData;
 
+        public event PlayerOnTriggerEvent onTriggerEvent;
+
         #region 飞行参数
         /// <summary>
         /// 飞行载具的配置
@@ -106,7 +108,20 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_vehicleData = playerData.vehicleData;
             m_playerData = playerData;
 
-            //ViewFactory.CreateView();
+            m_config = m_vehicleData.config;
+
+            ViewFactory.CreateView("FlyingVehicle/FlyingVehicle" + m_vehicleData.id, "FlyingVehicle/FlyingVehicle0", this, container);
+        }
+
+        protected override void Release()
+        {
+            ViewFactory.ReleaseView(this);
+
+            m_vehicleData = null;
+            m_playerData = null;
+            m_config = null;
+
+            m_transDataQueue.Clear();
         }
 
         #region 飞行控制
@@ -287,9 +302,16 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
         #endregion
 
-        protected override void Release()
+       
+
+        /// <summary>
+        /// 被碰撞
+        /// </summary>
+        /// <param name="tag"></param>
+        public void OnTriggered(string tag)
         {
-            throw new NotImplementedException();
+            if (onTriggerEvent != null)
+                onTriggerEvent(tag);
         }
     }
 }

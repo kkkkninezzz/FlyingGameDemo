@@ -23,6 +23,8 @@ namespace Kurisu.Game.Player
 
         private GameObject m_flyingVehicle;
 
+        
+
         //=====================================================
 
         public uint Id

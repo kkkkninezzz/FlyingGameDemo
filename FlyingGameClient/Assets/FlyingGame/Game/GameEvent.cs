@@ -21,5 +21,11 @@ namespace Kurisu.Game
     /// </summary>
     /// <param name="palyerId"></param>
     public delegate void PlayerFailedEvent(uint palyerId);
+
+    /// <summary>
+    /// 玩家被碰撞事件
+    /// </summary>
+    /// <param name="tag"></param>
+    public delegate void PlayerOnTriggerEvent(string tag);
 }
 
