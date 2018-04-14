@@ -74,7 +74,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             }
         }
 
-        private void SaveTransData(TranslateData data)
+        public void SaveTransData(TranslateData data)
         {
             TransData transData = new TransData();
             transData.type = TransDataType.TranslateData;
@@ -83,7 +83,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_transDataQueue.Enqueue(transData);
         }
 
-        private void SaveTransData(RotateData data)
+        public void SaveTransData(RotateData data)
         {
             TransData transData = new TransData();
             transData.type = TransDataType.RotateData;
@@ -92,8 +92,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_transDataQueue.Enqueue(transData);
         }
 
-
-        private void SaveTransData(RotationData data)
+        public void SaveTransData(RotationData data)
         {
             TransData transData = new TransData();
             transData.type = TransDataType.RotationData;
