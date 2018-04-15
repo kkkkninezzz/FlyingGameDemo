@@ -33,6 +33,8 @@ namespace Kurisu.Game
             {
                 GameLogicManager.Instance.CreatePlayer(1, GameLogicManager.DEFAULT_POSITION);
             }
+
+            GameLogicManager.Instance.EnterFrame(1);
         }
     }
 }

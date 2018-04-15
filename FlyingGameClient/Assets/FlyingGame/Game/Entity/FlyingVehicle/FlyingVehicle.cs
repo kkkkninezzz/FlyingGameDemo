@@ -110,6 +110,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_config = m_vehicleData.config;
 
             ViewFactory.CreateView("FlyingVehicle/FlyingVehicle" + m_vehicleData.id, "FlyingVehicle/FlyingVehicle0", this, container);
+
+            m_curSpeed = m_config.MoveFBSpeed;
         }
 
         protected override void Release()

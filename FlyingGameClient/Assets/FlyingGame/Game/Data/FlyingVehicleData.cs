@@ -22,7 +22,7 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 飞行载具的基本配置
         /// </summary>
-        public FlightConfig config;
+        public FlightConfig config = new FlightConfig();
     }
 }
 
