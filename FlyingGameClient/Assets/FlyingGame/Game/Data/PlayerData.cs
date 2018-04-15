@@ -40,6 +40,7 @@ namespace Kurisu.Game.Data
         /// 如果这个玩家挂机，或者是AI玩家的话，其AI的ID，如果0则是不使用AI
         /// </summary>
         public int ai;
+
     }
 }
 

@@ -7,9 +7,12 @@ namespace Kurisu.Game.Map
 {
     public class GameMap
     {
+
         private MapScript m_script;
 
         private GameObject m_view;
+
+        private MapData m_data;
 
         /// <summary>
         /// 通过MapData加载地图
@@ -17,7 +20,10 @@ namespace Kurisu.Game.Map
         /// <param name="data"></param>
         public void Load(MapData data)
         {
+            m_data = data;
 
+            GameObject mapPrefab = Resources.Load<GameObject>("map/map_" + data.id);
+            m_view = GameObject.Instantiate(mapPrefab);
         }
       
         /// <summary>
@@ -48,6 +54,7 @@ namespace Kurisu.Game.Map
                 return m_view;
             }
         }
+
     }
 }
 

@@ -14,6 +14,14 @@ namespace Kurisu.Game.Data
         public Quaternion rotation;
 
         public Vector3 scale;
+
+        public TransformData(Vector3 position, Quaternion rotation, Vector3 scale) : this()
+        {
+            this.position = position;
+            this.rotation = rotation;
+            this.scale = scale;
+        }
+
     }
 }
 

@@ -7,12 +7,17 @@ using Kurisu.Game.Map;
 using Kurisu.Game.Player;
 using Kurisu.Game.Data;
 using Kurisu.Game.Entity.Factory;
+
 using SGF;
 
 namespace Kurisu.Game
 {
     public class GameLogicManager : ServiceModule<GameLogicManager>
     {
+        /// <summary>
+        /// 默认的出生位置
+        /// </summary>
+        public readonly static TransformData DEFAULT_POSITION = new TransformData(Vector3.zero, Quaternion.Euler(Vector3.zero), Vector3.one);
 
         private GameLogicManager()
         {
@@ -39,7 +44,7 @@ namespace Kurisu.Game
 
         public event PlayerDieEvent onPlayerDie;
 
-        public event PlayerWinEvent onPlayerWin;
+        public event PlayerArriveEndEvent onPlayerArriveEnd;
 
         public event PlayerFailedEvent onPlayerFailed;
 
@@ -135,7 +140,7 @@ namespace Kurisu.Game
             }
 
             onPlayerDie = null;
-            onPlayerWin = null;
+            onPlayerArriveEnd = null;
             onPlayerFailed = null;
         }
 
@@ -169,11 +174,13 @@ namespace Kurisu.Game
         //==============================================================================================================
         private bool HandleCreatePlayerVkey(GameVkey vkey, float arg, uint playerId)
         {
+            /*
             if (vkey == GameVkey.CreatePlayer)
             {
                 CreatePlayer(playerId);
                 return true;
             }
+            */
 
             return false;
         }
@@ -232,6 +239,18 @@ namespace Kurisu.Game
                     }
                 }
             }
+
+            // 如果有玩家到达终点，调用玩家到达终点事件
+            if (onPlayerArriveEnd != null)
+            {
+                foreach (FlyingPlayer player in m_playerList)
+                {
+                    if (player.GameState == PlayerGameState.ArrivedAtTheEnd)
+                    {
+                        onPlayerArriveEnd(player.Id);
+                    }
+                }
+            }
         }
         //==============================================================================================================
 
@@ -242,15 +261,14 @@ namespace Kurisu.Game
 
         //==============================================================================================================
 
-        internal void CreatePlayer(uint playerId)
+        internal void CreatePlayer(uint playerId, TransformData initPosition)
         {
             PlayerData data = m_playerDataMap[playerId];
             if (data == null)
                 return;
 
             FlyingPlayer player = new FlyingPlayer();
-
-            player.Create(data, Vector3.zero);
+            player.Create(data, initPosition);
 
             m_playerList.Add(player);
         }

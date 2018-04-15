@@ -7,6 +7,7 @@ using Kurisu.Service.Core;
 using Kurisu.Service.UIManager;
 using Kurisu.Module;
 using Kurisu.UI;
+using Kurisu.Game;
 
 namespace Kurisu
 {
@@ -24,7 +25,7 @@ namespace Kurisu
             InitServiceModules();
             InitBusinessModules();
 
-            UIManager.Instance.EnterMainPage();
+            // UIManager.Instance.EnterMainPage();
         }
 
         private void InitServiceModules()
@@ -33,6 +34,8 @@ namespace Kurisu
 
             UIManager.Instance.Init("ui/");
             UIManager.MainPage = UIDef.UIHomePage;
+
+            GameLogicManager.Instance.Init();
         }
 
         private void InitBusinessModules()

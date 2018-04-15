@@ -29,7 +29,7 @@ namespace Kurisu.Game
         /// </summary>
         public int curFrameIndex = 0;
 
-
+        
     }
 }
 

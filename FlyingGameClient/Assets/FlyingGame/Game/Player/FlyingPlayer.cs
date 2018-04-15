@@ -86,7 +86,21 @@ namespace Kurisu.Game.Player
             m_flyingVehicle = EntityFactory.InstanceEntity<FlyingVehicle>();
             m_flyingVehicle.Create(m_data, m_container.transform);
 
-            m_flyingVehicle.onTriggerEvent += (string tag) => { };
+            m_flyingVehicle.onTriggerEvent += (string tag) => 
+            {
+                if (string.IsNullOrEmpty(tag))
+                    return;
+
+                switch (tag)
+                {
+                    case GameTagDefine.OBSTACLE:
+                        m_gameState = PlayerGameState.Death;
+                        break;
+                    case GameTagDefine.END:
+                        m_gameState = PlayerGameState.ArrivedAtTheEnd;
+                        break;
+                }
+            };
 
             // 初始化飞行载具的transform信息
             TranslateData tarnslateData = (Transform body) => transformData.position;

@@ -49,9 +49,12 @@ namespace Kurisu.Game.Entity.Factory
                 return;
 
             string type = obj.GetRecycleType();
-            Stack<IRecyclableObject> idleObjStack = m_idleObjPool[type];
+            Stack<IRecyclableObject> idleObjStack;
 
-            if (idleObjStack == null)
+            if (m_idleObjPool.ContainsKey(type))
+            {
+                idleObjStack = m_idleObjPool[type];
+            } else
             {
                 idleObjStack = new Stack<IRecyclableObject>();
                 m_idleObjPool.Add(type, idleObjStack);
@@ -62,6 +65,9 @@ namespace Kurisu.Game.Entity.Factory
 
         public IRecyclableObject Pop(string type)
         {
+            if (!m_idleObjPool.ContainsKey(type))
+                return null;
+
             Stack<IRecyclableObject> idleObjStack = m_idleObjPool[type];
 
             if (idleObjStack != null && idleObjStack.Count > 0)

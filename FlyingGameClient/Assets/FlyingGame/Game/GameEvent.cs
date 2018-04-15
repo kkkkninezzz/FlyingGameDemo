@@ -11,10 +11,10 @@ namespace Kurisu.Game
     public delegate void PlayerDieEvent(uint playerId);
 
     /// <summary>
-    /// 玩家胜利事件
+    /// 玩家到达终点事件
     /// </summary>
     /// <param name="playerId"></param>
-    public delegate void PlayerWinEvent(uint playerId);
+    public delegate void PlayerArriveEndEvent(uint playerId);
 
     /// <summary>
     /// 玩家失败事件
