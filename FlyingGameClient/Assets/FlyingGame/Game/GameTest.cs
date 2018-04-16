@@ -3,6 +3,8 @@ using System.Collections;
 
 using Kurisu.Game.Data;
 
+using SGF.Unity;
+
 namespace Kurisu.Game
 {
     public class GameTest : MonoBehaviour
@@ -32,10 +34,13 @@ namespace Kurisu.Game
             if (Input.GetKeyDown(KeyCode.R))
             {
                 GameLogicManager.Instance.CreatePlayer(1, GameLogicManager.DEFAULT_POSITION);
+                //MonoHelper.AddFixedUpdateListener(() => { Debug.Log(1); });
             }
 
             GameLogicManager.Instance.EnterFrame(1);
         }
+
+        
     }
 }
 
