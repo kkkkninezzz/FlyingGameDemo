@@ -28,16 +28,80 @@ namespace Kurisu.Module.Pve
             gameManaager.CreateGame(param);
             gameManaager.onPlayerDie += OnPlayerDie;
 
-            // TODO 初始玩家数据
+            // 初始玩家数据
+            InitPalyerData();
 
+            InitGameInput();
         }
+
+        private void InitPalyerData()
+        {
+            PlayerData playerData = new PlayerData();
+            playerData.id = m_mainPlayerId;
+            // TODO 这里需要读取玩家当前的载具信息
+            playerData.vehicleData.id = 0;
+
+            GameLogicManager.Instance.RegPlayerData(playerData);
+        }
+
+        private void InitGameInput()
+        {
+            GameInput.Create();
+            GameInput.OnVkey += OnVkey;
+        }
+
+        private void OnVkey(GameVkey vkey, float arg)
+        {
+            GameLogicManager.Instance.InputVkey(vkey, arg, m_mainPlayerId);
+        }
+
+        #region 游戏状态控制
+        /// <summary>
+        /// 暂停游戏
+        /// </summary>
+        public void Pause()
+        {
+            m_pause = true;
+        }
+
+        /// <summary>
+        /// 恢复游戏
+        /// </summary>
+        public void Resume()
+        {
+            m_pause = false;
+        }
+
+        /// <summary>
+        /// 终止游戏
+        /// </summary>
+        public void Terminate()
+        {
+            Pause();
+
+            if (onGameEnd != null)
+            {
+                onGameEnd();
+            }
+        }
+        #endregion
+
+        /// <summary>
+        /// 创建玩家
+        /// </summary>
+        public void CreatePlayer()
+        {
+            //GameLogicManager.Instance.Cre
+        }
+
+       
 
         //--------------------------------------------------
         /// <summary>
         /// 当玩家死亡时，进行处理
         /// </summary>
         /// <param name="playerId"></param>
-		private void OnPlayerDie(uint playerId)
+        private void OnPlayerDie(uint playerId)
         {
             if (m_mainPlayerId == playerId)
             {
@@ -52,6 +116,67 @@ namespace Kurisu.Module.Pve
                     this.LogError("OnPlayerDie() onMainPlayerDie == null!");
                 }
             }
+        }
+
+        /// <summary>
+        /// 驱动游戏逻辑
+        /// </summary>
+        private void FixedUpdate()
+        {
+            if (m_pause)
+            {
+                return;
+            }
+
+            m_frameIndex++;
+            GameLogicManager.Instance.EnterFrame(m_frameIndex);
+
+            CheckTimeEnd();
+        }
+
+        private void CheckTimeEnd()
+        {
+            if (IsTimeLimited)
+            {
+                if (GetRemainTime() <= 0)
+                {
+                    Terminate();
+                }
+            }
+        }
+
+        /// <summary>
+        /// 是否为限时模式
+        /// </summary>
+        public bool IsTimeLimited
+        {
+            get
+            {
+                return m_context.param.mode == GameMode.TimelimitPVE;
+            }
+        }
+
+        /// <summary>
+        /// 如果是限时模式，还剩多少时间
+        /// </summary>
+        /// <returns></returns>
+        public int GetRemainTime()
+        {
+            if (IsTimeLimited)
+            {
+                return m_context.param.limitedTime - GetElapsedTime();
+            }
+
+            return 0;
+        }
+
+        /// <summary>
+        /// 游戏经过的时间
+        /// </summary>
+        /// <returns></returns>
+        private int GetElapsedTime()
+        {
+            return (int)(m_context.curFrameIndex * 0.033333333f);
         }
     }
 }

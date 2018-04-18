@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 300}
+  m_MinSize: {x: 950, y: 442}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,8 +67,8 @@ MonoBehaviour:
     y: 0
     width: 694
     height: 520
-  m_MinSize: {x: 436, y: 271}
-  m_MaxSize: {x: 14006, y: 10021}
+  m_MinSize: {x: 432, y: 271}
+  m_MaxSize: {x: 14002, y: 10021}
   vertical: 0
   controlID: 88
 --- !u!114 &4
@@ -89,8 +89,8 @@ MonoBehaviour:
     y: 520
     width: 694
     height: 428
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 102, y: 121}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -116,8 +116,8 @@ MonoBehaviour:
     y: 0
     width: 694
     height: 948
-  m_MinSize: {x: 436, y: 392}
-  m_MaxSize: {x: 14006, y: 14042}
+  m_MinSize: {x: 432, y: 392}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 1
   controlID: 87
 --- !u!114 &6
@@ -138,8 +138,8 @@ MonoBehaviour:
     y: 0
     width: 372
     height: 948
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 279, y: 71}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -210,8 +210,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 917, y: 392}
-  m_MaxSize: {x: 22012, y: 14042}
+  m_MinSize: {x: 913, y: 392}
+  m_MaxSize: {x: 22008, y: 14042}
   vertical: 0
   controlID: 86
 --- !u!114 &10
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 325
     height: 520
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 247d0000
+    m_SelectedIDs: a2080000
     m_LastClickedID: 0
-    m_ExpandedIDs: 8a3efeff00000000
+    m_ExpandedIDs: 98fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 48280000
     m_LastClickedID: 10312
-    m_ExpandedIDs: 000000004e4300006c710000f07200004a74000074740000d4740000de740000fc7400000e7500001c750000647500007a7500008475000086750000cc7500005876000084760000e6760000ee7600003677000056770000a6770000ac770000e4770000e67700003a7800005e78000092780000c87800000a7900002c79000086790000d4790000ee7900000c7a0000247a00004e7a00006e7a0000f27a0000047b0000227b00008c7b0000bc7b0000c07b0000de7b0000fe7b00003c7c0000127d0000147d0000167d0000
+    m_ExpandedIDs: 0000000060290000962900005a2a0000662a0000862a0000a22a0000b02a0000122b0000482b0000522b0000542b0000be2b0000042c0000ea2c0000222d0000b22d0000ba2d0000602e00009e2e00002e2f0000342f0000c82f000088300000003100003032000032320000ac3200005c330000b4330000dc3300000a340000403400007e340000c6340000d83500000e3600002c3600005236000056360000f636000050370000a837000042380000663b0000683b00006a3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -556,7 +556,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004e4300006c710000f07200004a74000074740000d4740000de740000fc7400000e7500001c750000647500007a7500008475000086750000cc7500005876000084760000e6760000ee7600003677000056770000a6770000ac770000e67700005e780000927800000a7900002c79000086790000d4790000ee7900000c7a0000247a00006e7a0000f27a0000047b00001e7b0000227b00008c7b0000bc7b0000fe7b00003c7c0000127d0000147d0000167d0000207d0000
+    m_ExpandedIDs: 0000000060290000962900005a2a0000662a0000862a0000a22a0000b02a0000122b0000482b0000522b0000542b0000be2b0000042c0000ea2c0000222d0000b22d0000ba2d0000602e00009e2e00002e2f0000342f0000c82f000088300000003100003032000032320000ac3200005c330000b4330000dc3300000a340000403400007e340000c6340000d83500000e3600002c3600005236000056360000f636000050370000a837000042380000663b0000683b00006a3b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: PveGame
@@ -567,7 +567,7 @@ MonoBehaviour:
         y: 0
         width: 0
         height: 0
-      m_UserData: 32036
+      m_UserData: 2210
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
