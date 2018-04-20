@@ -8,11 +8,24 @@ namespace Kurisu.Game.Entity.Factory
     {
         private bool m_isReleased = false;
 
+        protected ViewObject m_view;
         public bool IsReleased
         {
             get
             {
                 return m_isReleased;
+            }
+        }
+
+        public ViewObject View
+        {
+            set
+            {
+                m_view = value;
+            }
+            get
+            {
+                return m_view;
             }
         }
 
@@ -26,6 +39,7 @@ namespace Kurisu.Game.Entity.Factory
             if (!m_isReleased)
             {
                 Release();
+                m_view = null;
                 m_isReleased = true;
             }
         }

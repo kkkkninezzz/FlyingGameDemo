@@ -20,6 +20,8 @@ namespace Kurisu.Game.Entity.Factory
             m_recycleType = recycleType;
 
             Create(entity);
+
+            entity.View = this;
         }
 
         protected abstract void Create(EntityObject entity);

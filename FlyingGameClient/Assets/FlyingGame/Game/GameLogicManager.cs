@@ -290,7 +290,7 @@ namespace Kurisu.Game
             player.Release();
         }
 
-        private FlyingPlayer GetPlayer(uint playerId)
+        public FlyingPlayer GetPlayer(uint playerId)
         {
             int index = GetPlayerIndex(playerId);
             if (index >= 0)

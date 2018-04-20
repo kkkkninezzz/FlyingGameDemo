@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 442}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -67,8 +67,8 @@ MonoBehaviour:
     y: 0
     width: 694
     height: 520
-  m_MinSize: {x: 432, y: 271}
-  m_MaxSize: {x: 14002, y: 10021}
+  m_MinSize: {x: 436, y: 271}
+  m_MaxSize: {x: 14006, y: 10021}
   vertical: 0
   controlID: 88
 --- !u!114 &4
@@ -116,8 +116,8 @@ MonoBehaviour:
     y: 0
     width: 694
     height: 948
-  m_MinSize: {x: 432, y: 392}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 436, y: 392}
+  m_MaxSize: {x: 14006, y: 14042}
   vertical: 1
   controlID: 87
 --- !u!114 &6
@@ -138,8 +138,8 @@ MonoBehaviour:
     y: 0
     width: 372
     height: 948
-  m_MinSize: {x: 279, y: 71}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -210,8 +210,8 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 913, y: 392}
-  m_MaxSize: {x: 22008, y: 14042}
+  m_MinSize: {x: 917, y: 392}
+  m_MaxSize: {x: 22012, y: 14042}
   vertical: 0
   controlID: 86
 --- !u!114 &10
@@ -252,8 +252,8 @@ MonoBehaviour:
     y: 0
     width: 325
     height: 520
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -277,8 +277,8 @@ MonoBehaviour:
     y: 0
     width: 854
     height: 948
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -419,9 +419,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: a2080000
-    m_LastClickedID: 0
-    m_ExpandedIDs: 98fbffff00000000
+    m_SelectedIDs: 223c0000
+    m_LastClickedID: 15394
+    m_ExpandedIDs: 9af0ffff30f3ffff9efbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -440,7 +440,7 @@ MonoBehaviour:
       m_ClientGUIView: {fileID: 11}
     m_SearchString: 
   m_ExpandedScenes:
-  - Main
+  - Demo
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -517,7 +517,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/FlyingGame/Module/Pve
+    - Assets/Secens
   m_ViewMode: 0
   m_StartGridSize: 64
   m_LastFolders: []
@@ -528,7 +528,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 48280000
     m_LastClickedID: 10312
-    m_ExpandedIDs: 0000000062290000982900005c2a0000682a0000882a0000a42a0000b22a0000142b00004a2b0000542b0000562b0000c02b0000062c0000ec2c0000242d0000b42d0000bc2d0000622e0000a02e0000302f0000362f0000ca2f000088300000003100003032000032320000ac3200005c330000b4330000dc3300000a340000403400007e340000c6340000d83500000e3600002c3600005236000056360000f636000050370000a837000042380000663b0000683b00006a3b0000
+    m_ExpandedIDs: 000000005c29000092290000562a0000622a0000822a00009e2a0000ac2a00000e2b0000442b00004e2b0000502b0000ba2b0000002c0000e62c00001e2d0000ae2d0000b62d00005c2e00009a2e00002a2f0000302f0000c42f000082300000fa3000002a3200002c320000a632000056330000ae330000d6330000043400003a34000078340000c0340000d235000008360000263600004c36000050360000f03600004a370000a23700003c380000603b0000623b0000643b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -553,24 +553,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_AssetTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 83}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000062290000982900005c2a0000682a0000882a0000a42a0000b22a0000142b00004a2b0000542b0000562b0000c02b0000062c0000ec2c0000242d0000b42d0000bc2d0000622e0000a02e0000302f0000362f0000ca2f000088300000003100003032000032320000ac3200005c330000b4330000dc3300000a340000403400007e340000c6340000d83500000e3600002c3600005236000056360000f636000050370000a837000042380000663b0000683b00006a3b0000
+    m_ExpandedIDs: 000000005c29000092290000562a0000622a0000822a00009e2a0000ac2a00000e2b0000442b00004e2b0000502b0000ba2b0000002c0000e62c00001e2d0000ae2d0000b62d00005c2e00009a2e00002a2f0000302f0000c42f000082300000fa3000002a3200002c320000a632000056330000ae330000d6330000043400003a34000078340000c0340000d235000008360000263600004c36000050360000f03600004a3700007e370000a23700003c380000603b0000623b0000643b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: 
-      m_OriginalName: 
+      m_Name: PveGame
+      m_OriginalName: PveGame
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 0
+      m_UserData: 2210
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 11
+      m_OriginalEventType: 0
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 2}
     m_SearchString: 
@@ -751,9 +751,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: -0.07837803, y: -0.16078447, z: 0.01280134, w: -0.9837925}
   m_Size:
-    m_Target: 3.7125
+    m_Target: 6.712502
     speed: 2
-    m_Value: 3.7125
+    m_Value: 6.712502
   m_Ortho:
     m_Target: 0
     speed: 2

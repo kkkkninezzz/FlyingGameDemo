@@ -63,7 +63,15 @@ namespace Kurisu.Game.Player
                 return m_gameState;
             }
         }
-        
+
+        public ViewObject FlyingVehicleView
+        {
+            get
+            {
+                return m_flyingVehicle.View;
+            }
+        }
+
         //=====================================================
 
 

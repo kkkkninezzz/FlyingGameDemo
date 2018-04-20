@@ -9,6 +9,9 @@ using Kurisu.Game.Data;
 
 namespace Kurisu.Game.Entity.FlyingVehicle
 {
+    /// <summary>
+    /// 需要给定一个transform的模型数据，FlyingVehicle的修改全部在模型上修改，然后再同步给视图层
+    /// </summary>
     public class FlyingVehicle : EntityObject
     {
         private FlyingVehicleData m_vehicleData;
@@ -16,6 +19,11 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         private PlayerData m_playerData;
 
         public event PlayerOnTriggerEvent onTriggerEvent;
+
+        /// <summary>
+        /// view的transform模型
+        /// </summary>
+        private TransformData m_transformModel;
 
         #region 飞行参数
         /// <summary>
@@ -99,6 +107,14 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             transData.rotationData = data;
 
             m_transDataQueue.Enqueue(transData);
+        }
+
+        public TransformData TransformModel
+        {
+            get
+            {
+                return m_transformModel;
+            }
         }
         #endregion
 
