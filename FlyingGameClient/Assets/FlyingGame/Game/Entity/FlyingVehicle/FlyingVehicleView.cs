@@ -32,7 +32,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         {
             if (m_entity == null)
                 return;
-
+            /*
             while (m_entity.HasNextTransData)
             {
                 TransData transData = m_entity.NextTransData;
@@ -50,6 +50,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
                         break;
                 }
             }
+            */
         }
 
         private void HandleTranslateData(TranslateData data)

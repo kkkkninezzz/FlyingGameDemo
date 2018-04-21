@@ -23,7 +23,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         /// <summary>
         /// view的transform模型
         /// </summary>
-        private TransformData m_transformModel;
+        private Transform m_body;
 
         #region 飞行参数
         /// <summary>
@@ -51,6 +51,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         #endregion
 
         #region 操作队列
+        /*
         /// <summary>
         /// 保存transData数据
         /// </summary>
@@ -108,14 +109,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
             m_transDataQueue.Enqueue(transData);
         }
-
-        public TransformData TransformModel
-        {
-            get
-            {
-                return m_transformModel;
-            }
-        }
+        */
+      
         #endregion
 
         public void Create(PlayerData playerData, Transform container)
@@ -126,6 +121,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_config = m_vehicleData.config;
 
             ViewFactory.CreateView("FlyingVehicle/FlyingVehicle" + m_vehicleData.id, "FlyingVehicle/FlyingVehicle0", this, container);
+
+            m_body = m_view.transform;
 
             m_curSpeed = m_config.MoveFBSpeed;
         }
@@ -138,10 +135,21 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             m_playerData = null;
             m_config = null;
 
-            m_transDataQueue.Clear();
+            //m_transDataQueue.Clear();
         }
 
         #region 飞行控制
+        /// <summary>
+        /// 初始载具的transform信息
+        /// </summary>
+        /// <param name="transformData"></param>
+        public void InitTransform(TransformData transformData)
+        {
+            m_body.position = transformData.position;
+            m_body.rotation = transformData.rotation;
+            //m_body.localScale = transformData.scale;
+        }
+
         /// <summary>
         /// 基本控制
         /// </summary>
@@ -149,9 +157,9 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         {
             if (m_curSpeed < m_config.TakeoffSpeed)
             {
-                // 保存移动操作
-                // Move(-Vector3.up * Time.deltaTime * 10 * (1 - m_curSpeed / (m_config.TakeoffSpeed)));
-                SaveTransData(GetTranslateData(-Vector3.up * Time.deltaTime * 10 * (1 - m_curSpeed / (m_config.TakeoffSpeed))));
+                
+                Move(-Vector3.up * Time.deltaTime * 10 * (1 - m_curSpeed / (m_config.TakeoffSpeed)));
+                //SaveTransData(GetTranslateData(-Vector3.up * Time.deltaTime * 10 * (1 - m_curSpeed / (m_config.TakeoffSpeed))));
 
                 m_downSpeed = Mathf.Lerp(m_downSpeed, 0.1f, Time.deltaTime);
                 RoteUD(m_downSpeed);
@@ -169,8 +177,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
                     m_curSpeed = UnityEngine.Random.Range(m_config.TakeoffSpeed, m_config.MoveFBSpeed);
             }
 
-            // Move(m_body.forward * m_curSpeed * Time.deltaTime);
-            SaveTransData(GetTranslateDataByForward(m_curSpeed * Time.deltaTime));
+            Move(m_body.forward * m_curSpeed * Time.deltaTime);
+            //SaveTransData(GetTranslateDataByForward(m_curSpeed * Time.deltaTime));
 
             m_isRun = false;
         }
@@ -183,14 +191,16 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         {
             if (m_isInStuntState)
                 return;
-         
 
-            // Move(speed * vector * m_config.MoveLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
-            SaveTransData(GetTranslateDataForMoveLR(speed * m_config.MoveLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
+            Vector3 vector = m_body.right;
+            vector.y = 0;
 
-            // Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, -m_config.AxisFB * speed), m_config.RoteLRSpeed * Time.deltaTime * 3);
+            Move(speed * vector * m_config.MoveLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
+            //SaveTransData(GetTranslateDataForMoveLR(speed * m_config.MoveLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
 
-            SaveTransData(GetRotationDataForZ(-m_config.AxisFB * speed, m_config.RoteLRSpeed * Time.deltaTime * 3));
+            Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, -m_config.AxisFB * speed), m_config.RoteLRSpeed * Time.deltaTime * 3);
+
+            //SaveTransData(GetRotationDataForZ(-m_config.AxisFB * speed, m_config.RoteLRSpeed * Time.deltaTime * 3));
 
         }
 
@@ -209,9 +219,9 @@ namespace Kurisu.Game.Entity.FlyingVehicle
                 return;
 
             m_autoBalanceUD = false;
-            //Balance(Quaternion.Euler(m_config.AxisFB * speed, m_body.eulerAngles.y, m_body.eulerAngles.z), m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
+            Balance(Quaternion.Euler(m_config.AxisFB * speed, m_body.eulerAngles.y, m_body.eulerAngles.z), m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
 
-            SaveTransData(GetRotationDataForX(m_config.AxisFB * speed, m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
+            //SaveTransData(GetRotationDataForX(m_config.AxisFB * speed, m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
         }
 
         /// <summary>
@@ -237,12 +247,12 @@ namespace Kurisu.Game.Entity.FlyingVehicle
                 return;
 
             m_autoBalanceLR = false;
-            // Rote(speed * Vector3.up * m_config.RoteLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
-            SaveTransData(GetRotateData(speed * Vector3.up * m_config.RoteLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
+            Rote(speed * Vector3.up * m_config.RoteLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
+            //SaveTransData(GetRotateData(speed * Vector3.up * m_config.RoteLRSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
 
 
-            //Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, -m_config.AxisLR * speed), m_config.RoteLRSpeed * Time.deltaTime);
-            SaveTransData(GetRotationDataForZ(-m_config.AxisLR * speed, m_config.RoteLRSpeed * Time.deltaTime));
+            Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, -m_config.AxisLR * speed), m_config.RoteLRSpeed * Time.deltaTime);
+            //SaveTransData(GetRotationDataForZ(-m_config.AxisLR * speed, m_config.RoteLRSpeed * Time.deltaTime));
         }
 
         /// <summary>
@@ -255,24 +265,44 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
             if (m_autoBalanceLR)
             {
-                // Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, 0), m_config.RoteLRSpeed * Time.deltaTime / 1.2f);
+                Balance(Quaternion.Euler(m_body.eulerAngles.x, m_body.eulerAngles.y, 0), m_config.RoteLRSpeed * Time.deltaTime / 1.2f);
 
-                SaveTransData(GetRotationDataForZ(0, m_config.RoteLRSpeed * Time.deltaTime / 1.2f));
+                //SaveTransData(GetRotationDataForZ(0, m_config.RoteLRSpeed * Time.deltaTime / 1.2f));
             }
                 
 
             if (m_autoBalanceUD)
             {
-                // Balance(Quaternion.Euler(0, m_body.eulerAngles.y, m_body.eulerAngles.z), m_config.RoteFBSpeed * Time.deltaTime / 1.3f);
+                Balance(Quaternion.Euler(0, m_body.eulerAngles.y, m_body.eulerAngles.z), m_config.RoteFBSpeed * Time.deltaTime / 1.3f);
 
-                SaveTransData(GetRotationDataForX(0, m_config.RoteFBSpeed * Time.deltaTime / 1.3f));
+                //SaveTransData(GetRotationDataForX(0, m_config.RoteFBSpeed * Time.deltaTime / 1.3f));
             }
 
             m_autoBalanceLR = m_autoBalanceUD = true;
         }
+
+        // 移动
+        private void Move(Vector3 vector)
+        {
+            m_body.Translate(vector, Space.World);
+        }
+
+        // 旋转
+        private void Rote(Vector3 vector)
+        {
+            m_body.Rotate(vector, Space.World);
+        }
+
+        // 平衡
+        private void Balance(Quaternion r, float speed)
+        {
+            m_body.rotation = Quaternion.RotateTowards(m_body.rotation,
+                   r, speed);
+        }
         #endregion
 
         #region 获取TransData
+        /*
         private TranslateData GetTranslateData(Vector3 v3)
         {
             return (Transform tans) => v3;
@@ -316,7 +346,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         {
             return (Transform tans) => vec;
         }
-
+        */
         #endregion
 
        

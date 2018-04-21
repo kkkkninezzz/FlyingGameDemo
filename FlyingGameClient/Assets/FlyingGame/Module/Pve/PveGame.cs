@@ -6,6 +6,7 @@ using System;
 using SGF;
 using Kurisu.Game;
 using Kurisu.Game.Data;
+using Kurisu.Game.Map;
 
 namespace Kurisu.Module.Pve
 {
@@ -23,10 +24,11 @@ namespace Kurisu.Module.Pve
 
         public void Start(GameParam param)
         {
-            GameLogicManager gameManaager = GameLogicManager.Instance;
+            GameLogicManager gameManager = GameLogicManager.Instance;
 
-            gameManaager.CreateGame(param);
-            gameManaager.onPlayerDie += OnPlayerDie;
+            gameManager.CreateGame(param);
+            gameManager.onPlayerDie += OnPlayerDie;
+            m_context = gameManager.Context;
 
             // 初始玩家数据
             InitPalyerData();
@@ -91,7 +93,23 @@ namespace Kurisu.Module.Pve
         /// </summary>
         public void CreatePlayer()
         {
-            //GameLogicManager.Instance.Cre
+            GameMap map = GameLogicManager.Instance.GameMap;
+            if (map == null)
+                return;
+
+            List<TransformData> birthPoints = GameLogicManager.Instance.GameMap.BirthPoints;
+
+            TransformData birthPoint;
+            if (birthPoints == null || birthPoints.Count == 0)
+            {
+                birthPoint = GameLogicManager.DEFAULT_POSITION;
+            }
+            else
+            {
+                birthPoint = birthPoints[SGFRandom.Default.Range(0, birthPoints.Count)];
+            }
+
+            GameLogicManager.Instance.CreatePlayer(m_mainPlayerId, birthPoint);
         }
 
        

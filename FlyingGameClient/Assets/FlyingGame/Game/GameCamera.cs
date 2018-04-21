@@ -105,6 +105,9 @@ namespace Kurisu.Game
         private Transform FindTarget()
         {
             FlyingPlayer flyingPlayer = GameLogicManager.Instance.GetPlayer(FocusPlayerId);
+            if (flyingPlayer == null)
+                return null;
+
             return flyingPlayer.FlyingVehicleView.transform;
         }
     }

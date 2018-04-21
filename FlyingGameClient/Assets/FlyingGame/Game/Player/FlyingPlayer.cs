@@ -111,11 +111,14 @@ namespace Kurisu.Game.Player
             };
 
             // 初始化飞行载具的transform信息
+            m_flyingVehicle.InitTransform(transformData);
+            /*
             TranslateData tarnslateData = (Transform body) => transformData.position;
             m_flyingVehicle.SaveTransData(tarnslateData);
 
             RotationData rotationData = (Transform body) => transformData.rotation;
             m_flyingVehicle.SaveTransData(rotationData);
+            */
         }
        
 

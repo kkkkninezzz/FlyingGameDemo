@@ -55,6 +55,13 @@ namespace Kurisu.Game.Map
             }
         }
 
+        public List<TransformData> BirthPoints
+        {
+            get
+            {
+                return m_script.GetBirthPoints();
+            }
+        }
     }
 }
 

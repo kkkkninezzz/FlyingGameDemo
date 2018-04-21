@@ -25,7 +25,8 @@ namespace Kurisu
             InitServiceModules();
             InitBusinessModules();
 
-            UIManager.Instance.EnterMainPage();
+            // 进入主界面
+            //UIManager.Instance.EnterMainPage();
         }
 
         private void InitServiceModules()

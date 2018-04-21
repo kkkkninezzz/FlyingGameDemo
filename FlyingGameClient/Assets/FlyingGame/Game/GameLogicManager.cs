@@ -74,6 +74,14 @@ namespace Kurisu.Game
             }
         }
 
+        public GameMap GameMap
+        {
+            get
+            {
+                return m_map;
+            }
+        }
+
         //==============================================================================================================
         
         public void Init()
