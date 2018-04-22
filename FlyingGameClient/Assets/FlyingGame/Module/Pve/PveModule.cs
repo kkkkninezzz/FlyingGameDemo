@@ -4,23 +4,64 @@ using UnityEngine;
 
 
 using Kurisu.Service.Core;
+using Kurisu.Game.Data;
 
 namespace Kurisu.Module.Pve
 {
-    public class PVEModule : BusinessModule
+    public class PveModule : BusinessModule
     {
         private PveGame m_game;
 
-        // Use this for initialization
-        void Start()
+        //显示模块的主UI
+        protected override void Show(object arg)
         {
+            base.Show(arg);
 
+            int mode = (int)arg;
+
+            //TODO 显示关卡选择UI
+
+            //先直接启动游戏
+            StartGame((GameMode)mode);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void StartGame(GameMode mode)
         {
+            GameParam param = new GameParam();
+            param.mode = mode;
+            param.limitedTime = 100;
 
+            m_game = new PveGame();
+            m_game.Start(param);
+            m_game.onGameEnd += () =>
+            {
+                StopGame();
+            };
+
+            m_game.onMainPlayerArriveEnd += () =>
+            {
+                StopGame();
+                // TODO 根据不同模式有不同的结算
+            };
+            // TODO 打开战斗UI
+        }
+
+        private void StopGame()
+        {
+            if (m_game != null)
+            {
+                m_game.Stop();
+                m_game = null;
+            }
+        }
+
+
+        public PveGame CurGame
+        {
+            get
+            {
+                return m_game;
+            }
         }
     }
 }

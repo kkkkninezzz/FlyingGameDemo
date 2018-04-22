@@ -58,7 +58,10 @@ namespace Kurisu.Game.Map
         public List<TransformData> BirthPoints
         {
             get
-            {
+            {   if (m_script == null)
+                {
+                    return null;
+                }
                 return m_script.GetBirthPoints();
             }
         }

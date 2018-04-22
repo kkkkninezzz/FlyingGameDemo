@@ -91,9 +91,9 @@ namespace Kurisu.Service.Core
             base.Release();
         }
 
-        public virtual void show()
+        protected virtual void Show(object arg)
         {
-            this.Log("Show()");
+            this.Log("Show() arg:{0}", arg);
         }
     }
 }

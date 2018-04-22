@@ -42,6 +42,7 @@ namespace Kurisu
         private void InitBusinessModules()
         {
             ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
+            ModuleManager.Instance.CreateModule(ModuleDef.PveModule);
         }
 
         // Update is called once per frame

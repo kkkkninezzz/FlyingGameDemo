@@ -46,7 +46,7 @@ namespace Kurisu.Game
 
             // 实例化GameInput的prefab，里面预制了EasyJoystick脚本
             // 因为EasyJoystick有一些参数，在prefab中容易配置一些
-            GameObject prefab = Resources.Load<GameObject>("GmaeInput");
+            GameObject prefab = Resources.Load<GameObject>("GameInput");
             GameObject go = GameObject.Instantiate(prefab);
 
             m_instance = GameObjectUtils.EnsureComponent<GameInput>(go);
@@ -75,6 +75,8 @@ namespace Kurisu.Game
             {
                 this.LogError("Start() m_joystick == null || m_speedUpBtn == null");
             }
+
+            RegisterListeners();
         }
 
         private void RegisterListeners()
@@ -105,6 +107,7 @@ namespace Kurisu.Game
             }
         }
 
+        /*
         private void OnEnable()
         {
             RegisterListeners();
@@ -114,6 +117,7 @@ namespace Kurisu.Game
         {
             RemoveListeners();
         }
+        */
 
         private void OnDestroy()
         {

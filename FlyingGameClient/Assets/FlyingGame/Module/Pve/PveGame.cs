@@ -7,6 +7,7 @@ using SGF;
 using Kurisu.Game;
 using Kurisu.Game.Data;
 using Kurisu.Game.Map;
+using SGF.Unity;
 
 namespace Kurisu.Module.Pve
 {
@@ -19,6 +20,7 @@ namespace Kurisu.Module.Pve
 
         public event Action onMainPlayerDie;
         public event Action onGameEnd;
+        public event Action onMainPlayerArriveEnd;
 
         private GameContext m_context;
 
@@ -28,12 +30,18 @@ namespace Kurisu.Module.Pve
 
             gameManager.CreateGame(param);
             gameManager.onPlayerDie += OnPlayerDie;
+            gameManager.onPlayerArriveEnd += OnPlayerArriveEnd;
             m_context = gameManager.Context;
 
             // 初始玩家数据
             InitPalyerData();
 
             InitGameInput();
+
+            // 监听frame输入
+            MonoHelper.AddFixedUpdateListener(FixedUpdate);
+
+            GameCamera.FocusPlayerId = m_mainPlayerId;
         }
 
         private void InitPalyerData()
@@ -46,6 +54,7 @@ namespace Kurisu.Module.Pve
             GameLogicManager.Instance.RegPlayerData(playerData);
         }
 
+        #region 初始化游戏输入
         private void InitGameInput()
         {
             GameInput.Create();
@@ -56,6 +65,23 @@ namespace Kurisu.Module.Pve
         {
             GameLogicManager.Instance.InputVkey(vkey, arg, m_mainPlayerId);
         }
+        #endregion
+
+        public void Stop()
+        {
+            MonoHelper.RemoveFixedUpdateListener(FixedUpdate);
+
+            GameInput.Release();
+
+            GameLogicManager.Instance.ReleaseGame();
+
+            m_context = null;
+            onMainPlayerDie = null;
+            onGameEnd = null;
+            onMainPlayerArriveEnd = null;
+        }
+
+        
 
         #region 游戏状态控制
         /// <summary>
@@ -133,6 +159,23 @@ namespace Kurisu.Module.Pve
                 {
                     this.LogError("OnPlayerDie() onMainPlayerDie == null!");
                 }
+            }
+        }
+
+        private void OnPlayerArriveEnd(uint playerId)
+        {
+            if (m_mainPlayerId != playerId)
+            {
+                return;
+            }
+
+            if (onMainPlayerArriveEnd != null)
+            {
+                onMainPlayerArriveEnd();
+            }
+            else
+            {
+                this.LogError("OnPlayerArriveEnd() onMainPlayerArriveEnd == null!");
             }
         }
 
