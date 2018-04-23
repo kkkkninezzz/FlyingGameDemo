@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 using Kurisu.Game.Data;
 
@@ -7,11 +7,14 @@ using SGF.Unity;
 using Kurisu.Module.Pve;
 using Kurisu.Service.Core;
 using Kurisu.Module;
+using System;
 
 namespace Kurisu.Game
 {
+    public delegate void MonoUpdaterEvent();
     public class GameTest : MonoBehaviour
     {
+        public event MonoUpdaterEvent action;
 
         // Use this for initialization
         void Start()
@@ -30,8 +33,16 @@ namespace Kurisu.Game
 
             game.RegPlayerData(playerData);
             */
+
+            
             PveModule pveModule = ModuleAPI.PveModule;
             pveModule.StartGame(GameMode.EndlessPVE);
+            
+
+            /*
+            action += test2;
+            action += test1;
+            */
         }
 
         // Update is called once per frame
@@ -49,9 +60,30 @@ namespace Kurisu.Game
             }
 
             //GameLogicManager.Instance.EnterFrame(1);
+            
+            /*
+            if (action != null)
+            {
+                Debug.Log(action.GetInvocationList().Length);
+                action();
+                Debug.Log(action.GetInvocationList().Length);
+
+            }
+            */
+
+
         }
 
-        
+        private void test1()
+        {
+            Debug.Log("test1");
+            action -= test1;
+        }
+
+        private void test2()
+        {
+            Debug.Log("test2");
+        }
     }
 }
 

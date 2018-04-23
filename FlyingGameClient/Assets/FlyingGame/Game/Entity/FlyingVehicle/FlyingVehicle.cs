@@ -48,6 +48,17 @@ namespace Kurisu.Game.Entity.FlyingVehicle
 
         // 前进
         private bool m_isRun;
+
+        /// <summary>
+        /// 获取当前速度
+        /// </summary>
+        public float Spped
+        {
+            get
+            {
+                return m_curSpeed;
+            }
+        }
         #endregion
 
         #region 操作队列

@@ -39,7 +39,7 @@ namespace Kurisu.Module.Pve
             InitGameInput();
 
             // 监听frame输入
-            MonoHelper.AddFixedUpdateListener(FixedUpdate);
+            MonoHelper.AddUpdateListener(FixedUpdate);
 
             GameCamera.FocusPlayerId = m_mainPlayerId;
         }
@@ -67,9 +67,12 @@ namespace Kurisu.Module.Pve
         }
         #endregion
 
-        public void Stop()
+        /// <summary>
+        /// 关闭游戏
+        /// </summary>
+        public void Close()
         {
-            MonoHelper.RemoveFixedUpdateListener(FixedUpdate);
+            MonoHelper.RemoveUpdateListener(FixedUpdate);
 
             GameInput.Release();
 
@@ -149,7 +152,7 @@ namespace Kurisu.Module.Pve
         {
             if (m_mainPlayerId == playerId)
             {
-                // Pause();
+                Pause();
 
                 if (onMainPlayerDie != null)
                 {
@@ -168,6 +171,8 @@ namespace Kurisu.Module.Pve
             {
                 return;
             }
+
+            Pause();
 
             if (onMainPlayerArriveEnd != null)
             {
@@ -193,6 +198,7 @@ namespace Kurisu.Module.Pve
             GameLogicManager.Instance.EnterFrame(m_frameIndex);
 
             CheckTimeEnd();
+            
         }
 
         private void CheckTimeEnd()

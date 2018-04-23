@@ -72,6 +72,14 @@ namespace Kurisu.Game.Player
             }
         }
 
+        public float FlyingSpeed
+        {
+            get
+            {
+                return m_flyingVehicle.Spped;
+            }
+        }
+
         //=====================================================
 
 

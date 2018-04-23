@@ -5,6 +5,7 @@ using UnityEngine;
 
 using Kurisu.Service.Core;
 using Kurisu.Game.Data;
+using SGF;
 
 namespace Kurisu.Module.Pve
 {
@@ -35,22 +36,29 @@ namespace Kurisu.Module.Pve
             m_game.Start(param);
             m_game.onGameEnd += () =>
             {
-                StopGame();
+                CloseGame();
             };
 
             m_game.onMainPlayerArriveEnd += () =>
             {
-                StopGame();
+                CloseGame();
+                // TODO 根据不同模式有不同的结算
+            };
+
+            m_game.onMainPlayerDie += () =>
+            {
+                CloseGame();
+                this.Log("玩家死亡");
                 // TODO 根据不同模式有不同的结算
             };
             // TODO 打开战斗UI
         }
 
-        private void StopGame()
+        private void CloseGame()
         {
             if (m_game != null)
             {
-                m_game.Stop();
+                m_game.Close();
                 m_game = null;
             }
         }

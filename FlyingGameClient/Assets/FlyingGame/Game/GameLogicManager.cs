@@ -235,7 +235,7 @@ namespace Kurisu.Game
             {
                 m_map.EnterFrame(frameIndex);
             }
-
+            
             // 如果有玩家死亡，调用玩家死亡事件
             if (onPlayerDie != null)
             {

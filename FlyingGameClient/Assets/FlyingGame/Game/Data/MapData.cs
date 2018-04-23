@@ -17,9 +17,5 @@ namespace Kurisu.Game.Data
         /// </summary>
         public string name = "";
 
-        /// <summary>
-        /// 玩家的初始位置信息
-        /// </summary>
-        public List<TransformData> InitPositionList;
     }
 }

@@ -15,33 +15,37 @@ namespace SGF.Unity
 
         public static void AddUpdateListener(MonoUpdaterEvent listener)
         {
-            if (Instance != null)
+            MonoHelper instance = Instance;
+            if (instance != null)
             {
-                Instance.UpdateEvent += listener;
+                instance.UpdateEvent += listener;
             }
         }
 
         public static void RemoveUpdateListener(MonoUpdaterEvent listener)
         {
-            if (Instance != null)
+            MonoHelper instance = Instance;
+            if (instance != null)
             {
-                Instance.UpdateEvent -= listener;
+                instance.UpdateEvent -= listener;
             }
         }
 
         public static void AddFixedUpdateListener(MonoUpdaterEvent listener)
         {
-            if (Instance != null)
+            MonoHelper instance = Instance;
+            if (instance != null)
             {
-                Instance.FixedUpdateEvent += listener;
+                instance.FixedUpdateEvent += listener;
             }
         }
 
         public static void RemoveFixedUpdateListener(MonoUpdaterEvent listener)
         {
-            if (Instance != null)
+            MonoHelper instance = Instance;
+            if (instance != null)
             {
-                Instance.FixedUpdateEvent -= listener;
+                instance.FixedUpdateEvent -= listener;
             }
         }
 
