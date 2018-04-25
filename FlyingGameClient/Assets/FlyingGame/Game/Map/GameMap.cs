@@ -24,6 +24,8 @@ namespace Kurisu.Game.Map
 
             GameObject mapPrefab = Resources.Load<GameObject>("map/map_" + data.id);
             m_view = GameObject.Instantiate(mapPrefab);
+
+            m_script = m_view.GetComponent<MapScript>();
         }
       
         /// <summary>

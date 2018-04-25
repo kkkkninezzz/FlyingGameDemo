@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -293,12 +295,15 @@
   <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\EndlessModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlightConfig.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlyingVehicleData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameMode.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\GameObjectData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameParam.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameVkey.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapPartData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\TransformData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityFactory.cs" />
@@ -316,6 +321,7 @@
     <Compile Include="Assets\FlyingGame\Game\GameInput.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameLogicManager.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameTest.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Map\EndlessModeMapScript.cs" />
     <Compile Include="Assets\FlyingGame\Game\Map\GameMap.cs" />
     <Compile Include="Assets\FlyingGame\Game\Map\MapScript.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\Component\PlayerComponent.cs" />
@@ -460,6 +466,7 @@
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
