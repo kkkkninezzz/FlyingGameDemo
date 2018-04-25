@@ -34,14 +34,14 @@ namespace Kurisu.Game
             game.RegPlayerData(playerData);
             */
 
-            
             PveModule pveModule = ModuleAPI.PveModule;
             pveModule.StartGame(GameMode.EndlessPVE);
             
 
             /*
-            action += test2;
             action += test1;
+            action += test2;
+            action += test3;
             */
         }
 
@@ -64,9 +64,9 @@ namespace Kurisu.Game
             /*
             if (action != null)
             {
-                Debug.Log(action.GetInvocationList().Length);
+               // Debug.Log(action.GetInvocationList().Length);
                 action();
-                Debug.Log(action.GetInvocationList().Length);
+               // Debug.Log(action.GetInvocationList().Length);
 
             }
             */
@@ -83,6 +83,11 @@ namespace Kurisu.Game
         private void test2()
         {
             Debug.Log("test2");
+        }
+
+        private void test3()
+        {
+            Debug.Log("test3");
         }
     }
 }

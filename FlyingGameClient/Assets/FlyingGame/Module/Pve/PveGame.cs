@@ -203,7 +203,7 @@ namespace Kurisu.Module.Pve
 
         private void CheckTimeEnd()
         {
-            if (IsTimeLimited)
+            if (!m_pause && IsTimeLimited)
             {
                 if (GetRemainTime() <= 0)
                 {

@@ -235,30 +235,62 @@ namespace Kurisu.Game
             {
                 m_map.EnterFrame(frameIndex);
             }
-            
+
             // 如果有玩家死亡，调用玩家死亡事件
-            if (onPlayerDie != null)
+            HandlePlayerDied();
+
+            // 如果有玩家到达终点，调用玩家到达终点事件
+            HandlePlayerArriveEnd();
+        }
+
+        /// <summary>
+        /// 处理玩家死亡
+        /// </summary>
+        private void HandlePlayerDied()
+        {
+            if (onPlayerDie == null || m_playerList.Count <= 0)
             {
-                foreach (FlyingPlayer player in m_playerList)
+                return;   
+            }
+
+            List<uint> diePlayerIds = findPlayerIdsByState(PlayerGameState.Death);
+
+            foreach (uint id in diePlayerIds)
+            {
+                onPlayerDie(id);
+            }
+        }
+
+        /// <summary>
+        /// 处理玩家到达终点
+        /// </summary>
+        private void HandlePlayerArriveEnd()
+        {
+            if (onPlayerArriveEnd == null || m_playerList.Count <= 0)
+            {
+                return;
+            }
+
+            List<uint> arriveEndPlayerIds = findPlayerIdsByState(PlayerGameState.ArrivedAtTheEnd);
+
+            foreach (uint id in arriveEndPlayerIds)
+            {
+                onPlayerArriveEnd(id);
+            }
+        }
+
+        private List<uint> findPlayerIdsByState(PlayerGameState state)
+        {
+            List<uint> playerIds = new List<uint>(m_playerList.Count);
+            foreach (FlyingPlayer player in m_playerList)
+            {
+                if (player.GameState == state)
                 {
-                    if (player.GameState == PlayerGameState.Death)
-                    {
-                        onPlayerDie(player.Id);
-                    }
+                    playerIds.Add(player.Id);
                 }
             }
 
-            // 如果有玩家到达终点，调用玩家到达终点事件
-            if (onPlayerArriveEnd != null)
-            {
-                foreach (FlyingPlayer player in m_playerList)
-                {
-                    if (player.GameState == PlayerGameState.ArrivedAtTheEnd)
-                    {
-                        onPlayerArriveEnd(player.Id);
-                    }
-                }
-            }
+            return playerIds;
         }
         //==============================================================================================================
 
