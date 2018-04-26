@@ -17,11 +17,6 @@ namespace Kurisu.Game.Data
         public string Path;
 
         /// <summary>
-        /// 这个游戏对象实例化的概率
-        /// </summary>
-        public float Probability;
-
-        /// <summary>
         /// transform数据
         /// </summary>
         public TransformData TransformData;
