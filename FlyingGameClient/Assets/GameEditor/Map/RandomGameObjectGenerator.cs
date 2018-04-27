@@ -16,7 +16,7 @@ namespace Kurisu.GameEditor.Map
         [Button("创建RandomGameObject模板")]
         public void GenerateRandomGameObjectTemplate()
         {
-            GameObject randomGo = new GameObject(MapEditorDef.RandomGameObject + "_" + transform.childCount.ToString().PadLeft(3, '0'));
+            GameObject randomGo = new GameObject(ChapterEditorDef.RandomGameObject + "_" + transform.childCount.ToString().PadLeft(3, '0'));
             randomGo.transform.parent = transform;
         }
 

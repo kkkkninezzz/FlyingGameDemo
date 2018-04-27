@@ -12,7 +12,7 @@ namespace Kurisu
     {
         private static AppConfigSetting setting;
 
-        public readonly static string Path = "Assets/Resources/Config/AppConfig.json";
+        public const string Path = "Assets/Resources/Config/AppConfig.json";
 
         public static AppConfigSetting Setting
         {

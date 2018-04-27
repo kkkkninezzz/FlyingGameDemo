@@ -18,15 +18,15 @@ namespace Kurisu.GameEditor.Map
         {
             Transform mapParts = this.transform;
 
-            GameObject mapPartPrefab = Resources.Load<GameObject>(MapEditorDef.MapPartPrefabPath);
+            GameObject mapPartPrefab = Resources.Load<GameObject>(ChapterEditorDef.MapPartPrefabPath);
             if (mapPartPrefab == null)
             {
-                Debug.Log("Don't have MapPartPrefab in " + MapEditorDef.MapPartPrefabPath);
+                Debug.Log("Don't have MapPartPrefab in " + ChapterEditorDef.MapPartPrefabPath);
                 return;
             }
 
             GameObject mapPart = GameObject.Instantiate(mapPartPrefab);
-            mapPart.name = MapEditorDef.MapPart + "_" + mapParts.childCount.ToString().PadLeft(3, '0');
+            mapPart.name = ChapterEditorDef.MapPart + "_" + mapParts.childCount.ToString().PadLeft(3, '0');
             mapPart.transform.parent = mapParts;
         }
 

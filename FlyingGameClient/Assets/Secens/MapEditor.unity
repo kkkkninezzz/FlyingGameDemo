@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 1677179208}
   - component: {fileID: 1677179209}
   m_Layer: 0
-  m_Name: MapEditorRoot
+  m_Name: ChapterEditorRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,6 +260,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MapMode: 0
+  ChapterNo: 0
+  SmallChapterNo: -1
+  ChapterName: 
 --- !u!1 &2133182964
 GameObject:
   m_ObjectHideFlags: 0
