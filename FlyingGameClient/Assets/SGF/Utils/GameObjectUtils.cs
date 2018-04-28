@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using UnityEditor;
 
 namespace SGF.Utils
 {
@@ -139,6 +140,27 @@ namespace SGF.Utils
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// 根据给定的GameObject对象找到对应预制体路径
+        /// 
+        /// 如果GameObject不存在对应的预制体则返回null
+        /// </summary>
+        /// <param name="gameObj"></param>
+        /// <returns></returns>
+        public static string FindPrefabPathByGameObject(GameObject gameObj)
+        {
+            UnityEngine.Object prefab = PrefabUtility.GetPrefabParent(gameObj);
+            if (prefab == null)
+            {
+                return null;
+            }
+
+            string path = AssetDatabase.GetAssetPath(prefab);
+
+            // 将".prefab"的后缀移除掉
+            return path.Remove(path.Length - 7, 7);
         }
     }
 }

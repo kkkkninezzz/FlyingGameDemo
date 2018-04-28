@@ -387,8 +387,9 @@
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditorDef.cs" />
     <Compile Include="Assets\GameEditor\Map\MapMode.cs" />
+    <Compile Include="Assets\GameEditor\Map\MapPartDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\MapPartGenerator.cs" />
-    <Compile Include="Assets\GameEditor\Map\RandomGameObjectGenerator.cs" />
+    <Compile Include="Assets\GameEditor\Map\RandomGameObjectsGenerator.cs" />
     <Compile Include="Assets\GameResource\Character\NormalBody\UnityChan\SplashScreen\Scripts\SplashScreen.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlink.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\AutoBlinkforSD.cs" />

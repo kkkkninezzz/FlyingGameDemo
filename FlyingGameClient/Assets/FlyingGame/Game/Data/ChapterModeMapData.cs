@@ -13,6 +13,6 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 地图数据
         /// </summary>
-        public MapPartData MapPart;
+        public MapPartData mapPart;
     }
 }

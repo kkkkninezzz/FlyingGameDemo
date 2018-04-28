@@ -26,6 +26,14 @@ namespace Kurisu.GameEditor.Map
 
         public const string MapPartPrefabPath = "GameEditor/Map/MapPart";
 
-        public const string RandomGameObject = "RandomGameObject";
+        public const string RandomGameObjectPool = "RandomGameObjectPool";
+
+        public const string StartPosition = "StartPosition";
+
+        public const string EndPosition = "EndPosition";
+
+        public const string BasicPart = "BasicPart";
+
+        public const string DynamicGameObjects = "DynamicGameObjects";
     }
 }

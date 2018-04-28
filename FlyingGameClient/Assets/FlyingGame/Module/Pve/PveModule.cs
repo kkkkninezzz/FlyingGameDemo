@@ -47,7 +47,7 @@ namespace Kurisu.Module.Pve
 
             m_game.onMainPlayerDie += () =>
             {
-                CloseGame();
+                //CloseGame();
                 this.Log("玩家死亡");
                 // TODO 根据不同模式有不同的结算
             };

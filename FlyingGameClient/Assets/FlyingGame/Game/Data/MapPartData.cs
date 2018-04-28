@@ -14,26 +14,26 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 起始位置
         /// </summary>
-        public Vector3 StartPosition;
+        public Vector3 startPosition;
 
         /// <summary>
         /// 结束位置
         /// </summary>
-        public Vector3 EndPosition;
+        public Vector3 endPosition;
 
         /// <summary>
-        /// 该地图部分的基础预制体路径
+        /// 该地图部分的基础预制体对象
         /// </summary>
-        public string BasicPartPath;
+        public GameObjectData basicPart;
 
         /// <summary>
         /// 随机产生的游戏对象，每次会从列表中随机取一个
         /// </summary>
-        public List<GameObjectData> RandomGameObjects;
+        public List<List<GameObjectData>> randomGameObjectPool;
 
         /// <summary>
         /// 动态加载的游戏对象信息
         /// </summary>
-        public List<RandomGameObjectData> DynamicGameObjects;
+        public List<RandomGameObjectData> dynamicGameObjects;
     }
 }

@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f616c820ebb9042937894d909fd173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapMode: 0
+  Mode: 0
   ChapterNo: 0
   SmallChapterNo: -1
   ChapterName: 

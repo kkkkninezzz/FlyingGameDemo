@@ -26,6 +26,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1172533566001148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4613085495214730}
+  m_Layer: 0
+  m_Name: EndPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1198022624939956
 GameObject:
   m_ObjectHideFlags: 1
@@ -94,8 +109,24 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4220465269760150}
+  - component: {fileID: 114443327363441776}
   m_Layer: 0
   m_Name: MapPart
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1435086124115406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4609269862421316}
+  m_Layer: 0
+  m_Name: StartPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,7 +157,7 @@ GameObject:
   - component: {fileID: 4389967578172048}
   - component: {fileID: 114615478804164604}
   m_Layer: 0
-  m_Name: RandomGameObjects
+  m_Name: RandomGameObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -233,7 +264,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4220465269760150}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4094204889439812
 Transform:
@@ -258,6 +289,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 4609269862421316}
+  - {fileID: 4613085495214730}
   - {fileID: 4068720126193728}
   - {fileID: 4389967578172048}
   - {fileID: 4616198083369656}
@@ -288,7 +321,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4220465269760150}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4462675760374224
 Transform:
@@ -316,6 +349,19 @@ Transform:
   m_Father: {fileID: 4616198083369656}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4609269862421316
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1435086124115406}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4220465269760150}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4610053193249628
 Transform:
   m_ObjectHideFlags: 1
@@ -328,6 +374,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4616198083369656}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4613085495214730
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1172533566001148}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4220465269760150}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4616198083369656
 Transform:
@@ -350,7 +409,7 @@ Transform:
   - {fileID: 4532836327493490}
   - {fileID: 4094204889439812}
   m_Father: {fileID: 4220465269760150}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4642433290731286
 Transform:
@@ -417,6 +476,23 @@ Transform:
   m_Father: {fileID: 4616198083369656}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114443327363441776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409712677091518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab3945ccc343f584d97b17e80af4b362, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Description: "StartPosition : MapPart\u7684\u8D77\u59CB\u4F4D\u7F6E\uFF0C\u5728\u7F16\u8F91\u5668\u8C03\u6574\u4F4D\u7F6E\u5373\u53EF\u3002\u8FD9\u4E2A\u4F4D\u7F6E\u6700\u597D\u662F\u6574\u4E2AMapPart\u7684\u8D77\u59CB\u4F4D\u7F6E\u7684\u4E2D\u5FC3\uFF0C\u56E0\u4E3A\u8FD9\u4E2A\u6D89\u53CA\u5230\u62FC\u63A5MapPart\u65F6\u7684\u663E\u793A\u6548\u679C\n\nEndPosition
+    : MapPart\u7684\u7ED3\u675F\u4F4D\u7F6E\uFF0C\u5728\u7F16\u8F91\u5668\u8C03\u6574\u4F4D\u7F6E\u5373\u53EF\u3002\u8FD9\u4E2A\u4F4D\u7F6E\u6700\u597D\u662F\u6574\u4E2AMapPart\u7684\u7ED3\u675F\u4F4D\u7F6E\u7684\u4E2D\u5FC3\uFF0C\u56E0\u4E3A\u8FD9\u4E2A\u6D89\u53CA\u5230\u62FC\u63A5MapPart\u65F6\u7684\u663E\u793A\u6548\u679C\n\nBasicPart
+    : MapPart\u7684\u57FA\u7840\u90E8\u5206\uFF0C\u9700\u8981\u62D6\u5165\u63D0\u524D\u5236\u4F5C\u5B8C\u6210\u7684\u9884\u5236\u4F53\uFF0CBasicPart\u662F\u5FC5\u5B9A\u4F1A\u5B9E\u4F8B\u5316\u7684\n\nRandomGameObjectPool
+    : \u968F\u673A\u5217\u8868\u7684\u6C60\u5B50\uFF0C\u6BCF\u6B21\u5B9E\u4F8B\u5316MapPart\u65F6\uFF0C\u4F1A\u4ECE\u6C60\u5B50\u4E2D\u968F\u673A\u62BD\u53D6\u4E00\u4E2A\u5217\u8868\uFF0C\u5C06\u5217\u8868\u4E2D\u7684\u5BF9\u8C61\u8FDB\u884C\u5B9E\u4F8B\u5316\u3002\u6BCF\u4E00\u4E2ARandomGameObjects\u662F\u4E00\u4E2A\u5217\u8868\uFF0C\u540C\u4E00\u4E2A\u5217\u8868\u7684\u5BF9\u8C61\u653E\u5728\u540C\u4E00\u4E2ARandomGameObjects\u4E0B\u3002\n\nDynamicGameObjects
+    : \u52A8\u6001\u52A0\u8F7D\u7684\u5BF9\u8C61\uFF0C\u6BCF\u4E2A\u5BF9\u8C61\u5728\u5B9E\u4F8B\u5316\u65F6\u4F1A\u5224\u65AD\u5B9E\u4F8B\u5316\u7684\u6982\u7387\uFF0C\u7136\u540E\u518D\u8FDB\u884C\u5B9E\u4F8B\u5316\u3002\u76EE\u524D\u53EA\u914D\u7F6E\u4E860.1
+    \u5230 1\u7684\u6982\u7387\uFF0C\u4E0D\u540C\u6982\u7387\u7684\u5BF9\u8C61\u653E\u5728\u5BF9\u5E94\u7684\u6982\u7387\u76EE\u5F55\u4E0B\u3002\n\n"
 --- !u!114 &114615478804164604
 MonoBehaviour:
   m_ObjectHideFlags: 1

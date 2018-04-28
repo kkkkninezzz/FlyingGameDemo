@@ -14,16 +14,16 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 背景音乐路径
         /// </summary>
-        public List<string> BgmPaths;
+        public List<string> bgmPaths;
 
         /// <summary>
         /// 天空盒路径
         /// </summary>
-        public string SkyboxPath;
+        public string skyboxPath;
 
         /// <summary>
         /// 出生点信息
         /// </summary>
-        public List<TransformData> BirthPoints;
+        public List<TransformData> birthPoints;
     }
 }

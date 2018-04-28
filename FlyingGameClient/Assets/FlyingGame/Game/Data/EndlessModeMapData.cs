@@ -12,6 +12,6 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 每次生成地图时，都会从MapParts中随机
         /// </summary>
-        public List<MapPartData> MapParts;
+        public List<MapPartData> mapParts;
     }
 }
