@@ -162,6 +162,28 @@ namespace SGF.Utils
             // 将".prefab"的后缀移除掉
             return path.Remove(path.Length - 7, 7);
         }
+
+        /// <summary>
+        /// 获取资源的路径，并且该路径不包含后缀名
+        /// </summary>
+        /// <param name="assetObj"></param>
+        /// <returns></returns>
+        public static string FindAssetPath(UnityEngine.Object assetObj)
+        {
+
+            string path = AssetDatabase.GetAssetPath(assetObj);
+
+            // 将后缀移除掉
+            int dotIndex = path.LastIndexOf(".");
+
+            // 不包含后缀
+            if (dotIndex < 0)  
+            {
+                return path;
+
+            }
+            return path.Remove(dotIndex);
+        }
     }
 }
 
