@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 using UnityEditor;
+using Kurisu.Game.Data;
 
 namespace SGF.Utils
 {
@@ -149,7 +150,7 @@ namespace SGF.Utils
         /// </summary>
         /// <param name="gameObj"></param>
         /// <returns></returns>
-        public static string FindPrefabPathByGameObject(GameObject gameObj)
+        public static string FindPrefabFullPathByGameObject(GameObject gameObj)
         {
             UnityEngine.Object prefab = PrefabUtility.GetPrefabParent(gameObj);
             if (prefab == null)
@@ -164,11 +165,33 @@ namespace SGF.Utils
         }
 
         /// <summary>
+        /// 根据给定的GameObject对象找到对应预制体路径
+        /// 该路径不包含 Assets/Resources/ 以及后缀名
+        /// 
+        /// 如果GameObject不存在对应的预制体则返回null
+        /// </summary>
+        /// <param name="gameObj"></param>
+        /// <returns></returns>
+        public static string FindPrefabPathByGameObject(GameObject gameObj)
+        {
+            UnityEngine.Object prefab = PrefabUtility.GetPrefabParent(gameObj);
+            if (prefab == null)
+            {
+                return null;
+            }
+
+            string path = AssetDatabase.GetAssetPath(prefab);
+
+            // 将".prefab"的后缀移除掉
+            return path.Remove(path.Length - 7, 7).Remove(0, 17);
+        }
+
+        /// <summary>
         /// 获取资源的路径，并且该路径不包含后缀名
         /// </summary>
         /// <param name="assetObj"></param>
         /// <returns></returns>
-        public static string FindAssetPath(UnityEngine.Object assetObj)
+        public static string FindAssetFullPath(UnityEngine.Object assetObj)
         {
 
             string path = AssetDatabase.GetAssetPath(assetObj);
@@ -183,6 +206,76 @@ namespace SGF.Utils
 
             }
             return path.Remove(dotIndex);
+        }
+
+        /// <summary>
+        /// 获取资源的路径，并且该路径不包含 Assets/Resources/ 以及后缀名
+        /// </summary>
+        /// <param name="assetObj"></param>
+        /// <returns></returns>
+        public static string FindAssetPath(UnityEngine.Object assetObj)
+        {
+
+            string path = AssetDatabase.GetAssetPath(assetObj);
+
+            // 将后缀移除掉
+            int dotIndex = path.LastIndexOf(".");
+
+            // 不包含后缀
+            if (dotIndex < 0)
+            {
+                return path;
+
+            }
+            
+            return path.Remove(dotIndex).Remove(0, 17);
+        }
+
+        /// <summary>
+        /// 转换为Vector3
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static Vector3 ToVector3(Vector3Data data)
+        {
+            return new Vector3(data.x, data.y, data.z);
+        }
+
+        /// <summary>
+        /// 转换为Vector3Data
+        /// </summary>
+        /// <param name="v"></param>
+        /// <returns></returns>
+        public static Vector3Data ToVector3Data(Vector3 v)
+        {
+            return new Vector3Data(v.x, v.y, v.z);
+        }
+
+        /// <summary>
+        /// 转换为Quaternion
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public static Quaternion ToQuaternion(QuaternionData data)
+        {
+            return new Quaternion(data.x, data.y, data.z, data.z);
+        }
+
+        /// <summary>
+        /// 转换为QuaternionData
+        /// </summary>
+        /// <param name="q"></param>
+        /// <returns></returns>
+        public static QuaternionData ToQuaternionData(Quaternion q)
+        {
+            return new QuaternionData(q.x, q.y, q.z, q.w);
+        }
+
+        public static TransformData ToTransformData(Vector3 position, Quaternion rotation, Vector3 scale)
+        {
+            return new TransformData(ToVector3Data(Vector3.zero),
+                                     ToQuaternionData(Quaternion.Euler(Vector3.zero)),
+                                     ToVector3Data(Vector3.one));
         }
     }
 }

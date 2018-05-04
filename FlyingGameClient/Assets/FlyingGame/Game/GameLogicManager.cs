@@ -9,6 +9,7 @@ using Kurisu.Game.Data;
 using Kurisu.Game.Entity.Factory;
 
 using SGF;
+using SGF.Utils;
 
 namespace Kurisu.Game
 {
@@ -17,7 +18,7 @@ namespace Kurisu.Game
         /// <summary>
         /// 默认的出生位置
         /// </summary>
-        public readonly static TransformData DEFAULT_POSITION = new TransformData(Vector3.zero, Quaternion.Euler(Vector3.zero), Vector3.one);
+        public readonly static TransformData DEFAULT_POSITION = GameObjectUtils.ToTransformData(Vector3.zero, Quaternion.Euler(Vector3.zero), Vector3.one);
 
         private GameLogicManager()
         {

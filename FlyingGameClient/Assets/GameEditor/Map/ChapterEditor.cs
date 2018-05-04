@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using Kurisu.Game.Data;
 
 using SGF.Utils;
+using SGF;
 
 namespace Kurisu.GameEditor.Map
 {
@@ -91,6 +92,39 @@ namespace Kurisu.GameEditor.Map
         [Button("导出ChapterConfig")]
         public void ExportConfig()
         {
+            Debugger.EnableLog = true;
+
+            this.Log("当前模式: {0}，开始构建数据...", Mode);
+            ModeMapData mapData = GenerateModeMapData();
+            if (mapData == null)
+            {
+                throw new Exception("构建数据数据失败，因此拒绝导出!!!");
+            }
+            this.Log("构建数据结束");
+
+            this.Log("开始导出配置");
+
+            string path = "";
+            switch (Mode)
+            {
+                case MapMode.ChapterMode:
+                    path = string.Format(ChapterEditorDef.ChapterConfigRootPath + "/{0}/{1}.json", ChapterNo, mapData.no);
+                    JsonUtils.WriteDataToJsonFile(path, mapData);
+                    break;
+
+                case MapMode.EndlessMode:
+                    path = string.Format(ChapterEditorDef.EndlessConfigRootPath + "{0}.json", mapData.no);
+                    JsonUtils.WriteDataToJsonFile(path, mapData);
+                    break;
+            }
+
+            this.Log("配置导出成功，Path = {0}", path);
+
+            Debugger.EnableLog = false;
+        }
+
+        private ModeMapData GenerateModeMapData()
+        {
             ModeMapData mapData = null;
 
             Transform mapParts = transform.Find(ChapterEditorDef.MapParts);
@@ -105,7 +139,7 @@ namespace Kurisu.GameEditor.Map
 
             }
 
-            switch(Mode)
+            switch (Mode)
             {
                 case MapMode.ChapterMode:
                     ChapterModeMapData chapterModeMapData = new ChapterModeMapData();
@@ -125,12 +159,18 @@ namespace Kurisu.GameEditor.Map
                 throw new Exception("出现了未知的错误，构建数据失败!!!");
             }
 
+            // 章节编号
+            mapData.no = GenerateChapterNo();
+            // 章节名称
+            mapData.name = ChapterName;
             // 背景音乐路径
             mapData.bgmPaths = GenerateBgmPaths();
             // 天空盒路径
             mapData.skyboxPath = GenerateSkyboxPath();
-
             // 出生点信息
+            mapData.birthPoints = GenerateBirthPoints();
+
+            return mapData;
         }
 
         /// <summary>
@@ -173,33 +213,33 @@ namespace Kurisu.GameEditor.Map
             return mapPartData;
         }
 
-        private Vector3 GenerateStartPosition(Transform mapPart)
+        private Vector3Data GenerateStartPosition(Transform mapPart)
         {
             // 获取StartPosition的数据
             Transform startPosition = mapPart.Find(ChapterEditorDef.StartPosition);
             if (startPosition == null)
             {
                 Debug.LogError(mapPart.name + " 下不存在 StartPosition，使用默认值!!!");
-                return Vector3.zero;
+                return GameObjectUtils.ToVector3Data(Vector3.zero);
             }
             else
             {
-                return startPosition.position;
+                return GameObjectUtils.ToVector3Data(startPosition.position);
             }
         }
 
-        private Vector3 GenerateEndPosition(Transform mapPart)
+        private Vector3Data GenerateEndPosition(Transform mapPart)
         {
             // 获取StartPosition的数据
             Transform endPosition = mapPart.Find(ChapterEditorDef.EndPosition);
             if (endPosition == null)
             {
                 Debug.LogError(mapPart.name + " 下不存在 EndPosition，使用默认值!!!");
-                return Vector3.zero;
+                return GameObjectUtils.ToVector3Data(Vector3.zero);
             }
             else
             {
-                return endPosition.position;
+                return GameObjectUtils.ToVector3Data(endPosition.position);
             }
         }
 
@@ -301,14 +341,19 @@ namespace Kurisu.GameEditor.Map
         {
             TransformData data = new TransformData();
 
-            data.position = trans.position;
-            data.rotation = trans.rotation;
-            data.scale = trans.localScale;
+            data.position = GameObjectUtils.ToVector3Data(trans.position);
+            data.rotation = GameObjectUtils.ToQuaternionData(trans.rotation);
+            data.scale = GameObjectUtils.ToVector3Data(trans.localScale);
 
             return data;
         }
         #endregion
 
+
+        private string GenerateChapterNo()
+        {
+            return "" + ChapterNo + (SmallChapterNo < 0 ? "" : "_" + SmallChapterNo);
+        }
 
         private List<string> GenerateBgmPaths()
         {
@@ -335,24 +380,39 @@ namespace Kurisu.GameEditor.Map
             return GameObjectUtils.FindAssetPath(SkyBox);
         }
 
-        [Button("ShowBgmPaths")]
-        public void ShowBgmPaths()
+        private List<TransformData> GenerateBirthPoints()
         {
-            if (BgmList == null || BgmList.Count == 0)
+            Transform birthPoints = transform.Find(ChapterEditorDef.BirthPoints);
+
+            List<TransformData> points;
+            if (birthPoints == null || birthPoints.childCount <= 0)
             {
-                return;
+                // throw new Exception("BirthPoints 结点不存在，导出失败!!!");
+                points = new List<TransformData>(1);
+                points.Add(GameObjectUtils.ToTransformData(Vector3.zero, Quaternion.Euler(Vector3.zero), Vector3.one));
+            } 
+            else
+            {
+                points = new List<TransformData>(birthPoints.childCount);
+
+                foreach (Transform point in birthPoints)
+                {
+                    points.Add(GenerateTransformData(point));
+                }
             }
 
-            foreach (AudioClip bgm in BgmList)
-            {
-                Debug.Log(GameObjectUtils.FindAssetPath(bgm));
-            }
+            return points;
         }
-        [Button("LoadBgm")]
-        public void LoadBgm()
+
+        [Button("Test")]
+        public void Test()
         {
-            AudioClip bgm = Resources.Load<AudioClip>("audio/Bgm/RADWIMPS - 前前前世 (movie ver.)");
-            Debug.Log(bgm.name);
+            GameObject prefab = Resources.Load<GameObject>("Assets/Resources/map/map_0");
+
+            if (prefab == null)
+            {
+                Debug.Log("加载失败");
+            }
         }
     }
 }

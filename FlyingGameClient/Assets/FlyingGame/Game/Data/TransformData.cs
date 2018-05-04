@@ -11,18 +11,18 @@ namespace Kurisu.Game.Data
     public class TransformData
     {
 
-        public Vector3 position;
+        public Vector3Data position;
 
-        public Quaternion rotation;
+        public QuaternionData rotation;
 
-        public Vector3 scale;
+        public Vector3Data scale;
 
         public TransformData()
         {
            
         }
 
-        public TransformData(Vector3 position, Quaternion rotation, Vector3 scale)
+        public TransformData(Vector3Data position, QuaternionData rotation, Vector3Data scale)
         {
             this.position = position;
             this.rotation = rotation;

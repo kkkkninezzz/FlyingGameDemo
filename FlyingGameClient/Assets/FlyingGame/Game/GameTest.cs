@@ -34,8 +34,8 @@ namespace Kurisu.Game
             game.RegPlayerData(playerData);
             */
 
-            PveModule pveModule = ModuleAPI.PveModule;
-            pveModule.StartGame(GameMode.EndlessPVE);
+            //PveModule pveModule = ModuleAPI.PveModule;
+            //pveModule.StartGame(GameMode.EndlessPVE);
             
 
             /*
@@ -53,10 +53,13 @@ namespace Kurisu.Game
             {
                 //GameLogicManager.Instance.CreatePlayer(1, GameLogicManager.DEFAULT_POSITION);
                 //MonoHelper.AddFixedUpdateListener(() => { Debug.Log(1); });
-
+                /*
                 PveModule pveModule = ModuleAPI.PveModule;
                 PveGame game = pveModule.CurGame;
                 game.CreatePlayer();
+                */
+
+                AppConfig.Save();
             }
 
             //GameLogicManager.Instance.EnterFrame(1);

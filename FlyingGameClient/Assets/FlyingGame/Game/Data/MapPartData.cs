@@ -14,12 +14,12 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 起始位置
         /// </summary>
-        public Vector3 startPosition;
+        public Vector3Data startPosition;
 
         /// <summary>
         /// 结束位置
         /// </summary>
-        public Vector3 endPosition;
+        public Vector3Data endPosition;
 
         /// <summary>
         /// 该地图部分的基础预制体对象

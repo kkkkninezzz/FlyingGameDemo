@@ -47,11 +47,21 @@ namespace SGF.Utils
             if (string.IsNullOrEmpty(jsonStr))
                 return;
 
-            StreamWriter writer = new StreamWriter(jsonFilePath);
+            FileInfo fileInfo = new FileInfo(jsonFilePath);
+            DirectoryInfo dir = fileInfo.Directory;
+            if (!dir.Exists)
+            {
+                dir.Create();
+            }
+
+            FileStream fs = new FileStream(jsonFilePath, FileMode.Create, FileAccess.Write);
+            StreamWriter writer = new StreamWriter(fs);
 
             writer.Write(jsonStr);
             writer.Flush();
+
             writer.Close();
+            fs.Close();
         }
 
     }

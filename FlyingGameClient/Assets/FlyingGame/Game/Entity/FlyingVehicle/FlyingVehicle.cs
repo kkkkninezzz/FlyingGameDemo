@@ -6,6 +6,7 @@ using UnityEngine;
 
 using Kurisu.Game.Entity.Factory;
 using Kurisu.Game.Data;
+using SGF.Utils;
 
 namespace Kurisu.Game.Entity.FlyingVehicle
 {
@@ -156,8 +157,8 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         /// <param name="transformData"></param>
         public void InitTransform(TransformData transformData)
         {
-            m_body.position = transformData.position;
-            m_body.rotation = transformData.rotation;
+            m_body.position = GameObjectUtils.ToVector3(transformData.position);
+            m_body.rotation = GameObjectUtils.ToQuaternion(transformData.rotation);
             //m_body.localScale = transformData.scale;
         }
 

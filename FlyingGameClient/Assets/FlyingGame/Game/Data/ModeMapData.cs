@@ -12,6 +12,16 @@ namespace Kurisu.Game.Data
     public class ModeMapData
     {
         /// <summary>
+        /// 编号
+        /// </summary>
+        public string no;
+
+        /// <summary>
+        /// 名称
+        /// </summary>
+        public string name;
+
+        /// <summary>
         /// 背景音乐路径
         /// </summary>
         public List<string> bgmPaths;

@@ -329,8 +329,10 @@
     <Compile Include="Assets\FlyingGame\Game\Data\MapPartData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\ModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\QuaternionData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\RandomGameObjectData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\TransformData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\Vector3Data.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityFactory.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\Recycler.cs" />
@@ -388,6 +390,7 @@
     <Compile Include="Assets\FlyingGame\UI\Home\UIHomePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
+    <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditorDef.cs" />
     <Compile Include="Assets\GameEditor\Map\MapMode.cs" />

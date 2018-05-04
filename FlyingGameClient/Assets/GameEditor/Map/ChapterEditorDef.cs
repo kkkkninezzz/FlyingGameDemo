@@ -13,12 +13,12 @@ namespace Kurisu.GameEditor.Map
         /// <summary>
         /// 关卡模式配置文件的根目录
         /// </summary>
-        public const string ChapterConfigRootPath = "Assets/Resources/Config/Map/ChapterMode";
+        public const string ChapterConfigRootPath = "Assets/Resources/Config/Map/ChapterMode/";
 
         /// <summary>
         /// 无尽模式配置文件的根目录
         /// </summary>
-        public const string EndlessConfigRootPath = "Assets/Resources/Config/Map/EndlessMode";
+        public const string EndlessConfigRootPath = "Assets/Resources/Config/Map/EndlessMode/";
 
         public const string MapParts = "MapParts";
 
@@ -35,5 +35,7 @@ namespace Kurisu.GameEditor.Map
         public const string BasicPart = "BasicPart";
 
         public const string DynamicGameObjects = "DynamicGameObjects";
+
+        public const string BirthPoints = "BirthPoints";
     }
 }
