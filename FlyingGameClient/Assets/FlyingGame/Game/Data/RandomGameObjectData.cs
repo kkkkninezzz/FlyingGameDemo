@@ -9,6 +9,6 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 这个游戏对象实例化的概率
         /// </summary>
-        public float Probability;
+        public float probability;
     }
 }

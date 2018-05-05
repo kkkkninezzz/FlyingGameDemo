@@ -14,11 +14,11 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 游戏对象的资源路径
         /// </summary>
-        public string Path;
+        public string path;
 
         /// <summary>
         /// transform数据
         /// </summary>
-        public TransformData TransformData;
+        public TransformData transformData;
     }
 }

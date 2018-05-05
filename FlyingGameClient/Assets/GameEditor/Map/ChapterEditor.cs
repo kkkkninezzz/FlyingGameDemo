@@ -327,8 +327,8 @@ namespace Kurisu.GameEditor.Map
                 throw new Exception(trans + " 不存在对应的 prefab!!!");
             }
 
-            goData.Path = prefabPath;
-            goData.TransformData = GenerateTransformData(trans);
+            goData.path = prefabPath;
+            goData.transformData = GenerateTransformData(trans);
         }
 
         private RandomGameObjectData GenerateRandomGameObjectData(Transform trans, float probability)
@@ -336,7 +336,7 @@ namespace Kurisu.GameEditor.Map
             RandomGameObjectData randomObjData = new RandomGameObjectData();
 
             SetValueToGameObjectData(trans, randomObjData);
-            randomObjData.Probability = probability;
+            randomObjData.probability = probability;
 
             return randomObjData;
         }
@@ -408,6 +408,7 @@ namespace Kurisu.GameEditor.Map
             return points;
         }
 
+        /*
         [Button("Test")]
         public void Test()
         {
@@ -418,6 +419,7 @@ namespace Kurisu.GameEditor.Map
                 Debug.Log("加载失败");
             }
         }
+        */
 
         [ContextMenu("重置所有数据")]
         public void ResetAllData()
@@ -593,12 +595,100 @@ namespace Kurisu.GameEditor.Map
             }
         }
 
+        #region 加载MapPart
         private void LoadMapPart(int index, MapPartData mapPartData)
         {
             GameObject mapPart = GenerateMapPart(index);
 
             // TODO 加载MapPart
+
+            // 调整StartPosition和EndPosition的位置
+            this.transform.Find(ChapterEditorDef.StartPosition).position = GameObjectUtils.ToVector3(mapPartData.startPosition);
+            this.transform.Find(ChapterEditorDef.EndPosition).position = GameObjectUtils.ToVector3(mapPartData.endPosition);
+
+            // 加载BasicPart
+            LoadBasicPart(mapPart, mapPartData.basicPart);
+
+            // 加载RandomGameObjectPool
+            LoadRandomGameObjectPool(mapPart, mapPartData.randomGameObjectPool);
+
+            // 加载LoadDynamicGameObjects
+            LoadDynamicGameObjects(mapPart, mapPartData.dynamicGameObjects);
         }
+
+        private void LoadBasicPart(GameObject mapPart, GameObjectData basicPartData)
+        {
+            if (basicPartData == null)
+            {
+                return;
+            }
+
+            Transform basicPart = mapPart.transform.Find(ChapterEditorDef.BasicPart);
+
+            LoadGameObjectData(basicPart, basicPartData);
+        }
+
+        private void LoadRandomGameObjectPool(GameObject mapPart, List<List<GameObjectData>> dataList)
+        {
+            if (dataList == null || dataList.Count <= 0)
+            {
+                return;
+            }
+
+            Transform randomGameObjectPool = mapPart.transform.Find(ChapterEditorDef.RandomGameObjectPool);
+            for (int i =  0; i < dataList.Count; i++)
+            {
+                GameObject randomGo = new GameObject(ChapterEditorDef.RandomGameObjectPool + "_" + i.ToString().PadLeft(3, '0'));
+                randomGo.transform.parent = randomGameObjectPool;
+
+                for (int j = 0; j < dataList[i].Count; j++)
+                {
+                    LoadGameObjectData(randomGo.transform, dataList[i][j]);
+                }
+            }
+        }
+
+        private void LoadDynamicGameObjects(GameObject mapPart, List<RandomGameObjectData> dataList)
+        {
+            if (dataList == null || dataList.Count <= 0)
+            {
+                return;
+            }
+
+            Transform dynamicGameObjects = mapPart.transform.Find(ChapterEditorDef.DynamicGameObjects);
+            foreach (RandomGameObjectData data in dataList)
+            {
+                float probability = data.probability;
+                Transform probabilityGo = dynamicGameObjects.Find(probability.ToString());
+                if (probabilityGo == null)
+                {
+                    throw new Exception(string.Format("当前概率 {0} 不支持!!! 请检查配置文件", probability));
+                }
+
+                LoadGameObjectData(probabilityGo, data);
+            }
+        }
+
+        private void LoadGameObjectData(Transform parent, GameObjectData data, string name = null)
+        {
+            GameObject prefab = Resources.Load<GameObject>(data.path);
+            if (prefab == null)
+            {
+                throw new Exception("Don't have prefab in " + data.path);
+            }
+
+            GameObject gameObj = GameObject.Instantiate(prefab);
+
+            if (name != null)
+            {
+                gameObj.name = name;
+            }
+
+            gameObj.transform.parent = parent;
+        }
+
+        #endregion
+
 
         private GameObject GenerateMapPart(int index)
         {

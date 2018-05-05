@@ -297,6 +297,7 @@ namespace SGF.Utils
             trans.rotation = ToQuaternion(data.rotation);
             trans.localScale = ToVector3(data.scale);
         }
+
     }
 }
 
