@@ -37,5 +37,10 @@ namespace Kurisu.GameEditor.Map
         public const string DynamicGameObjects = "DynamicGameObjects";
 
         public const string BirthPoints = "BirthPoints";
+
+        /// <summary>
+        /// 出生点预制体的路径
+        /// </summary>
+        public const string BirthPointPrefabPath = "map/BirthPoint";
     }
 }

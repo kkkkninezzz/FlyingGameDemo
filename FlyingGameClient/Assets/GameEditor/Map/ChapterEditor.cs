@@ -7,12 +7,16 @@ using Kurisu.Game.Data;
 
 using SGF.Utils;
 using SGF;
+using Newtonsoft.Json;
 
 namespace Kurisu.GameEditor.Map
 {
 
     public class ChapterEditor : MonoBehaviour
     {
+        [InlineButton("LoadConfig", "读取配置")]
+        public TextAsset ChapterConfig;
+
         /// <summary>
         /// 地图模式
         /// 
@@ -440,6 +444,220 @@ namespace Kurisu.GameEditor.Map
                 DestroyImmediate(parent.GetChild(i).gameObject);
             }
         }
+
+        #region 加载配置
+        /// <summary>
+        /// 加载配置
+        /// </summary>
+        public void LoadConfig()
+        {
+            if (ChapterConfig == null)
+            {
+                Debug.LogError("未选中章节配置文件，请先选中章节配置文件!!!");
+                return;
+            }
+            Debugger.EnableLog = true;
+
+            this.Log("开始加载章节配置文件: {0}", ChapterConfig.name);
+            // 重置掉所有数据
+            ResetAllData();
+
+            Dictionary<string, object> dic = JsonConvert.DeserializeObject<Dictionary<string, object>>(ChapterConfig.text);
+
+            MapMode mapMode = (MapMode)((long)dic["mapMode"]);
+            switch (mapMode)
+            {
+                case MapMode.ChapterMode:
+                    LoadChapterModeMapData(ChapterConfig.text);
+                    break;
+                case MapMode.EndlessMode:
+                    LoadEndlessModeMapData(ChapterConfig.text);
+                    break;
+            }
+
+
+            this.Log("加载章节配置文件成功");
+            Debugger.EnableLog = false;
+
+        }
+
+        private void LoadModeMapData(ModeMapData mapData)
+        {
+            this.Mode = mapData.mapMode;
+
+            LoadChapterNo(mapData.no);
+
+            this.ChapterName = mapData.name;
+
+            LoadBgms(mapData.bgmPaths);
+
+            LoadSkybox(mapData.skyboxPath);
+
+            LoadBirthPoints(mapData.birthPoints);
+        }
+
+        private void LoadChapterNo(string no)
+        {
+            if (string.IsNullOrEmpty(no))
+            {
+                return;
+            }
+
+            string[] chapterNo = no.Split('_');
+            if (chapterNo != null && chapterNo.Length > 0 && !string.IsNullOrEmpty(chapterNo[0]))
+            {
+                this.ChapterNo = int.Parse(chapterNo[0]);
+
+                if (chapterNo.Length == 2 && !string.IsNullOrEmpty(chapterNo[1]))
+                {
+                    this.SmallChapterNo = int.Parse(chapterNo[1]);
+                }
+                else
+                {
+                    this.SmallChapterNo = -1;
+                }
+            }
+        }
+
+        private void LoadBgms(List<string> bgmPaths)
+        {
+            if (bgmPaths == null || bgmPaths.Count <= 0)
+            {
+                return;
+            }
+
+            foreach (string path in bgmPaths)
+            {
+                AudioClip ac = Resources.Load<AudioClip>(path);
+                if (ac != null)
+                {
+                    BgmList.Add(ac);
+                }
+            }
+        }
+
+        private void LoadSkybox(string skyboxPath)
+        {
+            if (string.IsNullOrEmpty(skyboxPath))
+            {
+                return;
+            }
+
+            Material skybox = Resources.Load<Material>(skyboxPath);
+            if (skybox != null)
+            {
+                this.SkyBox = skybox;
+                ApplySkybox();
+            }
+        }
+
+        private void LoadBirthPoints(List<TransformData> birthPoints)
+        {
+            if (birthPoints == null || birthPoints.Count <= 0)
+            {
+                return;
+            }
+
+            Transform birthPointsTrans = this.transform.Find(ChapterEditorDef.BirthPoints);
+            if (birthPointsTrans == null)
+            {
+                GameObject bpGameObj = new GameObject(ChapterEditorDef.BirthPoints);
+                bpGameObj.transform.parent = this.transform;
+                birthPointsTrans = bpGameObj.transform;
+            }
+
+            GameObject birthPointPrefab = Resources.Load<GameObject>(ChapterEditorDef.BirthPointPrefabPath);
+            if (birthPointPrefab == null)
+            {
+                throw new Exception(ChapterEditorDef.BirthPointPrefabPath + " 下没有找到相应的出生点预制体!!!");
+            }
+
+            foreach (TransformData birthPoint in birthPoints)
+            {
+                GameObject go = GameObject.Instantiate<GameObject>(birthPointPrefab);
+                go.transform.parent = this.transform;
+                GameObjectUtils.SetTransformDataForObj(go.transform, birthPoint);
+            }
+        }
+
+        private void LoadMapParts(List<MapPartData> mapPartDataList)
+        {
+            if (mapPartDataList == null || mapPartDataList.Count <= 0)
+            {
+                return;
+            }
+
+            for (int i = 0; i < mapPartDataList.Count; i++)
+            {
+                LoadMapPart(i, mapPartDataList[i]);
+            }
+        }
+
+        private void LoadMapPart(int index, MapPartData mapPartData)
+        {
+            GameObject mapPart = GenerateMapPart(index);
+
+            // TODO 加载MapPart
+        }
+
+        private GameObject GenerateMapPart(int index)
+        {
+            Transform mapParts = this.transform.Find(ChapterEditorDef.MapParts);
+            if (mapParts == null)
+            {
+                GameObject mapPartsObj = new GameObject(ChapterEditorDef.MapParts);
+                mapPartsObj.transform.parent = this.transform;
+                mapParts = mapPartsObj.transform;
+            }
+
+            GameObject mapPartPrefab = Resources.Load<GameObject>(ChapterEditorDef.MapPartPrefabPath);
+            if (mapPartPrefab == null)
+            {
+                throw new Exception("Don't have MapPartPrefab in " + ChapterEditorDef.MapPartPrefabPath);
+            }
+
+            GameObject mapPart = GameObject.Instantiate(mapPartPrefab);
+            mapPart.name = ChapterEditorDef.MapPart + "_" + index.ToString().PadLeft(3, '0');
+            mapPart.transform.parent = mapParts;
+
+            return mapPart;
+        }
+        
+        /// <summary>
+        /// 加载关卡模式的地图
+        /// </summary>
+        /// <param name="configStr"></param>
+        private void LoadChapterModeMapData(string configStr)
+        {
+            ChapterModeMapData chapterModeMapData = JsonConvert.DeserializeObject<ChapterModeMapData>(configStr);
+            if (chapterModeMapData == null)
+            {
+                throw new Exception("读取配置失败!!! 请检查配置文件是否正确");
+            }
+
+            LoadModeMapData(chapterModeMapData);
+
+            LoadMapPart(0, chapterModeMapData.mapPart);
+        }
+
+        /// <summary>
+        /// 加载无尽模式的地图
+        /// </summary>
+        /// <param name="configStr"></param>
+        private void LoadEndlessModeMapData(string configStr)
+        {
+            EndlessModeMapData endlessModeMapData = JsonConvert.DeserializeObject<EndlessModeMapData>(configStr);
+            if (endlessModeMapData == null)
+            {
+                throw new Exception("读取配置失败!!! 请检查配置文件是否正确");
+            }
+
+            LoadModeMapData(endlessModeMapData);
+
+            LoadMapParts(endlessModeMapData.mapParts);
+        }
+        #endregion
+
     }
 }
 

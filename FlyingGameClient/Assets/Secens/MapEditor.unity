@@ -301,11 +301,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0f616c820ebb9042937894d909fd173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ChapterConfig: {fileID: 4900000, guid: e48d2f4a3a72e154abdbf94e866b487d, type: 3}
   Mode: 1
   ChapterNo: 1
   SmallChapterNo: 1
   ChapterName: 
-  BgmList: []
+  BgmList:
+  - {fileID: 8300000, guid: ca1f0f9e18e589048a52c63c3ebe8874, type: 3}
   SkyBox: {fileID: 2100000, guid: 7d1430089afb5854892670b854d1d684, type: 2}
 --- !u!1 &2133182964
 GameObject:

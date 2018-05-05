@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kurisu.GameEditor.Map;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,11 @@ namespace Kurisu.Game.Data
         public string name;
 
         /// <summary>
+        /// 地图模式
+        /// </summary>
+        public MapMode mapMode;
+
+        /// <summary>
         /// 背景音乐路径
         /// </summary>
         public List<string> bgmPaths;
@@ -35,5 +41,10 @@ namespace Kurisu.Game.Data
         /// 出生点信息
         /// </summary>
         public List<TransformData> birthPoints;
+
+        public ModeMapData(MapMode mapMode)
+        {
+            this.mapMode = mapMode;
+        }
     }
 }

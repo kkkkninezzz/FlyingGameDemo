@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Kurisu.GameEditor.Map;
+using System;
 using System.Collections.Generic;
 
 namespace Kurisu.Game.Data
@@ -13,5 +14,10 @@ namespace Kurisu.Game.Data
         /// 每次生成地图时，都会从MapParts中随机
         /// </summary>
         public List<MapPartData> mapParts;
+
+        public EndlessModeMapData() : base(MapMode.EndlessMode)
+        {
+            
+        }
     }
 }

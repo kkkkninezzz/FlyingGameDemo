@@ -271,11 +271,31 @@ namespace SGF.Utils
             return new QuaternionData(q.x, q.y, q.z, q.w);
         }
 
+
+        /// <summary>
+        /// 转换为TransformData
+        /// </summary>
+        /// <param name="position"></param>
+        /// <param name="rotation"></param>
+        /// <param name="scale"></param>
+        /// <returns></returns>
         public static TransformData ToTransformData(Vector3 position, Quaternion rotation, Vector3 scale)
         {
             return new TransformData(ToVector3Data(Vector3.zero),
                                      ToQuaternionData(Quaternion.Euler(Vector3.zero)),
                                      ToVector3Data(Vector3.one));
+        }
+
+        /// <summary>
+        /// 为已有的Transform设置数据
+        /// </summary>
+        /// <param name="trans"></param>
+        /// <param name="data"></param>
+        public static void SetTransformDataForObj(Transform trans, TransformData data)
+        {
+            trans.position = ToVector3(data.position);
+            trans.rotation = ToQuaternion(data.rotation);
+            trans.localScale = ToVector3(data.scale);
         }
     }
 }
