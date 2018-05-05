@@ -73,7 +73,7 @@ namespace Kurisu.GameEditor.Map
         }
 
         /// <summary>
-        /// RemoveSkyBox
+        /// ResetSkybox
         /// </summary>
         public void ResetSkybox()
         {
@@ -412,6 +412,32 @@ namespace Kurisu.GameEditor.Map
             if (prefab == null)
             {
                 Debug.Log("加载失败");
+            }
+        }
+
+        [ContextMenu("重置所有数据")]
+        public void ResetAllData()
+        {
+            ChapterName = "";
+            if (BgmList != null)
+                BgmList.Clear();
+            ResetSkybox();
+
+            Transform mapParts = this.transform.Find(ChapterEditorDef.MapParts);
+            RemoveAllChildren(mapParts);
+
+            Transform birthPoints = this.transform.Find(ChapterEditorDef.BirthPoints);
+            RemoveAllChildren(birthPoints);
+        }
+
+        private void RemoveAllChildren(Transform parent)
+        {
+            if (parent == null)
+                return;
+
+            for (int i = parent.childCount - 1; i >= 0; i--)
+            {
+                DestroyImmediate(parent.GetChild(i).gameObject);
             }
         }
     }
