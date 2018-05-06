@@ -14,7 +14,10 @@ namespace Kurisu.GameEditor.Map
 
     public class ChapterEditor : MonoBehaviour
     {
-        [InlineButton("LoadConfig", "读取配置")]
+        [Title("章节配置文件")]
+        [InfoBox("注1: 将导出好的章节配置读取到编辑器中，请确保配置文件的合法性!!!\n" +
+            "注2: 操作方式，右键 -> 读取配置")]
+        [CustomContextMenu("读取配置", "LoadConfig")]
         public TextAsset ChapterConfig;
 
         /// <summary>
@@ -412,12 +415,9 @@ namespace Kurisu.GameEditor.Map
         [Button("Test")]
         public void Test()
         {
-            GameObject prefab = Resources.Load<GameObject>("Assets/Resources/map/map_0");
+            AudioClip ac1 = Resources.Load<AudioClip>("audio/Bgm/RADWIMPS - 前前前世 (movie ver.)");
 
-            if (prefab == null)
-            {
-                Debug.Log("加载失败");
-            }
+            BgmList.Add(ac1);
         }
         */
 
@@ -451,6 +451,7 @@ namespace Kurisu.GameEditor.Map
         /// <summary>
         /// 加载配置
         /// </summary>
+        //[Button("加载配置文件")]
         public void LoadConfig()
         {
             if (ChapterConfig == null)
@@ -460,10 +461,13 @@ namespace Kurisu.GameEditor.Map
             }
             Debugger.EnableLog = true;
 
-            this.Log("开始加载章节配置文件: {0}", ChapterConfig.name);
+            this.Log("重置所有数据中...");
             // 重置掉所有数据
             ResetAllData();
+            this.Log("数据重置成功");
 
+            this.Log("开始加载章节配置文件: {0}", ChapterConfig.name);
+            
             Dictionary<string, object> dic = JsonConvert.DeserializeObject<Dictionary<string, object>>(ChapterConfig.text);
 
             MapMode mapMode = (MapMode)((long)dic["mapMode"]);
@@ -479,8 +483,8 @@ namespace Kurisu.GameEditor.Map
 
 
             this.Log("加载章节配置文件成功");
+            
             Debugger.EnableLog = false;
-
         }
 
         private void LoadModeMapData(ModeMapData mapData)
@@ -527,14 +531,21 @@ namespace Kurisu.GameEditor.Map
             {
                 return;
             }
+            if (BgmList == null)
+            {
+                BgmList = new List<AudioClip>(bgmPaths.Count);
+            }
 
             foreach (string path in bgmPaths)
             {
+                
                 AudioClip ac = Resources.Load<AudioClip>(path);
                 if (ac != null)
                 {
                     BgmList.Add(ac);
+                    
                 }
+                
             }
         }
 
@@ -577,7 +588,7 @@ namespace Kurisu.GameEditor.Map
             foreach (TransformData birthPoint in birthPoints)
             {
                 GameObject go = GameObject.Instantiate<GameObject>(birthPointPrefab);
-                go.transform.parent = this.transform;
+                go.transform.parent = birthPointsTrans;
                 GameObjectUtils.SetTransformDataForObj(go.transform, birthPoint);
             }
         }
@@ -599,12 +610,10 @@ namespace Kurisu.GameEditor.Map
         private void LoadMapPart(int index, MapPartData mapPartData)
         {
             GameObject mapPart = GenerateMapPart(index);
-
-            // TODO 加载MapPart
-
+            
             // 调整StartPosition和EndPosition的位置
-            this.transform.Find(ChapterEditorDef.StartPosition).position = GameObjectUtils.ToVector3(mapPartData.startPosition);
-            this.transform.Find(ChapterEditorDef.EndPosition).position = GameObjectUtils.ToVector3(mapPartData.endPosition);
+            mapPart.transform.Find(ChapterEditorDef.StartPosition).position = GameObjectUtils.ToVector3(mapPartData.startPosition);
+            mapPart.transform.Find(ChapterEditorDef.EndPosition).position = GameObjectUtils.ToVector3(mapPartData.endPosition);
 
             // 加载BasicPart
             LoadBasicPart(mapPart, mapPartData.basicPart);
