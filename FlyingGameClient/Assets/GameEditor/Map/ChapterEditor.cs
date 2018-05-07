@@ -330,6 +330,7 @@ namespace Kurisu.GameEditor.Map
                 throw new Exception(trans + " 不存在对应的 prefab!!!");
             }
 
+            goData.name = trans.name;
             goData.path = prefabPath;
             goData.transformData = GenerateTransformData(trans);
         }
@@ -451,7 +452,6 @@ namespace Kurisu.GameEditor.Map
         /// <summary>
         /// 加载配置
         /// </summary>
-        //[Button("加载配置文件")]
         public void LoadConfig()
         {
             if (ChapterConfig == null)
@@ -678,22 +678,19 @@ namespace Kurisu.GameEditor.Map
             }
         }
 
-        private void LoadGameObjectData(Transform parent, GameObjectData data, string name = null)
+        private void LoadGameObjectData(Transform parent, GameObjectData data)
         {
             GameObject prefab = Resources.Load<GameObject>(data.path);
             if (prefab == null)
             {
                 throw new Exception("Don't have prefab in " + data.path);
             }
+            
+            GameObject gameObj = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
 
-            GameObject gameObj = GameObject.Instantiate(prefab);
-
-            if (name != null)
-            {
-                gameObj.name = name;
-            }
-
+            gameObj.name = data.name;
             gameObj.transform.parent = parent;
+            
         }
 
         #endregion

@@ -12,6 +12,11 @@ namespace Kurisu.Game.Data
     public class GameObjectData
     {
         /// <summary>
+        /// 游戏对象的名称
+        /// </summary>
+        public string name;
+
+        /// <summary>
         /// 游戏对象的资源路径
         /// </summary>
         public string path;
