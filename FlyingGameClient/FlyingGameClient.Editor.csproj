@@ -329,9 +329,6 @@
     <Compile Include="Assets\Resources\extra\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Fantasy Skybox FREE\Fog and Ambient references.txt" />
-    <None Include="Assets\Fantasy Skybox FREE\Readme.txt" />
-    <None Include="Assets\GE Common Assets\Readme.txt" />
     <None Include="Assets\GameResource\Character\NormalBody\UnityChan\Stage\Shader\AlphaMask.shader" />
     <None Include="Assets\GameResource\Character\NormalBody\UnityChan\Voice\unity-chan_voice_list.txt" />
     <None Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />

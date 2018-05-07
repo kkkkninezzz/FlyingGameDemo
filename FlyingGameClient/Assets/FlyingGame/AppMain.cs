@@ -8,6 +8,7 @@ using Kurisu.Service.UIManager;
 using Kurisu.Module;
 using Kurisu.UI;
 using Kurisu.Game;
+using Kurisu.Module.Map;
 
 namespace Kurisu
 {
@@ -37,6 +38,8 @@ namespace Kurisu
             UIManager.MainPage = UIDef.UIHomePage;
 
             GameLogicManager.Instance.Init();
+
+            MapModule.Instance.Init();
         }
 
         private void InitBusinessModules()
