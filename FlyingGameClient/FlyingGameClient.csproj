@@ -319,7 +319,7 @@
   <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\ChapterModeMapData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\NormalModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\EndlessModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlightConfig.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlyingVehicleData.cs" />
@@ -327,9 +327,8 @@
     <Compile Include="Assets\FlyingGame\Game\Data\GameObjectData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameParam.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameVkey.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\MapPartData.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\ModeMapData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\QuaternionData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\RandomGameObjectData.cs" />
@@ -397,7 +396,7 @@
     <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditorDef.cs" />
-    <Compile Include="Assets\GameEditor\Map\MapMode.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapMode.cs" />
     <Compile Include="Assets\GameEditor\Map\MapPartDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\MapPartGenerator.cs" />
     <Compile Include="Assets\GameEditor\Map\RandomGameObjectsGenerator.cs" />
@@ -516,7 +515,6 @@
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>

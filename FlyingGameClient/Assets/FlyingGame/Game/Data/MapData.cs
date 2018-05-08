@@ -1,21 +1,48 @@
-﻿using System.Collections;
-using System;
+﻿using System;
 using System.Collections.Generic;
+
 
 namespace Kurisu.Game.Data
 {
+    /// <summary>
+    /// 用于存储地图数据的类
+    /// </summary>
     [Serializable]
-    public class MapData
+    public abstract class MapData
     {
         /// <summary>
-        /// 地图id，通过id找到地图资源
+        /// 编号
         /// </summary>
-        public int id = 0;
+        public string no;
 
         /// <summary>
-        /// 地图的名称，可以用来显示
+        /// 名称
         /// </summary>
-        public string name = "";
+        public string name;
 
+        /// <summary>
+        /// 地图模式
+        /// </summary>
+        public MapMode mapMode;
+
+        /// <summary>
+        /// 背景音乐路径
+        /// </summary>
+        public List<string> bgmPaths;
+
+        /// <summary>
+        /// 天空盒路径
+        /// </summary>
+        public string skyboxPath;
+
+        /// <summary>
+        /// 出生点信息
+        /// </summary>
+        public List<TransformData> birthPoints;
+
+        public MapData(MapMode mapMode)
+        {
+            this.mapMode = mapMode;
+        }
     }
 }

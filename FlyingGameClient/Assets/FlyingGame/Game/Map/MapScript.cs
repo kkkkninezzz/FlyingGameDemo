@@ -4,15 +4,29 @@ using Kurisu.Game.Data;
 
 namespace Kurisu.Game.Map
 {
-    public abstract class MapScript : MonoBehaviour
+    public interface MapScript
     {
-        public abstract void EnterFrame(int frameIndex);
-
         /// <summary>
-        /// 获取出生位置
+        /// 第一次加载
         /// </summary>
-        /// <returns></returns>
-        public abstract List<TransformData> GetBirthPoints();
+        void FirstLoad();
+
+        void EnterFrame(int frameIndex);
+    }
+
+    public abstract class AbstractMapScript<T> : MapScript
+    {
+        protected T m_data;
+        protected Transform m_container;
+
+        public AbstractMapScript(T data, Transform container)
+        {
+            m_data = data;
+            m_container = container;
+        }
+
+        public abstract void FirstLoad();
+        public abstract void EnterFrame(int frameIndex);
     }
 }
 

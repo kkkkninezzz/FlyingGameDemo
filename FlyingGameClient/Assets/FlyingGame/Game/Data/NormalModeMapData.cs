@@ -7,16 +7,16 @@ using System.Text;
 namespace Kurisu.Game.Data
 {
     /// <summary>
-    /// 关卡模式下的地图数据
+    /// 正常模式下的地图数据
     /// </summary>
-    public class ChapterModeMapData : ModeMapData
+    public class NormalModeMapData : MapData
     {
         /// <summary>
         /// 地图数据
         /// </summary>
         public MapPartData mapPart;
 
-        public ChapterModeMapData() : base(MapMode.ChapterMode)
+        public NormalModeMapData() : base(MapMode.NormalMode)
         {
 
         }

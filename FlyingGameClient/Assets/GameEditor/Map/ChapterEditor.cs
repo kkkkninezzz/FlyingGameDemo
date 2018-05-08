@@ -102,7 +102,7 @@ namespace Kurisu.GameEditor.Map
             Debugger.EnableLog = true;
 
             this.Log("当前模式: {0}，开始构建数据...", Mode);
-            ModeMapData mapData = GenerateModeMapData();
+            MapData mapData = GenerateMapData();
             if (mapData == null)
             {
                 throw new Exception("构建数据数据失败，因此拒绝导出!!!");
@@ -114,7 +114,7 @@ namespace Kurisu.GameEditor.Map
             string path = "";
             switch (Mode)
             {
-                case MapMode.ChapterMode:
+                case MapMode.NormalMode:
                     path = string.Format(ChapterEditorDef.ChapterConfigRootPath + "/{0}/{1}.json", ChapterNo, mapData.no);
                     JsonUtils.WriteDataToJsonFile(path, mapData);
                     break;
@@ -130,9 +130,9 @@ namespace Kurisu.GameEditor.Map
             Debugger.EnableLog = false;
         }
 
-        private ModeMapData GenerateModeMapData()
+        private MapData GenerateMapData()
         {
-            ModeMapData mapData = null;
+            MapData mapData = null;
 
             Transform mapParts = transform.Find(ChapterEditorDef.MapParts);
             if (mapParts == null)
@@ -148,10 +148,10 @@ namespace Kurisu.GameEditor.Map
 
             switch (Mode)
             {
-                case MapMode.ChapterMode:
-                    ChapterModeMapData chapterModeMapData = new ChapterModeMapData();
-                    chapterModeMapData.mapPart = GenerateMapPartDataList(mapParts, true)[0];
-                    mapData = chapterModeMapData;
+                case MapMode.NormalMode:
+                    NormalModeMapData normalModeMapData = new NormalModeMapData();
+                    normalModeMapData.mapPart = GenerateMapPartDataList(mapParts, true)[0];
+                    mapData = normalModeMapData;
                     break;
 
                 case MapMode.EndlessMode:
@@ -184,12 +184,12 @@ namespace Kurisu.GameEditor.Map
         /// 构建MapPartDataList
         /// </summary>
         /// <param name="mapParts"></param>
-        /// <param name="isChapterMode"></param>
+        /// <param name="isNormalMode"></param>
         /// <returns></returns>
-        private List<MapPartData> GenerateMapPartDataList(Transform mapParts, bool isChapterMode)
+        private List<MapPartData> GenerateMapPartDataList(Transform mapParts, bool isNormalMode)
         {
             List<MapPartData> mapPartDataList;
-            if (isChapterMode)
+            if (isNormalMode)
             {
                 mapPartDataList = new List<MapPartData>(1);
                 mapPartDataList.Add(GenerateMapPartData(mapParts.GetChild(0)));
@@ -473,8 +473,8 @@ namespace Kurisu.GameEditor.Map
             MapMode mapMode = (MapMode)((long)dic["mapMode"]);
             switch (mapMode)
             {
-                case MapMode.ChapterMode:
-                    LoadChapterModeMapData(ChapterConfig.text);
+                case MapMode.NormalMode:
+                    LoadNormalModeMapData(ChapterConfig.text);
                     break;
                 case MapMode.EndlessMode:
                     LoadEndlessModeMapData(ChapterConfig.text);
@@ -487,7 +487,7 @@ namespace Kurisu.GameEditor.Map
             Debugger.EnableLog = false;
         }
 
-        private void LoadModeMapData(ModeMapData mapData)
+        private void LoadModeMapData(MapData mapData)
         {
             this.Mode = mapData.mapMode;
 
@@ -723,17 +723,17 @@ namespace Kurisu.GameEditor.Map
         /// 加载关卡模式的地图
         /// </summary>
         /// <param name="configStr"></param>
-        private void LoadChapterModeMapData(string configStr)
+        private void LoadNormalModeMapData(string configStr)
         {
-            ChapterModeMapData chapterModeMapData = JsonConvert.DeserializeObject<ChapterModeMapData>(configStr);
-            if (chapterModeMapData == null)
+            NormalModeMapData normalModeMapData = JsonConvert.DeserializeObject<NormalModeMapData>(configStr);
+            if (normalModeMapData == null)
             {
                 throw new Exception("读取配置失败!!! 请检查配置文件是否正确");
             }
 
-            LoadModeMapData(chapterModeMapData);
+            LoadModeMapData(normalModeMapData);
 
-            LoadMapPart(0, chapterModeMapData.mapPart);
+            LoadMapPart(0, normalModeMapData.mapPart);
         }
 
         /// <summary>

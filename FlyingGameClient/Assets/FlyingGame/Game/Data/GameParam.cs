@@ -15,7 +15,7 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 地图数据，决定这场游戏用哪个地图
         /// </summary>
-        public MapData mapData = new MapData();
+        public MapData mapData;
 
         /// <summary>
         /// 随机数种子，用于不同的客户端 产生相同的随机数

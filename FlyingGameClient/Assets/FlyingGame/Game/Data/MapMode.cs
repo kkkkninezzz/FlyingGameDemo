@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Kurisu.GameEditor.Map
+namespace Kurisu.Game.Data
 {
     public enum MapMode
     {
@@ -13,8 +13,8 @@ namespace Kurisu.GameEditor.Map
         EndlessMode,
 
         /// <summary>
-        /// 关卡模式
+        /// 正常模式，一开始就会生成好地图
         /// </summary>
-        ChapterMode,
+        NormalMode,
     }
 }

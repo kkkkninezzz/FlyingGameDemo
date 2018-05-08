@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace Kurisu.Game.Map
 {
@@ -21,11 +22,21 @@ namespace Kurisu.Game.Map
         public void Load(MapData data)
         {
             m_data = data;
+            m_view = new GameObject("map");
 
-            GameObject mapPrefab = Resources.Load<GameObject>("map/map_" + data.id);
-            m_view = GameObject.Instantiate(mapPrefab);
+            switch (data.mapMode)
+            {
+                case MapMode.EndlessMode:
+                    m_script = new EndlessModeMapScript((EndlessModeMapData)data, m_view.transform);
+                    break;
+                case MapMode.NormalMode:
+                    // TODO 实现正常模式的
+                    break;
+                default:
+                    throw new Exception(string.Format("未知的地图模式 {0}", data.mapMode));
+            }
 
-            m_script = m_view.GetComponent<MapScript>();
+            m_script.FirstLoad();
         }
       
         /// <summary>
@@ -60,11 +71,8 @@ namespace Kurisu.Game.Map
         public List<TransformData> BirthPoints
         {
             get
-            {   if (m_script == null)
-                {
-                    return null;
-                }
-                return m_script.GetBirthPoints();
+            {   
+                return m_data.birthPoints;
             }
         }
     }
