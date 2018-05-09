@@ -16,5 +16,6 @@ namespace Kurisu.Game.Data
             this.y = y;
             this.z = z;
         }
+       
     }
 }

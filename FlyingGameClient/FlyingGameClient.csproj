@@ -319,7 +319,6 @@
   <ItemGroup>
     <Compile Include="Assets\FlyingGame\AppConfig.cs" />
     <Compile Include="Assets\FlyingGame\AppMain.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\NormalModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\EndlessModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlightConfig.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\FlyingVehicleData.cs" />
@@ -327,13 +326,17 @@
     <Compile Include="Assets\FlyingGame\Game\Data\GameObjectData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameParam.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\GameVkey.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\MapPartData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\MapData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapMode.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\MapPartData.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Data\NormalModeMapData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\PlayerData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\QuaternionData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\RandomGameObjectData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\TransformData.cs" />
     <Compile Include="Assets\FlyingGame\Game\Data\Vector3Data.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Common\CommonEntity.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Common\CommonView.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityFactory.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\EntityObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\Recycler.cs" />
@@ -341,7 +344,6 @@
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\FlyingVehicle.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\FlyingVehicleView.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\TransData.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameDefine.cs" />
@@ -396,7 +398,6 @@
     <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditorDef.cs" />
-    <Compile Include="Assets\FlyingGame\Game\Data\MapMode.cs" />
     <Compile Include="Assets\GameEditor\Map\MapPartDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\MapPartGenerator.cs" />
     <Compile Include="Assets\GameEditor\Map\RandomGameObjectsGenerator.cs" />

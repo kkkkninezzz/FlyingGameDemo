@@ -110,11 +110,13 @@ namespace Kurisu.Game
 
             // 创建地图
             m_map = new GameMap();
-            m_map.Load(param.mapData);
+            m_map.Init(param.mapData);
 
             // 初始化工厂
             EntityFactory.Init();
             ViewFactory.Init(m_map.View.transform);
+
+            m_map.Load();
 
             // 初始化摄像机
             GameCamera.Create();

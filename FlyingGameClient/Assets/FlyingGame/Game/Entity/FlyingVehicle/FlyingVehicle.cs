@@ -10,9 +10,7 @@ using SGF.Utils;
 
 namespace Kurisu.Game.Entity.FlyingVehicle
 {
-    /// <summary>
-    /// 需要给定一个transform的模型数据，FlyingVehicle的修改全部在模型上修改，然后再同步给视图层
-    /// </summary>
+    
     public class FlyingVehicle : EntityObject
     {
         private FlyingVehicleData m_vehicleData;
@@ -62,68 +60,6 @@ namespace Kurisu.Game.Entity.FlyingVehicle
         }
         #endregion
 
-        #region 操作队列
-        /*
-        /// <summary>
-        /// 保存transData数据
-        /// </summary>
-        private Queue<TransData> m_transDataQueue = new Queue<TransData>();
-       
-
-        /// <summary>
-        /// 是否有下个数据
-        /// </summary>
-        public bool HasNextTransData
-        {
-            get
-            {
-                return m_transDataQueue.Count > 0;
-            }
-        }
-
-        /// <summary>
-        /// 获取下个数据，如果队列为空，则返回null
-        /// </summary>
-        public TransData NextTransData
-        {
-            get
-            {
-                if (HasNextTransData)
-                    return m_transDataQueue.Dequeue();
-
-                throw new Exception("m_transDataQueue 为空，不能获取数据");
-            }
-        }
-
-        public void SaveTransData(TranslateData data)
-        {
-            TransData transData = new TransData();
-            transData.type = TransDataType.TranslateData;
-            transData.translateData = data;
-
-            m_transDataQueue.Enqueue(transData);
-        }
-
-        public void SaveTransData(RotateData data)
-        {
-            TransData transData = new TransData();
-            transData.type = TransDataType.RotateData;
-            transData.rotateData = data;
-
-            m_transDataQueue.Enqueue(transData);
-        }
-
-        public void SaveTransData(RotationData data)
-        {
-            TransData transData = new TransData();
-            transData.type = TransDataType.RotationData;
-            transData.rotationData = data;
-
-            m_transDataQueue.Enqueue(transData);
-        }
-        */
-      
-        #endregion
 
         public void Create(PlayerData playerData, Transform container)
         {

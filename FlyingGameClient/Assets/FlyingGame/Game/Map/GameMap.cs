@@ -16,10 +16,10 @@ namespace Kurisu.Game.Map
         private MapData m_data;
 
         /// <summary>
-        /// 通过MapData加载地图
+        /// 初始化地图
         /// </summary>
         /// <param name="data"></param>
-        public void Load(MapData data)
+        public void Init(MapData data)
         {
             m_data = data;
             m_view = new GameObject("map");
@@ -35,7 +35,13 @@ namespace Kurisu.Game.Map
                 default:
                     throw new Exception(string.Format("未知的地图模式 {0}", data.mapMode));
             }
+        }
 
+        /// <summary>
+        /// 加载地图
+        /// </summary>
+        public void Load()
+        {
             m_script.FirstLoad();
         }
       

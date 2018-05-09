@@ -53,21 +53,7 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             */
         }
 
-        private void HandleTranslateData(TranslateData data)
-        {
-            m_body.Translate(data(m_body), Space.World);
-        }
         
-        private void HandleRotateData(RotateData data)
-        {
-            m_body.Rotate(data(m_body), Space.World);
-        }
-
-        private void HandleRotationData(RotationData data)
-        {
-            m_body.rotation = data(m_body);
-        }
-
 
         public void OnTriggerEnter(Collider other)
         {
