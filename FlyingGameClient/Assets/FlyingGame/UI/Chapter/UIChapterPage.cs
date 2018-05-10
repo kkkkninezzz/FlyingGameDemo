@@ -16,6 +16,11 @@ namespace Kurisu.UI.Chapter
         public GameObject MapItemPrefab;
 
         /// <summary>
+        /// 关卡选择按钮的prefab
+        /// </summary>
+        public GameObject ChapterSelectedBtnPrefab;
+
+        /// <summary>
         /// 关卡模式按钮
         /// </summary>
         public Button ChapterModeBtn;
@@ -50,7 +55,10 @@ namespace Kurisu.UI.Chapter
         /// </summary>
         private bool m_isFirstOpenEndlessPanel = true;
 
-        //private List
+        /// <summary>
+        /// 暂存关卡地图的游戏对象
+        /// </summary>
+        private List<GameObject> m_chapterMapGameObjs = new List<GameObject>();
 
         protected override void OnOpen(object arg = null)
         {
@@ -96,6 +104,13 @@ namespace Kurisu.UI.Chapter
         private void LoadDataToChapterPanel()
         {
             // TODO 加载数据
+            List<ChapterMapConfigData> chapterMaps = MapModule.Instance.GetChapterModeConfigs();
+
+
+            foreach (ChapterMapConfigData data in chapterMaps)
+            {
+
+            }
         }
     }
 }
