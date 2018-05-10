@@ -13,9 +13,18 @@ namespace Kurisu.Module.Home
         /// 打开模块
         /// </summary>
         /// <param name="name"></param>
-        public void OpenModule(string name)
+        public void OpenModule(string name, object arg = null)
         {
-            UIAPI.ShowMsgBox(name, "模块正在开发中...", "确定");
+            switch (name)
+            {
+                case ModuleDef.PveModule:
+                    ModuleManager.Instance.ShowModule(name, arg);
+                    break;
+                default:
+                    UIAPI.ShowMsgBox(name, "模块正在开发中...", "确定");
+                    break;
+            }
+            
         }
     }
 }

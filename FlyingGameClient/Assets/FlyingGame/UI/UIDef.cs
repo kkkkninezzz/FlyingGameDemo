@@ -1,4 +1,6 @@
-﻿namespace Kurisu.UI
+﻿using UnityEngine;
+
+namespace Kurisu.UI
 {
     public static class UIDef
     {
@@ -12,7 +14,14 @@
 
         public const string UIHomePage = "Home/UIHomePage";
 
+        public const string UIChapterPage = "Chapter/UIChapterPage";
+
         #endregion
+
+        /// <summary>
+        /// 按钮被选中时的颜色
+        /// </summary>
+        public readonly static Color SelectedColorForBtn = new Color(240f / 255f, 240f / 255f, 42f / 255f, 255f / 255f);
     }
 }
 

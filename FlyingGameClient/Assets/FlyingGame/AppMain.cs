@@ -27,7 +27,7 @@ namespace Kurisu
             InitBusinessModules();
 
             // 进入主界面
-            //UIManager.Instance.EnterMainPage();
+            UIManager.Instance.EnterMainPage();
         }
 
         private void InitServiceModules()
@@ -44,6 +44,7 @@ namespace Kurisu
 
         private void InitBusinessModules()
         {
+            ModuleManager.Instance.CreateModule(ModuleDef.HomeModule);
             ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
             ModuleManager.Instance.CreateModule(ModuleDef.PveModule);
         }

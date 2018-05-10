@@ -6,6 +6,7 @@ using UnityEngine;
 using Kurisu.Service.Core;
 using Kurisu.Game.Data;
 using SGF;
+using Kurisu.UI;
 
 namespace Kurisu.Module.Pve
 {
@@ -18,22 +19,26 @@ namespace Kurisu.Module.Pve
         {
             base.Show(arg);
 
-            int mode = (int)arg;
+            //int mode = (int)arg;
+
+            UIAPI.ShowUIPage(UIDef.UIChapterPage);
 
             //TODO 显示关卡选择UI
 
             //先直接启动游戏
-            StartGame((GameMode)mode);
+            //StartGame((GameMode)mode);
         }
 
-        public void StartGame(GameMode mode)
+        public void StartGame(GameMode mode, MapData mapData)
         {
             GameParam param = new GameParam();
             param.mode = mode;
+            param.mapData = mapData;
             param.limitedTime = 100;
 
             m_game = new PveGame();
             m_game.Start(param);
+
             m_game.onGameEnd += () =>
             {
                 CloseGame();

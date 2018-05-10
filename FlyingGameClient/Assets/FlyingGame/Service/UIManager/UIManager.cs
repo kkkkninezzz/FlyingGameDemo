@@ -59,7 +59,7 @@ namespace Kurisu.Service.UIManager
         /// <returns></returns>
         private T Load<T>(string name) where T : UIPanel
         {
-            T ui = UIRoot.Find<T>(name);
+            T ui = UIRoot.Find<T>(name.Replace('/', '_'));
 
             if (ui == null)
             {
@@ -70,7 +70,7 @@ namespace Kurisu.Service.UIManager
                     ui = go.GetComponent<T>();
                     if (ui != null)
                     {
-                        go.name = name;
+                        go.name = name.Replace('/', '_');
                         UIRoot.AddChild(ui);
                     }
                     else

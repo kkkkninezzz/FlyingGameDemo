@@ -216,7 +216,7 @@ namespace Kurisu.GameEditor.Map
             mapPartData.endPosition = GenerateEndPosition(mapPart);
             mapPartData.basicPart = GenerateBasicPart(mapPart);
             mapPartData.randomGameObjectPool = GenerateRandomGameObjectPool(mapPart);
-
+            mapPartData.dynamicGameObjects = GenerateDynamicGameObjects(mapPart);
             return mapPartData;
         }
 
@@ -308,6 +308,11 @@ namespace Kurisu.GameEditor.Map
             {
                 float probability = float.Parse(probabilityObj.name);
 
+                foreach (Transform obj in probabilityObj)
+                {
+                    objs.Add(GenerateRandomGameObjectData(obj, probability));
+                }
+                
             }
 
             return objs;

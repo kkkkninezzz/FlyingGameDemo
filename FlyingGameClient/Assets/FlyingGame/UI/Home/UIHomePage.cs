@@ -72,12 +72,22 @@ namespace Kurisu.UI.Home
 
         #region 主界面按钮功能
 
+        private void OpenModule(string name, object arg = null)
+        {
+            var homeModule = ModuleAPI.HomeModule;
+
+            if (homeModule != null)
+            {
+                homeModule.OpenModule(name, arg);
+            }
+        }
+
         /// <summary>
         /// 出击按钮功能
         /// </summary>
         public void OnPlayGameBtn()
         {
-
+            OpenModule(ModuleDef.PveModule);
         }
 
         /// <summary>

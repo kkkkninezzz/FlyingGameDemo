@@ -153,6 +153,14 @@ namespace Kurisu.Service.Core
         }
 
         //=================================================================================
+        /// <summary>
+        /// 显示业务模块的默认UI
+        /// </summary>
+        /// <param name="name"></param>
+        public void ShowModule(string name, object arg = null)
+        {
+            SendMessage(name, "Show", arg);
+        }
 
         public void SendMessage(string target, string msg, params object[] args)
         {

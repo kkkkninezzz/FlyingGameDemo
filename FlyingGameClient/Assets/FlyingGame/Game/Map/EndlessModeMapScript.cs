@@ -54,6 +54,7 @@ namespace Kurisu.Game.Map
         /// </summary>
         public override void FirstLoad()
         {
+            LoadSkybox();
             LoadMapParts();
         }
 

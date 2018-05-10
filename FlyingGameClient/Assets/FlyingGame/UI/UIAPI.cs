@@ -45,6 +45,28 @@ namespace Kurisu.UI
         {
             return ShowMsgBox(string.Empty, content, btnText, onCloseEvent);
         }
+
+        /// <summary>
+        /// 在指定场景打开UIPage
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="page"></param>
+        /// <param name="arg"></param>
+        public static void ShowUIPage(string scene, string page, object arg = null)
+        {
+            UIManager.Instance.OpenPage(scene, page, arg);
+        }
+
+        /// <summary>
+        /// 在主场景打开UIPage
+        /// </summary>
+        /// <param name="scene"></param>
+        /// <param name="page"></param>
+        /// <param name="arg"></param>
+        public static void ShowUIPage(string page, object arg = null)
+        {
+            UIManager.Instance.OpenPage(page, arg);
+        }
     }
 }
 

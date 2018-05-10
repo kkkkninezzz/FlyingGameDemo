@@ -4,6 +4,12 @@
     ],
 
     "endlessModeConfigs":[
-        
+        {
+            "no" : "1",
+            "name" : "无尽模式测试地图-1",
+            "gameMode" : 2,
+            "mapMode" : 0,
+            "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+        }
     ]
 }

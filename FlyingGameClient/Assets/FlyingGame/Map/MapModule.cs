@@ -27,10 +27,12 @@ namespace Kurisu.Module.Map
 
         public void Init()
         {
+            this.Log("Init() Path = " + MapSettingPath);
             MapSetting = JsonUtils.LoadJsonFromFile<MapSettingData>(MapSettingPath);
 
             if (MapSetting == null)
             {
+                this.LogWarning("Don't exists MapSetting in Path = {0}", MapSettingPath);
                 MapSetting = new MapSettingData();
                 MapSetting.chapterModeConfigs = new List<ChapterMapConfigData>(0);
                 MapSetting.endlessModeConfigs = new List<MapConfigData>(0);

@@ -8,6 +8,8 @@ using Kurisu.Module.Pve;
 using Kurisu.Service.Core;
 using Kurisu.Module;
 using System;
+using Kurisu.Module.Map;
+using SGF;
 
 namespace Kurisu.Game
 {
@@ -19,9 +21,11 @@ namespace Kurisu.Game
         // Use this for initialization
         void Start()
         {
+            
             /*
             GameParam param = new GameParam();
-            param.mode = GameMode.NormalPVE;
+            param.mode = GameMode.EndlessPVE;
+            param.mapData = MapModule.Instance.GetEndlessModeMapData("1");
 
             GameLogicManager game = GameLogicManager.Instance;
             game.CreateGame(param);
@@ -33,9 +37,9 @@ namespace Kurisu.Game
 
             game.RegPlayerData(playerData);
             */
-
-            //PveModule pveModule = ModuleAPI.PveModule;
-            //pveModule.StartGame(GameMode.EndlessPVE);
+            
+            PveModule pveModule = ModuleAPI.PveModule;
+            pveModule.StartGame(GameMode.EndlessPVE, MapModule.Instance.GetEndlessModeMapData("1"));
             
 
             /*
@@ -53,44 +57,15 @@ namespace Kurisu.Game
             {
                 //GameLogicManager.Instance.CreatePlayer(1, GameLogicManager.DEFAULT_POSITION);
                 //MonoHelper.AddFixedUpdateListener(() => { Debug.Log(1); });
-                /*
+                
                 PveModule pveModule = ModuleAPI.PveModule;
                 PveGame game = pveModule.CurGame;
                 game.CreatePlayer();
-                */
+                
 
-                AppConfig.Save();
+                //AppConfig.Save();
             }
 
-            //GameLogicManager.Instance.EnterFrame(1);
-            
-            /*
-            if (action != null)
-            {
-               // Debug.Log(action.GetInvocationList().Length);
-                action();
-               // Debug.Log(action.GetInvocationList().Length);
-
-            }
-            */
-
-
-        }
-
-        private void test1()
-        {
-            Debug.Log("test1");
-            action -= test1;
-        }
-
-        private void test2()
-        {
-            Debug.Log("test2");
-        }
-
-        private void test3()
-        {
-            Debug.Log("test3");
         }
     }
 }

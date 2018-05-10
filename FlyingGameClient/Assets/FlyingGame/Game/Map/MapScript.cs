@@ -17,7 +17,7 @@ namespace Kurisu.Game.Map
         void EnterFrame(int frameIndex);
     }
 
-    public abstract class AbstractMapScript<T> : MapScript
+    public abstract class AbstractMapScript<T> : MapScript where T : MapData
     {
         protected T m_data;
         protected Transform m_container;
@@ -43,6 +43,7 @@ namespace Kurisu.Game.Map
 
             return mapPart;
         }
+
         private void LoadGameObject(List<CommonEntity> mapPart, Vector3Data startPositon, GameObjectData data)
         {
             CommonEntity entity = EntityFactory.InstanceEntity<CommonEntity>();
@@ -89,15 +90,32 @@ namespace Kurisu.Game.Map
             foreach (RandomGameObjectData data in dynamicGameObjects)
             {
                 float probability = data.probability;
-
-                // 如果概率大于等于1或者随机出来的概率大于目标概率，则进行创建
-                if (probability >= 1 || SGFRandom.Default.Range(0, 1) >= probability)
+                // 如果概率大于等于1或者随机出来的概率大于目标概率，则进行创建;
+                if (probability >= 1 || SGFRandom.Default.Range(0f, 1f) >= probability)
                 {
                     LoadGameObject(mapPart, startPositon, data);
                 }
             }
         }
         #endregion
+
+        /// <summary>
+        /// 加载天空盒
+        /// </summary>
+        protected void LoadSkybox()
+        {
+            string skyboxPath = m_data.skyboxPath;
+            if (string.IsNullOrEmpty(skyboxPath))
+            {
+                return;
+            }
+
+            Material skybox = Resources.Load<Material>(skyboxPath);
+            if (skybox != null)
+            {
+                RenderSettings.skybox = skybox;
+            }
+        }
 
         public abstract void FirstLoad();
         public abstract void EnterFrame(int frameIndex);
