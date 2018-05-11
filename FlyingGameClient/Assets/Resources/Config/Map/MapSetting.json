@@ -1,12 +1,91 @@
 {
     "chapterModeConfigs": [
-
+        {
+            "chapterNo" : 1,
+            "chapterConfigs" : [
+                {
+                    "no" : "1-1",
+                    "name" : "关卡测试地图-1",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "1-2",
+                    "name" : "关卡测试地图-2",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "1-3",
+                    "name" : "关卡测试地图-3",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                }
+            ]
+        },
+        {
+            "chapterNo" : 2,
+            "chapterConfigs" : [
+                {
+                    "no" : "2-1",
+                    "name" : "关卡测试地图-1",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "2-2",
+                    "name" : "关卡测试地图-2",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "2-3",
+                    "name" : "关卡测试地图-3",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "2-1",
+                    "name" : "关卡测试地图-1",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "2-2",
+                    "name" : "关卡测试地图-2",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                },
+                {
+                    "no" : "2-3",
+                    "name" : "关卡测试地图-3",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                }
+            ]
+        }
     ],
 
     "endlessModeConfigs":[
         {
             "no" : "1",
             "name" : "无尽模式测试地图-1",
+            "gameMode" : 2,
+            "mapMode" : 0,
+            "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+        },
+        {
+            "no" : "2",
+            "name" : "无尽模式测试地图-2",
             "gameMode" : 2,
             "mapMode" : 0,
             "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"

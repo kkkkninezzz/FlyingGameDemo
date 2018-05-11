@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using SGF;
 
 namespace Kurisu.UI.Ccommon
 {
@@ -36,24 +38,48 @@ namespace Kurisu.UI.Ccommon
         /// </summary>
         private Color m_lastBtnColor;
 
+        private List<UnityAction> m_changeBtnEvents = new List<UnityAction>();
+
+        private List<UnityAction> m_extraClickEvents = new List<UnityAction>();
+
         /// <summary>
         /// 初始脚本
         /// </summary>
         /// <param name="btns"></param>
-        public void Init(List<Button> btns, LabelBtnClickEvent clickEvent)
+        public void Init(List<Button> btns, LabelBtnClickEvent clickEvent = null)
         {
+            Clear();
             this.m_btns = btns;
 
             for (int i = 0; i < m_btns.Count; i++)
             {
                 Button btn = m_btns[i];
-                btn.onClick.AddListener(() => OnBtnClick(i));
-                btn.onClick.AddListener(() => clickEvent(i));
+
+                UnityAction changeBtnEvent = GetChangeBtnEvent(i);
+                btn.onClick.AddListener(changeBtnEvent);
+                m_changeBtnEvents.Add(changeBtnEvent);
+
+                if (clickEvent != null)
+                {
+                    UnityAction extraClickEvent = GetExtraClickEvent(clickEvent, i);
+                    btn.onClick.AddListener(extraClickEvent);
+                    m_extraClickEvents.Add(extraClickEvent);
+                }
             }
         }
-         
+        
+        private UnityAction GetChangeBtnEvent(int index)
+        {
+            return () => OnBtnClick(index);
+        }
+
+        private UnityAction GetExtraClickEvent(LabelBtnClickEvent clickEvent, int index)
+        {
+            return () => clickEvent(index);
+        }
+
         /// <summary>
-        /// 清除按钮组的事件
+        /// 清除按钮组的事件，这里只会清除通过该脚本添加的事件
         /// </summary>
         private void Clear()
         {
@@ -62,12 +88,19 @@ namespace Kurisu.UI.Ccommon
                 return;
             }
 
-            foreach (Button btn in m_btns)
+            for (int i = 0; i < m_btns.Count; i++)
             {
-                btn.onClick.RemoveAllListeners();
+                Button btn = m_btns[i];
+                btn.onClick.RemoveListener(m_changeBtnEvents[i]);
+                if (m_extraClickEvents.Count > 0)
+                {
+                    btn.onClick.RemoveListener(m_extraClickEvents[i]);
+                }
             }
 
             m_btns = null;
+            m_changeBtnEvents.Clear();
+            m_extraClickEvents.Clear();
         }
 
         /// <summary>
@@ -85,6 +118,7 @@ namespace Kurisu.UI.Ccommon
 
         private void OnBtnClick(int index)
         {
+            // this.Log("OnBtnClick() : index = {0}", index);
             if (index == m_lastBtnIndex)
             {
                 return;

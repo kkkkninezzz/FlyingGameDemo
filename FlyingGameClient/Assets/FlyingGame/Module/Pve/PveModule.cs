@@ -19,11 +19,7 @@ namespace Kurisu.Module.Pve
         {
             base.Show(arg);
 
-            //int mode = (int)arg;
-
             UIAPI.ShowUIPage(UIDef.UIChapterPage);
-
-            //TODO 显示关卡选择UI
 
             //先直接启动游戏
             //StartGame((GameMode)mode);

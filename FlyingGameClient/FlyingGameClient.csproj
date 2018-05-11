@@ -391,9 +391,12 @@
     <Compile Include="Assets\FlyingGame\Setting\AppConfigData.cs" />
     <Compile Include="Assets\FlyingGame\Setting\MapSettingData.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIChapterPage.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Chapter\UIMapItem.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIDynamicLabelBtnGroup.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Common\UIDynamicPanelGroup.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UILabelBtnGroup.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIMsgBox.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Common\UIScrollView.cs" />
     <Compile Include="Assets\FlyingGame\UI\Example\Example_MsBox.cs" />
     <Compile Include="Assets\FlyingGame\UI\Home\UIHomePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />

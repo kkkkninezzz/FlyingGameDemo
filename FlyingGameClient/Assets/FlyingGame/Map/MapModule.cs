@@ -119,7 +119,12 @@ namespace Kurisu.Module.Map
             return LoadModeMapData(configData) as EndlessModeMapData;
         }
 
-        private MapData LoadModeMapData(MapConfigData configData)
+        /// <summary>
+        /// 通过MapConfigData加载MapData
+        /// </summary>
+        /// <param name="configData"></param>
+        /// <returns></returns>
+        public MapData LoadModeMapData(MapConfigData configData)
         {
             MapData data = null;
             switch (configData.mapMode)
