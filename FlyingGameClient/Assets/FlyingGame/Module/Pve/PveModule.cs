@@ -7,6 +7,7 @@ using Kurisu.Service.Core;
 using Kurisu.Game.Data;
 using SGF;
 using Kurisu.UI;
+using Kurisu.Service.UIManager;
 
 namespace Kurisu.Module.Pve
 {
@@ -20,9 +21,6 @@ namespace Kurisu.Module.Pve
             base.Show(arg);
 
             UIAPI.ShowUIPage(UIDef.UIChapterPage);
-
-            //先直接启动游戏
-            //StartGame((GameMode)mode);
         }
 
         public void StartGame(GameMode mode, MapData mapData)
@@ -52,7 +50,14 @@ namespace Kurisu.Module.Pve
                 this.Log("玩家死亡");
                 // TODO 根据不同模式有不同的结算
             };
-            // TODO 打开战斗UI
+
+            // 打开战斗UI
+            UIAPI.ShowUIPage(UIDef.UIPveGamePage);
+
+            // 创建玩家
+            m_game.CreatePlayer();
+            // 手动暂停游戏，等玩家点击ready
+            //m_game.Pause();
         }
 
         private void CloseGame()
@@ -71,6 +76,20 @@ namespace Kurisu.Module.Pve
             {
                 return m_game;
             }
+        }
+
+        /// <summary>
+        /// 暂停游戏
+        /// </summary>
+        public void PauseGame()
+        {
+            if (m_game == null)
+            {
+                return;
+            }
+
+            m_game.Pause();
+            UIAPI.ShowUIWindow(UIDef.UIPveGamePauseWindow);
         }
     }
 }

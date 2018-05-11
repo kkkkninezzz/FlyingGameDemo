@@ -66,6 +66,14 @@ namespace Kurisu.Game
             OnVkey = null;
         }
 
+        public static GameInput Instance
+        {
+            get
+            {
+                return m_instance;
+            }
+        }
+
         private void Start()
         {
             m_directionControlJoystick = this.GetComponentInChildren<ETCJoystick>();

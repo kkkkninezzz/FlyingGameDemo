@@ -67,6 +67,19 @@ namespace Kurisu.UI
         {
             UIManager.Instance.OpenPage(page, arg);
         }
+
+        /// <summary>
+        /// 在主场景打开一个UIWindow
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="arg"></param>
+        /// <returns></returns>
+        public static Kurisu.Service.UIManager.UIWindow ShowUIWindow(string name, object arg = null)
+        {
+            return UIManager.Instance.OpenWindow(name, arg);
+        }
+        
+
     }
 }
 
