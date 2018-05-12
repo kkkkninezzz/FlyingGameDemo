@@ -91,6 +91,34 @@ namespace Kurisu.Module.Pve
             m_game.Pause();
             UIAPI.ShowUIWindow(UIDef.UIPveGamePauseWindow);
         }
+
+        /// <summary>
+        /// 恢复游戏
+        /// </summary>
+        public void ResumeGame()
+        {
+            if (m_game == null)
+            {
+                return;
+            }
+
+            m_game.Resume();
+        }
+
+        /// <summary>
+        /// 中断游戏
+        /// </summary>
+        public void TerminateGame()
+        {
+            if (m_game == null)
+            {
+                return;
+            }
+            m_game.Terminate();
+
+            // 中断游戏以后返回到上一个页面
+            UIManager.Instance.GoBackPage();
+        }
     }
 }
 

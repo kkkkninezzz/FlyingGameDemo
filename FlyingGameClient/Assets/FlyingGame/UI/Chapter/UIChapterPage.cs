@@ -84,10 +84,16 @@ namespace Kurisu.UI.Chapter
         /// </summary>
         private List<GameObject> m_chapterMapGameObjs = new List<GameObject>();
 
+        private bool isFirstOpen = false;
+
         protected override void OnOpen(object arg = null)
         {
-            // 被打开时去主动调用一次ChapterModeBtn的click方法
-            ChapterModeBtn.onClick.Invoke();
+            // 第一次打开时去主动调用一次ChapterModeBtn的click方法
+            if (!isFirstOpen)
+            {
+                ChapterModeBtn.onClick.Invoke();
+                isFirstOpen = true;
+            }
         }
 
         public void OnChapterModeBtnClick()

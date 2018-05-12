@@ -33,11 +33,22 @@ namespace Kurisu.Game
             }
         }
 
+        private static Material FindSkybox(string skyboxPath)
+        {
+            if (string.IsNullOrEmpty(skyboxPath))
+            {
+                return null;
+            }
+
+            return Resources.Load<Material>(skyboxPath);
+        }
+
         public static void Release()
         {
             if (CurCameraScript != null)
             {
                 GameObject.Destroy(CurCameraScript);
+                //CurCameraScript.gameObject.transform.LookAt();
                 CurCameraScript = null;
             }
         }
@@ -67,6 +78,7 @@ namespace Kurisu.Game
                 return;
             }
 
+            
             Transform target = FindTarget();
             if (target == null)
             {
@@ -100,6 +112,7 @@ namespace Kurisu.Game
 
             // Always look at the target
             transform.LookAt(target);
+            
         }
 
         private Transform FindTarget()
