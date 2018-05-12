@@ -6,6 +6,7 @@ using SGF.Utils;
 
 using Kurisu.Game.Player;
 using Kurisu.Game.Data;
+using SGF;
 
 namespace Kurisu.Game
 {
@@ -47,6 +48,9 @@ namespace Kurisu.Game
         {
             if (CurCameraScript != null)
             {
+                GameObject camera = CurCameraScript.gameObject;
+                camera.transform.position = ConfigConstants.DEFAULT_CAMERA_POSITION;
+                camera.transform.rotation = ConfigConstants.DEFAULT_CAMERA_ROTATION;
                 GameObject.Destroy(CurCameraScript);
                 //CurCameraScript.gameObject.transform.LookAt();
                 CurCameraScript = null;

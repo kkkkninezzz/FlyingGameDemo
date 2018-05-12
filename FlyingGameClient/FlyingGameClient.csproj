@@ -397,8 +397,10 @@
     <Compile Include="Assets\FlyingGame\UI\Common\UIScrollView.cs" />
     <Compile Include="Assets\FlyingGame\UI\Example\Example_MsBox.cs" />
     <Compile Include="Assets\FlyingGame\UI\Home\UIHomePage.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGameFailWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGamePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGamePauseWindow.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGameWinWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
     <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />

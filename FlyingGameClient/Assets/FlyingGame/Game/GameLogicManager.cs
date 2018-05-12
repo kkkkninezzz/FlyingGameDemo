@@ -150,6 +150,8 @@ namespace Kurisu.Game
                 m_map = null;
             }
 
+            m_context = null;
+
             onPlayerDie = null;
             onPlayerArriveEnd = null;
             onPlayerFailed = null;

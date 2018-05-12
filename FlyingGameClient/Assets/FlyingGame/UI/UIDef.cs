@@ -18,8 +18,11 @@ namespace Kurisu.UI
 
         public const string UIPveGamePage = "Pve/UIPveGamePage";
 
-        public const string UIPveGamePauseWindow = "Pve/UIPveGamePauseWindow";
+        public const string UIPveGamePauseWindow = "Pve/UIPveGamePauseWindow"; 
 
+        public const string UIPveGameWinWindow = "Pve/UIPveGameWinWindow";
+
+        public const string UIPveGameFailWindow = "Pve/UIPveGameFailWindow";
         #endregion
 
         /// <summary>

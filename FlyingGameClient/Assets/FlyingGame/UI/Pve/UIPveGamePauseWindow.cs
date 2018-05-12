@@ -36,7 +36,7 @@ namespace Kurisu.UI.Pve
                         pveModule.ResumeGame();
                         break;
                     case GAME_EXIT_BTN:
-                        pveModule.TerminateGame();
+                        pveModule.ExitGame();
                         break;
                 }
             };
