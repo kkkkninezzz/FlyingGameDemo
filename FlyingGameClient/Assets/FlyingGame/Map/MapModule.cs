@@ -13,12 +13,14 @@ namespace Kurisu.Module.Map
     /// </summary>
     public class MapModule : ServiceModule<MapModule>
     {
-        public static string MapSettingPath = "Assets/Resources/Config/Map/MapSetting.json";
+        public const string MapSettingPath = "Assets/Resources/Config/Map/MapSetting.json";
 
         /// <summary>
         /// 地图的配置信息
         /// </summary>
-        private MapSettingData MapSetting;
+        private MapSettingData m_mapSetting;
+
+        
 
         private MapModule()
         {
@@ -27,15 +29,21 @@ namespace Kurisu.Module.Map
 
         public void Init()
         {
-            this.Log("Init() Path = " + MapSettingPath);
-            MapSetting = JsonUtils.LoadJsonFromFile<MapSettingData>(MapSettingPath);
+            InitMapSetting();
+        }
 
-            if (MapSetting == null)
+        private void InitMapSetting()
+        {
+
+            this.Log("Init() Path = " + MapSettingPath);
+            m_mapSetting = JsonUtils.LoadJsonFromFile<MapSettingData>(MapSettingPath);
+
+            if (m_mapSetting == null)
             {
                 this.LogWarning("Don't exists MapSetting in Path = {0}", MapSettingPath);
-                MapSetting = new MapSettingData();
-                MapSetting.chapterModeConfigs = new List<ChapterMapConfigData>(0);
-                MapSetting.endlessModeConfigs = new List<MapConfigData>(0);
+                m_mapSetting = new MapSettingData();
+                m_mapSetting.chapterModeConfigs = new List<ChapterMapConfigData>(0);
+                m_mapSetting.endlessModeConfigs = new List<MapConfigData>(0);
             }
         }
 
@@ -45,7 +53,7 @@ namespace Kurisu.Module.Map
         /// <returns></returns>
         public List<ChapterMapConfigData> GetChapterModeConfigs()
         {
-            return MapSetting.chapterModeConfigs;
+            return m_mapSetting.chapterModeConfigs;
         }
 
         /// <summary>
@@ -54,7 +62,7 @@ namespace Kurisu.Module.Map
         /// <returns></returns>
         public List<MapConfigData> GetEndlessModeConfigs()
         {
-            return MapSetting.endlessModeConfigs;
+            return m_mapSetting.endlessModeConfigs;
         }
 
         /// <summary>
@@ -71,7 +79,7 @@ namespace Kurisu.Module.Map
             
             MapConfigData configData = null;
 
-            foreach (ChapterMapConfigData data in MapSetting.chapterModeConfigs)
+            foreach (ChapterMapConfigData data in m_mapSetting.chapterModeConfigs)
             {
                 if (data.chapterNo == chapterNo)
                 {
@@ -108,7 +116,7 @@ namespace Kurisu.Module.Map
                 return null;
             }
 
-            MapConfigData configData = MapSetting.endlessModeConfigs.Find((MapConfigData data) => data.no.Equals(no));
+            MapConfigData configData = m_mapSetting.endlessModeConfigs.Find((MapConfigData data) => data.no.Equals(no));
             if (configData == null)
             {
                 this.LogError("没有找到 No = {1} 的配置文件", no);

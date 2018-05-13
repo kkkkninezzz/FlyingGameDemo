@@ -7,6 +7,7 @@ using Kurisu.Module;
 using Kurisu.Module.Map;
 using Kurisu.Game.Data;
 using Kurisu.UI;
+using SGF.Utils;
 
 public class UIMapItem : MonoBehaviour
 {
@@ -21,15 +22,26 @@ public class UIMapItem : MonoBehaviour
     public Text Name;
 
     /// <summary>
+    /// 上锁的面板
+    /// </summary>
+    public GameObject LockPanel;
+
+    /// <summary>
     /// 地图数据
     /// </summary>
     private MapConfigData m_data;
 
+    /// <summary>
+    /// 是否已经解锁了
+    /// </summary>
+    private bool m_isUnlocked;
+
     private bool isDataChanged = false;
 
-    public void SetData(MapConfigData data)
+    public void SetData(MapConfigData data, bool isUnlocked)
     {
         this.m_data = data;
+        m_isUnlocked = isUnlocked;
         isDataChanged = true;
     }
 
@@ -46,20 +58,17 @@ public class UIMapItem : MonoBehaviour
     {
         No.text = m_data.no;
         Name.text = m_data.name;
+
+        // 根据是否解锁了来展示不同的视图
+        GameObjectUtils.SetActiveRecursively(LockPanel, !m_isUnlocked);
     }
 
     public void OnMapItemClick()
     {
-        if (m_data == null)
+        if (m_data == null || !m_isUnlocked)
         {
             return;
         }
-        /*
-        PveModule pveModule = ModuleAPI.PveModule;
-        MapData mapData = MapModule.Instance.LoadModeMapData(m_data);
-
-        pveModule.StartGame(m_data.gameMode, mapData);
-        */
         UIAPI.ShowUIWindow(UIDef.UIMapItemDetailWindow, m_data);
     }
 }

@@ -54,8 +54,8 @@ namespace Kurisu.UI.Ccommon
             {
                 return;
             }
-
-            child.transform.parent = Content.transform;
+            
+            child.transform.SetParent(Content.transform);
             m_children.Add(child);
         }
 

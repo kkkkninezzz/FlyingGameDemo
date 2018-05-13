@@ -33,7 +33,7 @@ namespace Kurisu.UI.Chapter
             base.OnOpen(arg);
 
             m_data = arg as MapConfigData;
-
+            Debug.Log(m_data);
             ChapterNoText.text = m_data.no;
             ChpaterNameText.text = m_data.name;
             GameModeText.text = ConfigConstants.GetDescription(m_data.gameMode);

@@ -8,6 +8,7 @@ using Kurisu.Module.Map;
 using Kurisu.UI.Ccommon;
 using SGF.Utils;
 using SGF;
+using Kurisu.User;
 
 namespace Kurisu.UI.Chapter
 {
@@ -131,7 +132,7 @@ namespace Kurisu.UI.Chapter
         /// </summary>
         /// <param name="mapItem"></param>
         /// <param name="data"></param>
-        private void SetDataToMapItem(GameObject mapItem, MapConfigData data)
+        private void SetDataToMapItem(GameObject mapItem, MapConfigData data, bool isUnlocked = true)
         {
             UIMapItem uiMapItem = mapItem.GetComponent<UIMapItem>();
             if (uiMapItem == null)
@@ -140,8 +141,9 @@ namespace Kurisu.UI.Chapter
                 return;
             }
 
-            uiMapItem.SetData(data);
+            uiMapItem.SetData(data, isUnlocked);
         }
+        
 
         private void LoadDataToEndlessPanel()
         {
@@ -164,6 +166,8 @@ namespace Kurisu.UI.Chapter
                 return;
             }
 
+            UserModule userModule = UserModule.Instance;
+
             List<Button> chapterSelectedBtns = new List<Button>(chapterMaps.Count);
             List<GameObject> smallChapterPanels = new List<GameObject>(chapterMaps.Count);
 
@@ -171,7 +175,7 @@ namespace Kurisu.UI.Chapter
             {
                 // 生成选择按钮
                 GameObject selectedBtnGo = GameObject.Instantiate<GameObject>(ChapterSelectedBtnPrefab);
-                selectedBtnGo.transform.parent = ChapterSelectedContent.transform;
+                selectedBtnGo.transform.SetParent(ChapterSelectedContent.transform);
 
                 // 保存预制体的Button脚本
                 Button selectedBtn = selectedBtnGo.GetComponent<Button>();
@@ -181,7 +185,7 @@ namespace Kurisu.UI.Chapter
 
                 // 生成小章节面板
                 GameObject smallChapterPanelGo = GameObject.Instantiate<GameObject>(SmallChapterPanelPrefab);
-                smallChapterPanelGo.transform.parent = SmallChapterRootPanel.transform;
+                smallChapterPanelGo.transform.SetParent(SmallChapterRootPanel.transform);
                 smallChapterPanels.Add(smallChapterPanelGo);
 
                 // 获取小章节面板的滚动脚本
@@ -192,7 +196,7 @@ namespace Kurisu.UI.Chapter
                 {
                     GameObject mapItem = GameObject.Instantiate<GameObject>(ChapterMapItemPrefab);
                     smallChapterScrollView.AddChild(mapItem);
-                    SetDataToMapItem(mapItem, mapData);
+                    SetDataToMapItem(mapItem, mapData, userModule.IsChapterUnlocked(data.chapterNo, mapData.no));
                 }
             }
 

@@ -9,6 +9,7 @@ using Kurisu.Module;
 using Kurisu.UI;
 using Kurisu.Game;
 using Kurisu.Module.Map;
+using Kurisu.User;
 
 namespace Kurisu
 {
@@ -40,6 +41,8 @@ namespace Kurisu
             GameLogicManager.Instance.Init();
 
             MapModule.Instance.Init();
+
+            UserModule.Instance.Init();
         }
 
         private void InitBusinessModules()
@@ -48,12 +51,7 @@ namespace Kurisu
             ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
             ModuleManager.Instance.CreateModule(ModuleDef.PveModule);
         }
-
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
+        
     }
 }
 
