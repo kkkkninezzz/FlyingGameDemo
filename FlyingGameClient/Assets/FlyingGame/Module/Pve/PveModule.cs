@@ -53,7 +53,6 @@ namespace Kurisu.Module.Pve
 
             m_game.onMainPlayerArriveEnd += () =>
             {
-                //CloseGame();
                 m_game.Pause();
                 // TODO 根据不同模式有不同的结算
                 UIAPI.ShowUIWindow(UIDef.UIPveGameWinWindow);
@@ -61,7 +60,6 @@ namespace Kurisu.Module.Pve
 
             m_game.onMainPlayerDie += () =>
             {
-                //CloseGame();
                 m_game.Pause();
                 this.Log("玩家死亡");
                 // TODO 根据不同模式有不同的结算

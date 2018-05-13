@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -423,6 +425,7 @@
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\SpringManager.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\ThirdPersonCamera.cs" />
     <Compile Include="Assets\GameResource\Character\ThreeHeadBody\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
+    <Compile Include="Assets\Resources\character\Scripts\FaceUpdate.cs" />
     <Compile Include="Assets\Resources\extra\Standard Assets\Cameras\Scripts\AbstractTargetFollower.cs" />
     <Compile Include="Assets\Resources\extra\Standard Assets\Cameras\Scripts\AutoCam.cs" />
     <Compile Include="Assets\Resources\extra\Standard Assets\Cameras\Scripts\FreeLookCam.cs" />

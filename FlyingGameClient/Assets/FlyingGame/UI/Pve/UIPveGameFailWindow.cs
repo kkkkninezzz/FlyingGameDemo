@@ -37,6 +37,17 @@ namespace Kurisu.UI.Pve
                         break;
                 }
             };
+            
+        }
+
+
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                //CharacterAnimation.Play("DownToUp");
+                //CharacterAnimation.
+            }
         }
 
         /// <summary>

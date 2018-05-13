@@ -43,12 +43,14 @@ namespace Kurisu.UI.Pve
         /// </summary>
         public void OnGoBackBtnClick()
         {
+            /*
             GameInput gameInput = GameInput.Instance;
             if (gameInput != null)
             {
                 GameObjectUtils.SetActiveRecursively(gameInput.gameObject, true);
             }
             this.Close(REPLA_BTN);
+            */
         }
         /// <summary>
         /// 点击游戏退出按钮
