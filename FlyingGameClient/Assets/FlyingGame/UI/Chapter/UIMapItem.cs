@@ -6,6 +6,7 @@ using Kurisu.Module.Pve;
 using Kurisu.Module;
 using Kurisu.Module.Map;
 using Kurisu.Game.Data;
+using Kurisu.UI;
 
 public class UIMapItem : MonoBehaviour
 {
@@ -53,10 +54,12 @@ public class UIMapItem : MonoBehaviour
         {
             return;
         }
-
+        /*
         PveModule pveModule = ModuleAPI.PveModule;
         MapData mapData = MapModule.Instance.LoadModeMapData(m_data);
 
         pveModule.StartGame(m_data.gameMode, mapData);
+        */
+        UIAPI.ShowUIWindow(UIDef.UIMapItemDetailWindow, m_data);
     }
 }

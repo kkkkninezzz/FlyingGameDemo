@@ -19,7 +19,10 @@ namespace Kurisu.Game.Data
         /// <summary>
         /// 无尽模式
         /// </summary>
-        EndlessPVE, 
+        EndlessPVE,
+        
     }
+
+    
 }
 

@@ -16,6 +16,8 @@ namespace Kurisu.UI
 
         public const string UIChapterPage = "Chapter/UIChapterPage";
 
+        public const string UIMapItemDetailWindow = "Chapter/UIMapItemDetailWindow";
+
         public const string UIPveGamePage = "Pve/UIPveGamePage";
 
         public const string UIPveGamePauseWindow = "Pve/UIPveGamePauseWindow"; 

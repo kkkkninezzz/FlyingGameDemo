@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEditor;
+using Kurisu.Game.Data;
 
 namespace SGF
 {
@@ -20,5 +21,36 @@ namespace SGF
         /// 相机的默认转向
         /// </summary>
         public static readonly Quaternion DEFAULT_CAMERA_ROTATION = new Quaternion();
+
+        #region 获取常量的字符串描述
+        public static string GetDescription(GameMode mode)
+        {
+            switch (mode)
+            {
+                case GameMode.EndlessPVE:
+                    return "无尽模式";
+                case GameMode.NormalPVE:
+                    return "正常模式";
+                case GameMode.TimelimitPVE:
+                    return "限时模式";
+                default:
+                    return "未知的模式";
+            }
+        }
+
+        public static string GetDescription(MapMode mode)
+        {
+            switch (mode)
+            {
+                case MapMode.EndlessMode:
+                    return "无尽模式";
+                case MapMode.NormalMode:
+                    return "正常模式";
+                default:
+                    return "未知的模式";
+            }
+        }
+        #endregion
+
     }
 }
