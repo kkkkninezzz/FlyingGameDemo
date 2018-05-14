@@ -298,6 +298,15 @@ namespace SGF.Utils
             trans.localScale = ToVector3(data.scale);
         }
 
+        /// <summary>
+        /// 设置父节点
+        /// </summary>
+        /// <param name="child"></param>
+        /// <param name="parent"></param>
+        public static void SetParent(GameObject child, GameObject parent)
+        {
+            child.transform.SetParent(parent.transform);
+        }
     }
 }
 

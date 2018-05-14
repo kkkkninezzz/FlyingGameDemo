@@ -20,7 +20,15 @@ namespace Kurisu.Setting
     }
 
     [Serializable]
-    public class ChapterMapConfigData
+    public class ChapterMapConfigData : MapConfigData
+    {
+        public int unlockedChapterNo;
+
+        public string unlockedSmallChapterNo;
+    }
+
+    [Serializable]
+    public class ChapterMapConfigsData
     {
         /// <summary>
         /// 章节编号
@@ -30,7 +38,7 @@ namespace Kurisu.Setting
         /// <summary>
         /// 该章节下的地图配置
         /// </summary>
-        public List<MapConfigData> chapterConfigs;
+        public List<ChapterMapConfigData> chapterConfigs;
     }
 
     [Serializable]
@@ -39,7 +47,7 @@ namespace Kurisu.Setting
         /// <summary>
         /// 关卡模式地图配置
         /// </summary>
-        public List<ChapterMapConfigData> chapterModeConfigs;
+        public List<ChapterMapConfigsData> chapterModeConfigs;
 
         /// <summary>
         /// 无尽模式地图配置

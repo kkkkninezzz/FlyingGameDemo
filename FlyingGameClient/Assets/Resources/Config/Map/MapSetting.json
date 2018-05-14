@@ -8,7 +8,9 @@
                     "name" : "关卡测试地图-1",
                     "gameMode" : 2,
                     "mapMode" : 0,
-                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json"
+                    "configPath" : "Assets/Resources/Config/Map/EndlessMode/1.json",
+                    "unlockedChapterNo" : 1,
+                    "unlockedSmallChapterNo" : "1-2"
                 },
                 {
                     "no" : "1-2",

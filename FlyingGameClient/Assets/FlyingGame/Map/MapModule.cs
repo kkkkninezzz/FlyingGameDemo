@@ -42,7 +42,7 @@ namespace Kurisu.Module.Map
             {
                 this.LogWarning("Don't exists MapSetting in Path = {0}", MapSettingPath);
                 m_mapSetting = new MapSettingData();
-                m_mapSetting.chapterModeConfigs = new List<ChapterMapConfigData>(0);
+                m_mapSetting.chapterModeConfigs = new List<ChapterMapConfigsData>(0);
                 m_mapSetting.endlessModeConfigs = new List<MapConfigData>(0);
             }
         }
@@ -51,9 +51,30 @@ namespace Kurisu.Module.Map
         /// 获取章节模式的地图配置信息
         /// </summary>
         /// <returns></returns>
-        public List<ChapterMapConfigData> GetChapterModeConfigs()
+        public List<ChapterMapConfigsData> GetChapterModeConfigs()
         {
             return m_mapSetting.chapterModeConfigs;
+        }
+
+        /// <summary>
+        /// 根据编号获取关卡地图配置
+        /// </summary>
+        /// <param name="no"></param>
+        /// <returns></returns>
+        public ChapterMapConfigData GetChapterModeConfig(string no)
+        {
+            foreach (ChapterMapConfigsData configs in m_mapSetting.chapterModeConfigs)
+            {
+                foreach (ChapterMapConfigData config in configs.chapterConfigs)
+                {
+                    if (config.no.Equals(no))
+                    {
+                        return config;
+                    }
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -79,7 +100,7 @@ namespace Kurisu.Module.Map
             
             MapConfigData configData = null;
 
-            foreach (ChapterMapConfigData data in m_mapSetting.chapterModeConfigs)
+            foreach (ChapterMapConfigsData data in m_mapSetting.chapterModeConfigs)
             {
                 if (data.chapterNo == chapterNo)
                 {

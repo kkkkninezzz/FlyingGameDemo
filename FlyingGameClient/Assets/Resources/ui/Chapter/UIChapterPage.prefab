@@ -1538,7 +1538,7 @@ MonoBehaviour:
     type: 2}
   ChapterMapItemPrefab: {fileID: 1678374751675806, guid: 3ddfb0f31d6b86041a684974032dd95c,
     type: 2}
-  ChapterSelectedBtnPrefab: {fileID: 1637935056340964, guid: dcb2fda841882604488bd8c6efe9c810,
+  ChapterSelectedBtnPrefab: {fileID: 1087214141228378, guid: ed61ac1e96bc5c5468d691e4ec44f4c7,
     type: 2}
   SmallChapterPanelPrefab: {fileID: 1278234973189472, guid: 36d2b800b247e3f419ea2513c3b32415,
     type: 2}

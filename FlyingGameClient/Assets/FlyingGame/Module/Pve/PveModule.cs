@@ -8,6 +8,9 @@ using Kurisu.Game.Data;
 using SGF;
 using Kurisu.UI;
 using Kurisu.Service.UIManager;
+using Kurisu.Setting;
+using Kurisu.Module.Map;
+using Kurisu.User;
 
 namespace Kurisu.Module.Pve
 {
@@ -56,6 +59,14 @@ namespace Kurisu.Module.Pve
                 m_game.Pause();
                 // TODO 根据不同模式有不同的结算
                 UIAPI.ShowUIWindow(UIDef.UIPveGameWinWindow);
+
+                // 解锁下一关卡
+                ChapterMapConfigData chapterMapData = MapModule.Instance.GetChapterModeConfig(m_lastGameParam.mapData.no); ;
+                if (chapterMapData != null)
+                {
+                    UserModule.Instance.UnlockChapter(chapterMapData.unlockedChapterNo, chapterMapData.unlockedSmallChapterNo);
+                }
+
             };
 
             m_game.onMainPlayerDie += () =>

@@ -81,9 +81,9 @@ namespace Kurisu.UI.Chapter
         private bool m_isFirstOpenEndlessPanel = true;
 
         /// <summary>
-        /// 暂存关卡地图的游戏对象
+        /// 关卡编号和小关卡的映射 视图模型
         /// </summary>
-        private List<GameObject> m_chapterMapGameObjs = new List<GameObject>();
+        private Dictionary<int, KeyValuePair<UIChapterNoBtnModel, List<UIMapItemModel>>> m_chapterModels;
 
         private bool isFirstOpen = false;
 
@@ -95,6 +95,8 @@ namespace Kurisu.UI.Chapter
                 ChapterModeBtn.onClick.Invoke();
                 isFirstOpen = true;
             }
+
+            UpdateUnlockedChapters();
         }
 
         public void OnChapterModeBtnClick()
@@ -132,7 +134,7 @@ namespace Kurisu.UI.Chapter
         /// </summary>
         /// <param name="mapItem"></param>
         /// <param name="data"></param>
-        private void SetDataToMapItem(GameObject mapItem, MapConfigData data, bool isUnlocked = true)
+        private void SetDataToMapItem(GameObject mapItem, UIMapItemModel model)
         {
             UIMapItem uiMapItem = mapItem.GetComponent<UIMapItem>();
             if (uiMapItem == null)
@@ -141,7 +143,7 @@ namespace Kurisu.UI.Chapter
                 return;
             }
 
-            uiMapItem.SetData(data, isUnlocked);
+            uiMapItem.SetModel(model);
         }
         
 
@@ -152,14 +154,14 @@ namespace Kurisu.UI.Chapter
             foreach (MapConfigData data in endlessMaps)
             {
                 GameObject mapItem = GameObject.Instantiate<GameObject>(EndlessMapItemPrefab);
-                mapItem.transform.parent = EndlessMapContent.transform;
-                SetDataToMapItem(mapItem, data);
+                GameObjectUtils.SetParent(mapItem, EndlessMapContent);
+                SetDataToMapItem(mapItem, new UIMapItemModel(data, true));
             }
         }
 
         private void LoadDataToChapterPanel()
         {
-            List<ChapterMapConfigData> chapterMaps = MapModule.Instance.GetChapterModeConfigs();
+            List<ChapterMapConfigsData> chapterMaps = MapModule.Instance.GetChapterModeConfigs();
 
             if (chapterMaps == null || chapterMaps.Count <= 0)
             {
@@ -170,18 +172,25 @@ namespace Kurisu.UI.Chapter
 
             List<Button> chapterSelectedBtns = new List<Button>(chapterMaps.Count);
             List<GameObject> smallChapterPanels = new List<GameObject>(chapterMaps.Count);
+            
+            m_chapterModels = new Dictionary<int, KeyValuePair<UIChapterNoBtnModel, List<UIMapItemModel>>>(chapterMaps.Count);
 
-            foreach (ChapterMapConfigData data in chapterMaps)
+            foreach (ChapterMapConfigsData data in chapterMaps)
             {
                 // 生成选择按钮
                 GameObject selectedBtnGo = GameObject.Instantiate<GameObject>(ChapterSelectedBtnPrefab);
                 selectedBtnGo.transform.SetParent(ChapterSelectedContent.transform);
 
                 // 保存预制体的Button脚本
-                Button selectedBtn = selectedBtnGo.GetComponent<Button>();
-                UIUtils.SetButtonText(selectedBtn, data.chapterNo + "章");
-                chapterSelectedBtns.Add(selectedBtn);
+                UIChapterNoBtn selectedChapterNoBtn = selectedBtnGo.GetComponent<UIChapterNoBtn>();
+                UIChapterNoBtnModel chapterNoBtnModel = new UIChapterNoBtnModel(data.chapterNo, userModule.IsChapterUnlocked(data.chapterNo));
+                selectedChapterNoBtn.SetModel(chapterNoBtnModel);
+                chapterSelectedBtns.Add(selectedBtnGo.GetComponent<Button>());
 
+                // 保存章节按钮和小章节的映射
+                List<UIMapItemModel> uiMapItemModels = new List<UIMapItemModel>(data.chapterConfigs.Count);
+                KeyValuePair<UIChapterNoBtnModel, List<UIMapItemModel>> chapterModelKV = new KeyValuePair<UIChapterNoBtnModel, List<UIMapItemModel>>(chapterNoBtnModel, uiMapItemModels);
+                m_chapterModels.Add(data.chapterNo, chapterModelKV);
 
                 // 生成小章节面板
                 GameObject smallChapterPanelGo = GameObject.Instantiate<GameObject>(SmallChapterPanelPrefab);
@@ -196,7 +205,11 @@ namespace Kurisu.UI.Chapter
                 {
                     GameObject mapItem = GameObject.Instantiate<GameObject>(ChapterMapItemPrefab);
                     smallChapterScrollView.AddChild(mapItem);
-                    SetDataToMapItem(mapItem, mapData, userModule.IsChapterUnlocked(data.chapterNo, mapData.no));
+
+                    // 保存小章节数据的model
+                    UIMapItemModel mapItemModel = new UIMapItemModel(mapData, userModule.IsChapterUnlocked(data.chapterNo, mapData.no));
+                    SetDataToMapItem(mapItem, mapItemModel);
+                    uiMapItemModels.Add(mapItemModel);
                 }
             }
 
@@ -214,6 +227,43 @@ namespace Kurisu.UI.Chapter
 
             UIDynamicPanelGroup smallChapterPanelGroup = GameObjectUtils.EnsureComponent<UIDynamicPanelGroup>(SmallChapterRootPanel.gameObject);
             smallChapterPanelGroup.Init(smallChapterPanels);
+        }
+
+        private void UpdateUnlockedChapters()
+        {
+            KeyValuePair<int, List<string>>[] lastUnlockedChapters = UserModule.Instance.GetAndClearLastUnlockedChapters();
+
+            if (lastUnlockedChapters == null || lastUnlockedChapters.Length <= 0)
+            {
+                return;
+            }
+
+            foreach (KeyValuePair<int, List<string>> unlockedChapter in lastUnlockedChapters)
+            {
+                int chapterNo = unlockedChapter.Key;
+                if (!m_chapterModels.ContainsKey(chapterNo))
+                {
+                    continue;
+                }
+                KeyValuePair<UIChapterNoBtnModel, List<UIMapItemModel>> chapterModel = m_chapterModels[chapterNo];
+                // 更新关卡按钮的信息
+                UIChapterNoBtnModel chapterNoBtnModel = chapterModel.Key;
+                chapterNoBtnModel.IsUnlocked = true;
+                
+                // 更新小章节面板的信息
+                foreach (string no in unlockedChapter.Value)
+                {
+                    foreach (UIMapItemModel mapItemModel in chapterModel.Value)
+                    {
+                        if (no.Equals(mapItemModel.MapConfigData.no))
+                        {
+                            mapItemModel.IsUnlocked = true;
+                            break;
+                        }
+                    }
+                }
+                
+            }
         }
     }
 }

@@ -388,12 +388,16 @@
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIUtils.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIWidget.cs" />
     <Compile Include="Assets\FlyingGame\Service\UIManager\UIWindow.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\View\UICommonView.cs" />
+    <Compile Include="Assets\FlyingGame\Service\UIManager\View\ViewModel.cs" />
     <Compile Include="Assets\FlyingGame\Setting\AppConfigData.cs" />
     <Compile Include="Assets\FlyingGame\Setting\MapSettingData.cs" />
     <Compile Include="Assets\FlyingGame\Setting\UserSetting\UnlockedChapterData.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Chapter\UIChapterNoBtn.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIChapterPage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIMapItem.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIMapItemDetailWindow.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Common\RestrictedButton.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIDynamicLabelBtnGroup.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIDynamicPanelGroup.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UILabelBtnGroup.cs" />

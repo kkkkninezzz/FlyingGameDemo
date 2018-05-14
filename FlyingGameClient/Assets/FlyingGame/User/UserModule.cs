@@ -172,6 +172,11 @@ namespace Kurisu.User
         /// <returns></returns>
         public KeyValuePair<int, List<string>>[] GetAndClearLastUnlockedChapters()
         {
+            if (m_lastUnlockedChapters.Count == 0)
+            {
+                return null;
+            }
+
             KeyValuePair<int, List<string>>[] chapters = new KeyValuePair<int, List<string>>[m_lastUnlockedChapters.Count];
             m_lastUnlockedChapters.CopyTo(chapters);
             m_lastUnlockedChapters.Clear();
