@@ -34,16 +34,6 @@ namespace Kurisu.Game
             }
         }
 
-        private static Material FindSkybox(string skyboxPath)
-        {
-            if (string.IsNullOrEmpty(skyboxPath))
-            {
-                return null;
-            }
-
-            return Resources.Load<Material>(skyboxPath);
-        }
-
         public static void Release()
         {
             if (CurCameraScript != null)
@@ -51,8 +41,8 @@ namespace Kurisu.Game
                 GameObject camera = CurCameraScript.gameObject;
                 camera.transform.position = ConfigConstants.DEFAULT_CAMERA_POSITION;
                 camera.transform.rotation = ConfigConstants.DEFAULT_CAMERA_ROTATION;
+
                 GameObject.Destroy(CurCameraScript);
-                //CurCameraScript.gameObject.transform.LookAt();
                 CurCameraScript = null;
             }
         }
@@ -82,7 +72,13 @@ namespace Kurisu.Game
                 return;
             }
 
-            
+            //FollowTarget();
+            FollowTarget2();
+        }
+
+        #region 实现1
+        private void FollowTarget()
+        {
             Transform target = FindTarget();
             if (target == null)
             {
@@ -116,8 +112,9 @@ namespace Kurisu.Game
 
             // Always look at the target
             transform.LookAt(target);
-            
         }
+        #endregion
+
 
         private Transform FindTarget()
         {
@@ -127,6 +124,31 @@ namespace Kurisu.Game
 
             return flyingPlayer.FlyingVehicleView.transform;
         }
+
+        #region 实现2
+        private float RotateSpeed = 15f;
+        private Transform m_lookPos; 
+
+        private void FollowTarget2()
+        {
+            Transform target = FindTarget();
+            if (target == null)
+            {
+                return;
+            }
+            
+            if (this.m_lookPos == null)
+            {
+                this.m_lookPos = target.Find("LookPos");
+            }
+
+            transform.position = m_lookPos.position;
+            Quaternion rotation = Quaternion.Lerp(transform.rotation, m_lookPos.rotation, RotateSpeed * Time.deltaTime);
+            transform.rotation = rotation;
+        }
+        
+        #endregion
+        
     }
 
 }

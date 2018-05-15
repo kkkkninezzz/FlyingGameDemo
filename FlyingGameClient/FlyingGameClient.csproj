@@ -476,6 +476,10 @@
     <Compile Include="Assets\Resources\extra\Standard Assets\Utility\TimedObjectDestructor.cs" />
     <Compile Include="Assets\Resources\extra\Standard Assets\Utility\WaypointCircuit.cs" />
     <Compile Include="Assets\Resources\extra\Standard Assets\Utility\WaypointProgressTracker.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement2.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement3.cs" />
+    <Compile Include="Assets\Scripts\CameraMovement4.cs" />
     <Compile Include="Assets\Scripts\Flight\AbstractFlight.cs" />
     <Compile Include="Assets\Scripts\Flight\BaseFlyingController.cs" />
     <Compile Include="Assets\Scripts\Flight\FlightConfig.cs" />
@@ -534,7 +538,6 @@
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
