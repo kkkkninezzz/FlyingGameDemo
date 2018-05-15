@@ -344,6 +344,9 @@
     <Compile Include="Assets\FlyingGame\Game\Entity\Factory\ViewObject.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\FlyingVehicle.cs" />
     <Compile Include="Assets\FlyingGame\Game\Entity\FlyingVehicle\FlyingVehicleView.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Map\Endless\EndlessBasicPartView.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Map\Endless\LastPartReleaser.cs" />
+    <Compile Include="Assets\FlyingGame\Game\Entity\Map\Endless\NextPartLoader.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameCamera.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameContext.cs" />
     <Compile Include="Assets\FlyingGame\Game\GameDefine.cs" />

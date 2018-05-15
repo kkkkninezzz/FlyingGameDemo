@@ -66,13 +66,14 @@ namespace Kurisu.Game.Map
             for (int times = 0; times < m_countOfSingleLoad; times++)
             {
                 MapPartData partData = mapParts[m_mapPartIndex];
-                Vector3Data startPosition = AddVector3Data(m_nextPartStart, partData.startPosition);
+                //Vector3Data startPosition = AddVector3Data(m_nextPartStart, partData.startPosition);
+                //Debug.Log(string.Format("加载前的开始位置 : x = {0}, y = {1}, z = {2}", startPosition.x, startPosition.y, startPosition.z));
 
-                m_mapParts.AddLast(LoadMapPart(partData, startPosition));
+                m_mapParts.AddLast(LoadMapPart(partData, m_nextPartStart));
 
                 // 更新下一块地图块的开始位置
                 m_nextPartStart = AddVector3Data(m_nextPartStart, partData.endPosition);
-
+                //Debug.Log(string.Format("下一段的开始位置 : x = {0}, y = {1}, z = {2}", m_nextPartStart.x, m_nextPartStart.y, m_nextPartStart.z));
                 m_mapPartIndex++;
                 if (m_mapPartIndex == mapParts.Count)
                 {
@@ -95,8 +96,16 @@ namespace Kurisu.Game.Map
 
             if (ReleaseLast)
             {
-                ReleaseLastMapPart();
+                ReleaseLastMapParts();
                 ReleaseLast = false;
+            }
+        }
+
+        private void ReleaseLastMapParts()
+        {
+            for (int i = 0; i <  2; i++)
+            {
+                ReleaseLastMapPart();
             }
         }
 

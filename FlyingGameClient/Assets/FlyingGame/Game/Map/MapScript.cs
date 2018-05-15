@@ -48,9 +48,10 @@ namespace Kurisu.Game.Map
         {
             CommonEntity entity = EntityFactory.InstanceEntity<CommonEntity>();
             entity.Create(m_container, data.path);
-
-            data.transformData.position = AddVector3Data(startPositon, data.transformData.position);
-            entity.InitTransform(data.transformData);
+            
+            TransformData transformData = new TransformData(AddVector3Data(startPositon, data.transformData.position), 
+                                                            data.transformData.rotation, data.transformData.scale);
+            entity.InitTransform(transformData);
 
             mapPart.Add(entity);
         }

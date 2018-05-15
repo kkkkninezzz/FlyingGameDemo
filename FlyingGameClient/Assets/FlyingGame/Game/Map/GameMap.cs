@@ -74,6 +74,14 @@ namespace Kurisu.Game.Map
             }
         }
 
+        public MapScript MapScript
+        {
+            get
+            {
+                return m_script;
+            }
+        }
+
         public List<TransformData> BirthPoints
         {
             get

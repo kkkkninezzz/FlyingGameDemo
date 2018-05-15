@@ -95,7 +95,6 @@ namespace Kurisu.UI.Chapter
 
             // 根据是否解锁了来展示不同的视图
             GameObjectUtils.SetActiveRecursively(LockPanel, !m_model.IsUnlocked);
-            Debug.Log(m_model.IsUnlocked);
             GetComponent<Button>().enabled = m_model.IsUnlocked;
         }
         
