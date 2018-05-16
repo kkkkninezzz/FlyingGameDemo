@@ -24,6 +24,21 @@ namespace Kurisu.Module.Pve
 
         private GameContext m_context;
 
+        /// <summary>
+        /// 游戏分数
+        /// </summary>
+        private ulong m_gameScore;
+
+        /// <summary>
+        /// 帧数的转换率，经过一帧就增加1分
+        /// </summary>
+        private uint m_frameConversionRate = 1;
+
+        /// <summary>
+        /// 拼图数量
+        /// </summary>
+        private uint m_puzzleCount;
+
         public void Start(GameParam param)
         {
             GameLogicManager gameManager = GameLogicManager.Instance;
@@ -39,7 +54,7 @@ namespace Kurisu.Module.Pve
             InitGameInput();
 
             // 监听frame输入
-            MonoHelper.AddUpdateListener(FixedUpdate);
+            MonoHelper.AddUpdateListener(UpdateGame);
 
             GameCamera.FocusPlayerId = m_mainPlayerId;
         }
@@ -72,7 +87,7 @@ namespace Kurisu.Module.Pve
         /// </summary>
         public void Close()
         {
-            MonoHelper.RemoveUpdateListener(FixedUpdate);
+            MonoHelper.RemoveUpdateListener(UpdateGame);
 
             GameInput.Release();
 
@@ -82,6 +97,9 @@ namespace Kurisu.Module.Pve
             onMainPlayerDie = null;
             onGameEnd = null;
             onMainPlayerArriveEnd = null;
+
+            m_gameScore = 0;
+            m_puzzleCount = 0;
         }
 
         
@@ -187,7 +205,7 @@ namespace Kurisu.Module.Pve
         /// <summary>
         /// 驱动游戏逻辑
         /// </summary>
-        private void FixedUpdate()
+        private void UpdateGame()
         {
             if (m_pause)
             {
@@ -198,7 +216,8 @@ namespace Kurisu.Module.Pve
             GameLogicManager.Instance.EnterFrame(m_frameIndex);
 
             CheckTimeEnd();
-            
+
+            AutoIncreaseScore();
         }
 
         private void CheckTimeEnd()
@@ -245,6 +264,51 @@ namespace Kurisu.Module.Pve
         {
             return (int)(m_context.curFrameIndex * 0.033333333f);
         }
+
+        #region 游戏分数相关
+        /// <summary>
+        /// 自动增长分数
+        /// </summary>
+        private void AutoIncreaseScore()
+        {
+            if (m_pause)
+            {
+                return;
+            }
+            m_gameScore += m_frameConversionRate;
+        }
+
+        public void IncreaseScore(uint score)
+        {
+            m_gameScore += score;
+        }
+
+        public void IncreaseScore(ulong score)
+        {
+            m_gameScore += score;
+        }
+
+        public ulong GameScore
+        {
+            get
+            {
+                return m_gameScore;
+            }
+        }
+
+        public void IncreasePuzzle(uint count)
+        {
+            m_puzzleCount += count;
+        }
+
+        public uint PuzzleCount
+        {
+            get
+            {
+                return m_puzzleCount;
+            }
+        }
+        #endregion
     }
 }
 

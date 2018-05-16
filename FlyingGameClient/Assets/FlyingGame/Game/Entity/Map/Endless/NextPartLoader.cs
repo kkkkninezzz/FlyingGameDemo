@@ -8,6 +8,11 @@ namespace Kurisu.Game.Entity.Map
 
         private bool m_isTriggered = false;
 
+        public void OnEnable()
+        {
+            m_isTriggered = false;
+        }
+
         public void OnTriggerEnter(Collider other)
         {
             if (m_isTriggered || !GameTagDefine.PLAYER.Equals(other.tag))

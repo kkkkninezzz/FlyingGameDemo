@@ -26,7 +26,7 @@ namespace Kurisu.Game.Map
         /// <summary>
         /// 每一次加载地图的块数
         /// </summary>
-        private int m_countOfSingleLoad = 2;
+        private int m_countOfSingleLoad = 1;
 
         /// <summary>
         /// 下一块地图块的下标

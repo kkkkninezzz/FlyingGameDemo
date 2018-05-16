@@ -11,6 +11,7 @@ using Kurisu.Service.UIManager;
 using Kurisu.Setting;
 using Kurisu.Module.Map;
 using Kurisu.User;
+using Kurisu.UI.Pve;
 
 namespace Kurisu.Module.Pve
 {
@@ -58,7 +59,7 @@ namespace Kurisu.Module.Pve
             {
                 m_game.Pause();
                 // TODO 根据不同模式有不同的结算
-                UIAPI.ShowUIWindow(UIDef.UIPveGameWinWindow);
+                UIAPI.ShowUIWindow(UIDef.UIPveGameWinWindow, new FinalScore(this.GameScore, this.PuzzleCount));
 
                 // 解锁下一关卡
                 ChapterMapConfigData chapterMapData = MapModule.Instance.GetChapterModeConfig(m_lastGameParam.mapData.no); ;
@@ -74,7 +75,7 @@ namespace Kurisu.Module.Pve
                 m_game.Pause();
                 this.Log("玩家死亡");
                 // TODO 根据不同模式有不同的结算
-                UIAPI.ShowUIWindow(UIDef.UIPveGameFailWindow);
+                UIAPI.ShowUIWindow(UIDef.UIPveGameFailWindow, new FinalScore(this.GameScore, this.PuzzleCount));
             };
 
             // 创建玩家
@@ -165,6 +166,46 @@ namespace Kurisu.Module.Pve
                 m_game.Terminate();
             }
             StartGame(m_lastGameParam);
+        }
+
+        public ulong GameScore
+        {
+            get
+            {
+                return m_game == null ? 0 : m_game.GameScore;
+            }
+        }
+
+        public void IncreaseScore(uint score)
+        {
+            if (m_game != null)
+            {
+                m_game.IncreaseScore(score);
+            }
+        }
+
+        public void IncreaseScore(ulong score)
+        {
+            if (m_game != null)
+            {
+                m_game.IncreaseScore(score);
+            }
+        }
+
+        public uint PuzzleCount
+        {
+            get
+            {
+                return m_game == null ? 0 : m_game.PuzzleCount;
+            }
+        }
+
+        public void IncreasePuzzle(uint count)
+        {
+            if (m_game != null)
+            {
+                m_game.IncreasePuzzle(count);
+            }
         }
     }
 }

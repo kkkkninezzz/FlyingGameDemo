@@ -5,13 +5,33 @@ using SGF.Utils;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Kurisu.UI.Pve
 {
+    public struct FinalScore
+    {
+        public ulong score;
+
+        public uint puzzle;
+
+        public FinalScore(ulong score, uint puzzle)
+        {
+            this.score = score;
+            this.puzzle = puzzle;
+        }
+    }
     public class UIPveGameFailWindow : Kurisu.Service.UIManager.UIWindow
     {
         private const int REPLA_BTN = 1;
         private const int GAME_EXIT_BTN = 2;
+
+        private const string ScoreTextFormat = "分数：{0}";
+        private const string PuzzleTextFormat = "拼图：{0}";
+
+        public Text ScoreText;
+
+        public Text PuzzleText;
 
         protected override void OnOpen(object arg = null)
         {
@@ -37,19 +57,12 @@ namespace Kurisu.UI.Pve
                         break;
                 }
             };
-            
+
+            FinalScore finalScore = (FinalScore)arg;
+            ScoreText.text = string.Format(ScoreTextFormat, finalScore.score);
+            PuzzleText.text = string.Format(PuzzleTextFormat, finalScore.puzzle);
         }
-
-
-        public void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.R))
-            {
-                //CharacterAnimation.Play("DownToUp");
-                //CharacterAnimation.
-            }
-        }
-
+        
         /// <summary>
         /// 点击重开游戏按钮
         /// </summary>

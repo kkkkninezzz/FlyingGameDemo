@@ -4,6 +4,7 @@ using Kurisu.Module.Pve;
 using Kurisu.Module;
 using SGF.Utils;
 using Kurisu.Game;
+using UnityEngine.UI;
 
 namespace Kurisu.UI.Pve
 {
@@ -11,6 +12,13 @@ namespace Kurisu.UI.Pve
     {
         private const int REPLA_BTN = 1;
         private const int GAME_EXIT_BTN = 2;
+
+        private const string ScoreTextFormat = "分数：{0}";
+        private const string PuzzleTextFormat = "拼图：{0}";
+
+        public Text ScoreText;
+
+        public Text PuzzleText;
 
         protected override void OnOpen(object arg = null)
         {
@@ -36,6 +44,10 @@ namespace Kurisu.UI.Pve
                         break;
                 }
             };
+
+            FinalScore finalScore = (FinalScore)arg;
+            ScoreText.text = string.Format(ScoreTextFormat, finalScore.score);
+            PuzzleText.text = string.Format(PuzzleTextFormat, finalScore.puzzle);
         }
 
         /// <summary>

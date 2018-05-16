@@ -12,6 +12,10 @@ namespace Kurisu.UI.Pve
     {
         public Button PauseBtn;
 
+        public Text ScoreText;
+
+        public Text PuzzleText;
+
         // Use this for initialization
         void Start()
         {
@@ -21,7 +25,11 @@ namespace Kurisu.UI.Pve
         // Update is called once per frame
         void Update()
         {
+            PveModule pveModule = ModuleAPI.PveModule;
 
+            ScoreText.text = pveModule.GameScore.ToString("N0");
+
+            PuzzleText.text = pveModule.PuzzleCount.ToString("N0");
         }
 
         public void OnPauseBtnClick()

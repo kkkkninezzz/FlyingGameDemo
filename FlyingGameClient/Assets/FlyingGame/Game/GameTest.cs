@@ -21,7 +21,7 @@ namespace Kurisu.Game
         // Use this for initialization
         void Start()
         {
-            
+
             /*
             GameParam param = new GameParam();
             param.mode = GameMode.EndlessPVE;
@@ -37,16 +37,22 @@ namespace Kurisu.Game
 
             game.RegPlayerData(playerData);
             */
-            
+            /*
             PveModule pveModule = ModuleAPI.PveModule;
             pveModule.StartGame(GameMode.EndlessPVE, MapModule.Instance.GetEndlessModeMapData("1"));
-            
+            */
 
             /*
             action += test1;
             action += test2;
             action += test3;
             */
+            
+        }
+
+        public void OnEnable()
+        {
+            Debug.Log("OnEnable");
         }
 
         // Update is called once per frame
@@ -57,15 +63,18 @@ namespace Kurisu.Game
             {
                 //GameLogicManager.Instance.CreatePlayer(1, GameLogicManager.DEFAULT_POSITION);
                 //MonoHelper.AddFixedUpdateListener(() => { Debug.Log(1); });
-                
+
+                /*
                 PveModule pveModule = ModuleAPI.PveModule;
                 PveGame game = pveModule.CurGame;
                 game.CreatePlayer();
-                
+                */
+
 
                 //AppConfig.Save();
+                this.gameObject.SetActive(false);
+                Debug.Log("在隐藏之后");
             }
-
         }
     }
 }
