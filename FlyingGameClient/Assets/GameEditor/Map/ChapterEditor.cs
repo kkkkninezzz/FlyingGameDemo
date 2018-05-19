@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -8,6 +9,7 @@ using Kurisu.Game.Data;
 using SGF.Utils;
 using SGF;
 using Newtonsoft.Json;
+using Kurisu.GameEditor.Uitls;
 
 namespace Kurisu.GameEditor.Map
 {
@@ -329,7 +331,7 @@ namespace Kurisu.GameEditor.Map
 
         private void SetValueToGameObjectData(Transform trans, GameObjectData goData)
         {
-            string prefabPath = GameObjectUtils.FindPrefabPathByGameObject(trans.gameObject);
+            string prefabPath = EditorUtils.FindPrefabPathByGameObject(trans.gameObject);
             if (prefabPath == null)
             {
                 throw new Exception(trans + " 不存在对应的 prefab!!!");
@@ -377,7 +379,7 @@ namespace Kurisu.GameEditor.Map
 
             foreach (AudioClip bgm in BgmList)
             {
-                bgmPaths.Add(GameObjectUtils.FindAssetPath(bgm));
+                bgmPaths.Add(EditorUtils.FindAssetPath(bgm));
             }
 
             return bgmPaths;
@@ -390,7 +392,7 @@ namespace Kurisu.GameEditor.Map
                 return null;
             }
 
-            return GameObjectUtils.FindAssetPath(SkyBox);
+            return EditorUtils.FindAssetPath(SkyBox);
         }
 
         private List<TransformData> GenerateBirthPoints()
@@ -761,4 +763,4 @@ namespace Kurisu.GameEditor.Map
 
     }
 }
-
+#endif

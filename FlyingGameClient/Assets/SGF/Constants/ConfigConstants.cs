@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using Kurisu.Game.Data;
 
 namespace SGF

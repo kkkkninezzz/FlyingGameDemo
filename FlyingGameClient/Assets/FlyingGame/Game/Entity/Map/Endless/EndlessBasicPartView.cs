@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
 using Kurisu.Game.Entity.Common;
 using Kurisu.Game.Map;
 using SGF;

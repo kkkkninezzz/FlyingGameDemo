@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Kurisu.Game.Data;
-using Kurisu.GameEditor.Map;
 
 namespace Kurisu.Setting
 {

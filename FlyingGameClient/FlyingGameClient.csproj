@@ -415,6 +415,7 @@
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
     <Compile Include="Assets\FlyingGame\User\UserModule.cs" />
+    <Compile Include="Assets\GameEditor\EditorUtils.cs" />
     <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditorDef.cs" />

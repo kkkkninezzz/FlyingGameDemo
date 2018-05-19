@@ -1,5 +1,4 @@
-﻿using Kurisu.GameEditor.Map;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Kurisu.Game.Data

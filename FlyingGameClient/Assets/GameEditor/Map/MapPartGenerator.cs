@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿#if UNITY_EDITOR
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,3 +44,4 @@ namespace Kurisu.GameEditor.Map
         }
     }
 }
+#endif
