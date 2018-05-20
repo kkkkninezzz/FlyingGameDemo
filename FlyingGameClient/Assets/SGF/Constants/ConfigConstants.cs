@@ -51,5 +51,17 @@ namespace SGF
         }
         #endregion
 
+        #region 配置信息路径
+        public static readonly string BaseFilePath = Application.streamingAssetsPath + "/";
+
+        public static readonly string LogFileDir = BaseFilePath + "Log/DebuggerLog/";
+
+        public static readonly string AppConfigPath = BaseFilePath + "Config/AppConfig.json";
+
+        public static readonly string UnlockedChapterDataPath = BaseFilePath + "Config/User/UnlockedChapterData.json";
+
+        public static readonly string MapSettingPath = BaseFilePath + "Config/Map/MapSetting.json";
+
+        #endregion
     }
 }

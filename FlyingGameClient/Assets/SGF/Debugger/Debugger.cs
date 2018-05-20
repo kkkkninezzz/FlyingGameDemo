@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SGF;
+using System;
 using System.IO;
 
 namespace UnityEngine
@@ -9,7 +10,7 @@ namespace UnityEngine
         public static bool EnableTime = true;
         public static bool EnableSave = false;
         public static bool EnableStack = false;
-        public static string LogFileDir = "Assets/Log/DebuggerLog/";
+        public static string LogFileDir = ConfigConstants.LogFileDir;
         public static string LogFileName = "";
         public static string Prefix = "> ";
         public static StreamWriter LogFileWriter = null;

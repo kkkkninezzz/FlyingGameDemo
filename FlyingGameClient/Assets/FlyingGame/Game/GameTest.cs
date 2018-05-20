@@ -8,7 +8,7 @@ using Kurisu.Module.Pve;
 using Kurisu.Service.Core;
 using Kurisu.Module;
 using System;
-using Kurisu.Module.Map;
+using Kurisu.Service.Map;
 using SGF;
 
 namespace Kurisu.Game

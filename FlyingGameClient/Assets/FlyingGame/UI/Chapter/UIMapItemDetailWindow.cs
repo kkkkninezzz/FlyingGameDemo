@@ -1,6 +1,6 @@
 ﻿using Kurisu.Game.Data;
 using Kurisu.Module;
-using Kurisu.Module.Map;
+using Kurisu.Service.Map;
 using Kurisu.Module.Pve;
 using Kurisu.Setting;
 using SGF;

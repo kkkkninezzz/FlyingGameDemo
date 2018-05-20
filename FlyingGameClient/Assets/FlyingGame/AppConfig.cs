@@ -2,6 +2,7 @@
 using System.Collections;
 using SGF.Utils;
 using UnityEngine;
+using SGF;
 
 namespace Kurisu
 {
@@ -12,7 +13,7 @@ namespace Kurisu
     {
         private static AppConfigSetting setting;
 
-        public const string Path = "Assets/Resources/Config/AppConfig.json";
+        public static string Path = ConfigConstants.AppConfigPath;
 
         public static AppConfigSetting Setting
         {

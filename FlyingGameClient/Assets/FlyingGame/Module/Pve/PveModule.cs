@@ -9,8 +9,8 @@ using SGF;
 using Kurisu.UI;
 using Kurisu.Service.UIManager;
 using Kurisu.Setting;
-using Kurisu.Module.Map;
-using Kurisu.User;
+using Kurisu.Service.Map;
+using Kurisu.Service.User;
 using Kurisu.UI.Pve;
 
 namespace Kurisu.Module.Pve

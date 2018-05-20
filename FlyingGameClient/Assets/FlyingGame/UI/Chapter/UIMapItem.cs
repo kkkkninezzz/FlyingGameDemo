@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using Kurisu.Setting;
 using Kurisu.Module.Pve;
 using Kurisu.Module;
-using Kurisu.Module.Map;
+using Kurisu.Service.Map;
 using Kurisu.Game.Data;
 using Kurisu.UI;
 using SGF.Utils;

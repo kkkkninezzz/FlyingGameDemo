@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Kurisu.GameEditor.Map
 {
@@ -14,12 +15,12 @@ namespace Kurisu.GameEditor.Map
         /// <summary>
         /// 关卡模式配置文件的根目录
         /// </summary>
-        public const string ChapterConfigRootPath = "Assets/Resources/Config/Map/ChapterMode/";
+        public static string ChapterConfigRootPath = Application.streamingAssetsPath + "/Config/Map/ChapterMode/";
 
         /// <summary>
         /// 无尽模式配置文件的根目录
         /// </summary>
-        public const string EndlessConfigRootPath = "Assets/Resources/Config/Map/EndlessMode/";
+        public static string EndlessConfigRootPath = Application.streamingAssetsPath + "/Config/Map/EndlessMode/";
 
         public const string MapParts = "MapParts";
 

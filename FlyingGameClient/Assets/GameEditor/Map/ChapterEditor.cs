@@ -761,6 +761,11 @@ namespace Kurisu.GameEditor.Map
         }
         #endregion
 
+        [ContextMenu("测试")]
+        public void Test()
+        {
+            Debug.Log(Application.streamingAssetsPath);
+        }
     }
 }
 #endif

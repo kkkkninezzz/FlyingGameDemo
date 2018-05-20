@@ -4,11 +4,11 @@ using Kurisu.Service.UIManager;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using Kurisu.Setting;
-using Kurisu.Module.Map;
+using Kurisu.Service.Map;
 using Kurisu.UI.Ccommon;
 using SGF.Utils;
 using SGF;
-using Kurisu.User;
+using Kurisu.Service.User;
 
 namespace Kurisu.UI.Chapter
 {

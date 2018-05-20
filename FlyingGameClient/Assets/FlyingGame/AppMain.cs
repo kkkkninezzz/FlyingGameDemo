@@ -8,8 +8,8 @@ using Kurisu.Service.UIManager;
 using Kurisu.Module;
 using Kurisu.UI;
 using Kurisu.Game;
-using Kurisu.Module.Map;
-using Kurisu.User;
+using Kurisu.Service.Map;
+using Kurisu.Service.User;
 
 namespace Kurisu
 {
@@ -21,7 +21,7 @@ namespace Kurisu
         void Start()
         {
             Debugger.EnableLog = true;
-
+            //Debugger.EnableSave = true;
             AppConfig.Init();
 
             InitServiceModules();

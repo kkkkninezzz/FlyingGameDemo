@@ -13,11 +13,13 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile></CompilerResponseFile>
+    <CompilerResponseFile>
+    </CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.3.1f1</UnityVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -361,7 +363,7 @@
     <Compile Include="Assets\FlyingGame\Game\Player\FlyingPlayer.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\FlyingVehicleController.cs" />
     <Compile Include="Assets\FlyingGame\Game\Player\FlyingVehicleTrigger.cs" />
-    <Compile Include="Assets\FlyingGame\Map\MapModule.cs" />
+    <Compile Include="Assets\FlyingGame\Service\Map\MapModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
@@ -414,7 +416,7 @@
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGameWinWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
-    <Compile Include="Assets\FlyingGame\User\UserModule.cs" />
+    <Compile Include="Assets\FlyingGame\Service\User\UserModule.cs" />
     <Compile Include="Assets\GameEditor\EditorUtils.cs" />
     <Compile Include="Assets\GameEditor\Map\BirthPointsDescription.cs" />
     <Compile Include="Assets\GameEditor\Map\ChapterEditor.cs" />
@@ -542,6 +544,7 @@
     <None Include="Assets\Resources\extra\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
     <None Include="Assets\Resources\extra\Standard Assets\Fonts\OpenSans\License!.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
 </Project>
