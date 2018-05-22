@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using Kurisu.Service.Audio;
 
 namespace Kurisu.Game.Map
 {
@@ -30,7 +31,7 @@ namespace Kurisu.Game.Map
                     m_script = new EndlessModeMapScript((EndlessModeMapData)data, m_view.transform);
                     break;
                 case MapMode.NormalMode:
-                    // TODO 实现正常模式的
+                    m_script = new NormalModeMapScript((NormalModeMapData)data, m_view.transform);
                     break;
                 default:
                     throw new Exception(string.Format("未知的地图模式 {0}", data.mapMode));
@@ -42,6 +43,8 @@ namespace Kurisu.Game.Map
         /// </summary>
         public void Load()
         {
+            LoadSkybox();
+            LoadBgms();
             m_script.FirstLoad();
         }
       
@@ -50,6 +53,7 @@ namespace Kurisu.Game.Map
         /// </summary>
         public void Unload()
         {
+            UnloadBgms();
             m_script = null;
             if (m_view != null)
             {
@@ -66,6 +70,7 @@ namespace Kurisu.Game.Map
             }
         }
 
+        #region 属性
         public GameObject View
         {
             get
@@ -85,9 +90,60 @@ namespace Kurisu.Game.Map
         public List<TransformData> BirthPoints
         {
             get
-            {   
+            {
                 return m_data.birthPoints;
             }
+        }
+        #endregion
+
+        /// <summary>
+        /// 加载天空盒
+        /// </summary>
+        private void LoadSkybox()
+        {
+            string skyboxPath = m_data.skyboxPath;
+            if (string.IsNullOrEmpty(skyboxPath))
+            {
+                return;
+            }
+
+            Material skybox = Resources.Load<Material>(skyboxPath);
+            if (skybox != null)
+            {
+                RenderSettings.skybox = skybox;
+            }
+        }
+
+        /// <summary>
+        /// 加载背景音乐
+        /// </summary>
+        private void LoadBgms()
+        {
+            List<string> bgmPaths = m_data.bgmPaths;
+            if (bgmPaths == null || bgmPaths.Count <= 0)
+            {
+                return;
+            }
+
+            List<AudioClip> bgms = new List<AudioClip>(m_data.bgmPaths.Count);
+            foreach (string bgmPath in bgmPaths)
+            {
+                AudioClip bgm = Resources.Load<AudioClip>(bgmPath);
+                if (bgm != null)
+                {
+                    bgms.Add(bgm);
+                }
+            }
+
+            AudioManager.Instance.AutoPlayBgms(bgms);
+        }
+
+        /// <summary>
+        /// 卸载背景音乐
+        /// </summary>
+        private void UnloadBgms()
+        {
+            AudioManager.Instance.ReleaseBgms();
         }
     }
 }

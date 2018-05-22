@@ -10,6 +10,7 @@ using Kurisu.UI;
 using Kurisu.Game;
 using Kurisu.Service.Map;
 using Kurisu.Service.User;
+using Kurisu.Service.Audio;
 
 namespace Kurisu
 {
@@ -20,8 +21,13 @@ namespace Kurisu
 
         void Start()
         {
+            #if UNITY_EDITOR
             Debugger.EnableLog = true;
-            //Debugger.EnableSave = true;
+            #endif
+
+            #if !UNITY_EDITOR
+            Debugger.EnableSave = true;
+            #endif
             AppConfig.Init();
 
             InitServiceModules();
@@ -43,6 +49,8 @@ namespace Kurisu
             MapModule.Instance.Init();
 
             UserModule.Instance.Init();
+
+            AudioManager.Instance.Init();
         }
 
         private void InitBusinessModules()

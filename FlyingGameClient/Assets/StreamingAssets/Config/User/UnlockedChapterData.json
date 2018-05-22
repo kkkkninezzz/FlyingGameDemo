@@ -1,8 +1,1 @@
-{
-    "unlockedChapters" : [
-        {
-            "Key" : 1,
-            "Value" : ["1-1"]
-        }
-    ]
-}
+{"unlockedChapters":[{"Key":1,"Value":["1_1","1_2"]}]}

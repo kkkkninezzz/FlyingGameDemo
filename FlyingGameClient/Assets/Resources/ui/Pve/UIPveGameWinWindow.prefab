@@ -5568,7 +5568,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114647400053696938}
         m_MethodName: OnGameExitBtnClick
         m_Mode: 1
         m_Arguments:

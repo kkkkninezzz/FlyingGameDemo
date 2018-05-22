@@ -1,0 +1,93 @@
+{
+    "chapterModeConfigs": [
+        {
+            "chapterNo" : 1,
+            "chapterConfigs" : [
+                {
+                    "no" : "1_1",
+                    "name" : "小试牛刀",
+                    "gameMode" : 0,
+                    "mapMode" : 1,
+                    "configPath" : "Config/Map/ChapterMode/1/1_1",
+                    "unlockedChapterNo" : 1,
+                    "unlockedSmallChapterNo" : "1_2"
+                },
+                {
+                    "no" : "1_2",
+                    "name" : "小试牛刀-2",
+                    "gameMode" : 0,
+                    "mapMode" : 1,
+                    "configPath" : "Config/Map/ChapterMode/1/1_2",
+                    "unlockedChapterNo" : 2,
+                    "unlockedSmallChapterNo" : "2_1"
+                }
+            ]
+        },
+        {
+            "chapterNo" : 2,
+            "chapterConfigs" : [
+                {
+                    "no" : "2_1",
+                    "name" : "小试牛刀-3",
+                    "gameMode" : 0,
+                    "mapMode" : 1,
+                    "configPath" : "Config/Map/ChapterMode/2/2_1",
+                    "unlockedChapterNo" : 2,
+                    "unlockedSmallChapterNo" : "2_2"
+                },
+                {
+                    "no" : "2_2",
+                    "name" : "关卡测试地图-2",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Config/Map/EndlessMode/1"
+                },
+                {
+                    "no" : "2_3",
+                    "name" : "关卡测试地图-3",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Config/Map/EndlessMode/1"
+                },
+                {
+                    "no" : "2_1",
+                    "name" : "关卡测试地图-1",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Config/Map/EndlessMode/1"
+                },
+                {
+                    "no" : "2_2",
+                    "name" : "关卡测试地图-2",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Config/Map/EndlessMode/1"
+                },
+                {
+                    "no" : "2_3",
+                    "name" : "关卡测试地图-3",
+                    "gameMode" : 2,
+                    "mapMode" : 0,
+                    "configPath" : "Config/Map/EndlessMode/1"
+                }
+            ]
+        }
+    ],
+
+    "endlessModeConfigs":[
+        {
+            "no" : "1",
+            "name" : "无尽模式测试地图-1",
+            "gameMode" : 2,
+            "mapMode" : 0,
+            "configPath" : "Config/Map/EndlessMode/1"
+        },
+        {
+            "no" : "2",
+            "name" : "无尽模式测试地图-2",
+            "gameMode" : 2,
+            "mapMode" : 0,
+            "configPath" : "Config/Map/EndlessMode/1"
+        }
+    ]
+}

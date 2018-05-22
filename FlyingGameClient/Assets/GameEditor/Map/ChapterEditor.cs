@@ -117,7 +117,7 @@ namespace Kurisu.GameEditor.Map
             switch (Mode)
             {
                 case MapMode.NormalMode:
-                    path = string.Format(ChapterEditorDef.ChapterConfigRootPath + "/{0}/{1}.json", ChapterNo, mapData.no);
+                    path = string.Format(ChapterEditorDef.ChapterConfigRootPath + "{0}/{1}.json", ChapterNo, mapData.no);
                     JsonUtils.WriteDataToJsonFile(path, mapData);
                     break;
 
@@ -760,12 +760,6 @@ namespace Kurisu.GameEditor.Map
             LoadMapParts(endlessModeMapData.mapParts);
         }
         #endregion
-
-        [ContextMenu("测试")]
-        public void Test()
-        {
-            Debug.Log(Application.streamingAssetsPath);
-        }
     }
 }
 #endif

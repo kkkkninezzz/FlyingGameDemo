@@ -41,8 +41,11 @@ namespace Kurisu.Service.User
             if (m_unlockedChapterData == null)
             {
                 this.LogWarning("Don't exists UnlockedChapterData in Path = {0}", UnlockedChapterDataPath);
+                m_unlockedChapterData = ConfigConstants.DefaultUnlockedChapterData;
+                /*
                 m_unlockedChapterData = new UnlockedChapterData();
                 m_unlockedChapterData.unlockedChapters = new List<KeyValuePair<int, List<string>>>();
+                */
             }
         }
 

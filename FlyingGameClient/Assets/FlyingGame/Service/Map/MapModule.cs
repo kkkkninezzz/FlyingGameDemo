@@ -19,7 +19,6 @@ namespace Kurisu.Service.Map
         /// 地图的配置信息
         /// </summary>
         private MapSettingData m_mapSetting;
-
         
 
         private MapModule()
@@ -36,8 +35,9 @@ namespace Kurisu.Service.Map
         {
 
             this.Log("Init() Path = " + MapSettingPath);
-            m_mapSetting = JsonUtils.LoadJsonFromFile<MapSettingData>(MapSettingPath);
+            //m_mapSetting = JsonUtils.LoadJsonFromFile<MapSettingData>(MapSettingPath);
 
+            m_mapSetting = JsonUtils.LoadJsonFromTextAsset<MapSettingData>(MapSettingPath);
             if (m_mapSetting == null)
             {
                 this.LogWarning("Don't exists MapSetting in Path = {0}", MapSettingPath);
@@ -156,14 +156,14 @@ namespace Kurisu.Service.Map
         public MapData LoadModeMapData(MapConfigData configData)
         {
             MapData data = null;
-            string path = ConfigConstants.BaseFilePath + configData.configPath;
+            string path = /*ConfigConstants.BaseFilePath + */configData.configPath;
             switch (configData.mapMode)
             {
                 case MapMode.NormalMode:
-                    data = JsonUtils.LoadJsonFromFile<NormalModeMapData>(path);
+                    data = JsonUtils.LoadJsonFromTextAsset<NormalModeMapData>(path);
                     break;
                 case MapMode.EndlessMode:
-                    data = JsonUtils.LoadJsonFromFile<EndlessModeMapData>(path);
+                    data = JsonUtils.LoadJsonFromTextAsset<EndlessModeMapData>(path);
                     break;
             }
             if (data == null)

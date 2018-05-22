@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
+using UnityEngine;
 
 namespace SGF.Utils
 {
@@ -34,6 +35,22 @@ namespace SGF.Utils
             }
 
             return default(T);
+        }
+
+        /// <summary>
+        /// 从Resoures下加载json对象
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="jsonAssetPath"></param>
+        /// <returns></returns>
+        public static T LoadJsonFromTextAsset<T>(string jsonAssetPath)
+        {
+            TextAsset text = Resources.Load<TextAsset>(jsonAssetPath);
+
+            if (text == null || string.IsNullOrEmpty(text.text))
+                return default(T);
+
+            return JsonConvert.DeserializeObject<T>(text.text);
         }
 
         /// <summary>

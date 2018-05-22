@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Kurisu.Game.Data;
+using Kurisu.Setting.UserSetting;
+using System.Collections.Generic;
 
 namespace SGF
 {
@@ -52,7 +54,12 @@ namespace SGF
         #endregion
 
         #region 配置信息路径
-        public static readonly string BaseFilePath = Application.streamingAssetsPath + "/";
+        public static readonly string BaseFilePath =
+#if UNITY_ANDROID
+                                                    Application.persistentDataPath + "/";
+#else
+                                                    Application.streamingAssetsPath + "/";
+#endif
 
         public static readonly string LogFileDir = BaseFilePath + "Log/DebuggerLog/";
 
@@ -60,7 +67,39 @@ namespace SGF
 
         public static readonly string UnlockedChapterDataPath = BaseFilePath + "Config/User/UnlockedChapterData.json";
 
-        public static readonly string MapSettingPath = BaseFilePath + "Config/Map/MapSetting.json";
+        //public static readonly string MapSettingPath = BaseFilePath + "Config/Map/MapSetting.json";
+
+        /// <summary>
+        /// 地图配置的资源路径
+        /// </summary>
+        public static readonly string MapSettingPath = "Config/Map/MapSetting";
+
+
+        #endregion
+
+        #region 默认值区域
+        static ConfigConstants()
+        {
+            // 初始化UnlockedChapterData
+            DefaultUnlockedChapterData = new UnlockedChapterData();
+            InitUnlockedChapterData();
+
+
+        }
+        public static readonly UnlockedChapterData DefaultUnlockedChapterData;
+
+        private static void InitUnlockedChapterData()
+        {
+            int firstChapterNo = 1;
+            string firstSmallChapterNo = "1_1";
+
+            List<string> chapters = new List<string>();
+            chapters.Add(firstSmallChapterNo);
+            KeyValuePair<int, List<string>> kv = new KeyValuePair<int, List<string>>(firstChapterNo, chapters);
+
+            DefaultUnlockedChapterData.unlockedChapters = new List<KeyValuePair<int, List<string>>>();
+            DefaultUnlockedChapterData.unlockedChapters.Add(kv);
+        }
 
         #endregion
     }

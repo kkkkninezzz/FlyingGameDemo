@@ -15,12 +15,12 @@ namespace Kurisu.GameEditor.Map
         /// <summary>
         /// 关卡模式配置文件的根目录
         /// </summary>
-        public static string ChapterConfigRootPath = Application.streamingAssetsPath + "/Config/Map/ChapterMode/";
+        public static string ChapterConfigRootPath = "Assets/Resources/Config/Map/ChapterMode/";
 
         /// <summary>
         /// 无尽模式配置文件的根目录
         /// </summary>
-        public static string EndlessConfigRootPath = Application.streamingAssetsPath + "/Config/Map/EndlessMode/";
+        public static string EndlessConfigRootPath = "Assets/Resources/Config/Map/EndlessMode/";
 
         public const string MapParts = "MapParts";
 

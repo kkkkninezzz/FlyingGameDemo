@@ -100,23 +100,6 @@ namespace Kurisu.Game.Map
         }
         #endregion
 
-        /// <summary>
-        /// 加载天空盒
-        /// </summary>
-        protected void LoadSkybox()
-        {
-            string skyboxPath = m_data.skyboxPath;
-            if (string.IsNullOrEmpty(skyboxPath))
-            {
-                return;
-            }
-
-            Material skybox = Resources.Load<Material>(skyboxPath);
-            if (skybox != null)
-            {
-                RenderSettings.skybox = skybox;
-            }
-        }
 
         public abstract void FirstLoad();
         public abstract void EnterFrame(int frameIndex);
