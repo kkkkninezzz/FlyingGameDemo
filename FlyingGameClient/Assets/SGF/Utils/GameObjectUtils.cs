@@ -216,9 +216,9 @@ namespace SGF.Utils
         /// </summary>
         /// <param name="child"></param>
         /// <param name="parent"></param>
-        public static void SetParent(GameObject child, GameObject parent)
+        public static void SetParent(GameObject child, GameObject parent, bool worldPositionStays = false)
         {
-            child.transform.SetParent(parent.transform);
+            child.transform.SetParent(parent.transform, worldPositionStays);
         }
     }
 }

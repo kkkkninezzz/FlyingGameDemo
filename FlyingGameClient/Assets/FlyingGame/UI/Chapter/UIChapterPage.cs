@@ -178,8 +178,7 @@ namespace Kurisu.UI.Chapter
             foreach (ChapterMapConfigsData data in chapterMaps)
             {
                 // 生成选择按钮
-                GameObject selectedBtnGo = GameObject.Instantiate<GameObject>(ChapterSelectedBtnPrefab);
-                selectedBtnGo.transform.SetParent(ChapterSelectedContent.transform);
+                GameObject selectedBtnGo = GameObject.Instantiate<GameObject>(ChapterSelectedBtnPrefab, ChapterSelectedContent.transform);
 
                 // 保存预制体的Button脚本
                 UIChapterNoBtn selectedChapterNoBtn = selectedBtnGo.GetComponent<UIChapterNoBtn>();
@@ -193,8 +192,7 @@ namespace Kurisu.UI.Chapter
                 m_chapterModels.Add(data.chapterNo, chapterModelKV);
 
                 // 生成小章节面板
-                GameObject smallChapterPanelGo = GameObject.Instantiate<GameObject>(SmallChapterPanelPrefab);
-                smallChapterPanelGo.transform.SetParent(SmallChapterRootPanel.transform);
+                GameObject smallChapterPanelGo = GameObject.Instantiate<GameObject>(SmallChapterPanelPrefab, SmallChapterRootPanel.transform);
                 smallChapterPanels.Add(smallChapterPanelGo);
 
                 // 获取小章节面板的滚动脚本

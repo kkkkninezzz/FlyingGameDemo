@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using SGF.Utils;
 
 namespace Kurisu.UI.Ccommon
 {
@@ -55,7 +56,7 @@ namespace Kurisu.UI.Ccommon
                 return;
             }
             
-            child.transform.SetParent(Content.transform);
+            child.transform.SetParent(Content.transform, false);
             m_children.Add(child);
         }
 
