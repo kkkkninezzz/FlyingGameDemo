@@ -195,7 +195,7 @@ e4e92251edb31c413eb8a556cca0a7cc Assembly-CSharp.dll:Kurisu.UI.Chapter.UIMapItem
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.ImpactEffect
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Game.GameInput
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.CubeSelect
-05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Game.GameTest
+055f5f529430025443ce15531fdd0af3 Assembly-CSharp.dll:Kurisu.Game.GameTest
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.MobileControlRig
 c01de40ec76738587cd7745b6aa77e51 Assembly-CSharp.dll:Kurisu.Service.UIManager.Example.UIWindow1
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:UnityStandardAssets.Utility.ObjectResetter
@@ -280,6 +280,7 @@ f9c1022705fa96cc995e77a7d4960d78 Assembly-CSharp.dll:UnityChan.IKCtrlRightHand
 22364d260bc44f446be8db4d0332d8a1 Assembly-CSharp-firstpass.dll:.MultiCameraTouch
 6552cb43b825c66a1aab7b89d63eef2b Assembly-CSharp.dll:Kurisu.UI.Chapter.UIChapterNoBtn
 602017ac837ce39de79e6b98478ee720 Assembly-CSharp.dll:UnityStandardAssets.Utility.SimpleActivatorMenu
+930363aef610148d4f045b6d6aff14f2 Assembly-CSharp.dll:Kurisu.Service.Audio.BgmPlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.MultiLayerUI
 3126b34aeff78313188b04cdd96feb7f Assembly-CSharp.dll:Kurisu.Game.Entity.Map.NextPartLoader
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
