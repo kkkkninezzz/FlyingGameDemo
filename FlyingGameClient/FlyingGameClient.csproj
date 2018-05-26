@@ -370,6 +370,7 @@
     <Compile Include="Assets\FlyingGame\Module\ModuleDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\Pve\PveGame.cs" />
     <Compile Include="Assets\FlyingGame\Module\Pve\PveModule.cs" />
+    <Compile Include="Assets\FlyingGame\Module\Setting\SettingModule.cs" />
     <Compile Include="Assets\FlyingGame\Service\Audio\AudioManager.cs" />
     <Compile Include="Assets\FlyingGame\Service\Audio\BgmPlayer.cs" />
     <Compile Include="Assets\FlyingGame\Service\Core\BusinessModule.cs" />
@@ -416,6 +417,7 @@
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGamePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGamePauseWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGameWinWindow.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Setting\UISettingPage.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIAPI.cs" />
     <Compile Include="Assets\FlyingGame\UI\UIDef.cs" />
     <Compile Include="Assets\GameEditor\EditorUtils.cs" />

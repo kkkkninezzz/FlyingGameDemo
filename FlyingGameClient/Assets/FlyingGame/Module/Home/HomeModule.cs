@@ -18,6 +18,7 @@ namespace Kurisu.Module.Home
             switch (name)
             {
                 case ModuleDef.PveModule:
+                case ModuleDef.SettingModule:
                     ModuleManager.Instance.ShowModule(name, arg);
                     break;
                 default:

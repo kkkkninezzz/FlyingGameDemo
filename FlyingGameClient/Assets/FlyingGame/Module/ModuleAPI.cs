@@ -5,6 +5,7 @@ using Kurisu.Module.CharacterTouch;
 using Kurisu.Service.Core;
 using Kurisu.Module.Home;
 using Kurisu.Module.Pve;
+using Kurisu.Module.Setting;
 
 namespace Kurisu.Module
 {
@@ -38,6 +39,14 @@ namespace Kurisu.Module
             get
             {
                 return ModuleManager.Instance.GetModule(ModuleDef.PveModule) as PveModule;
+            }
+        }
+
+        public static SettingModule SettingModule
+        {
+            get
+            {
+                return ModuleManager.Instance.GetModule(ModuleDef.SettingModule) as SettingModule;
             }
         }
     }

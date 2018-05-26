@@ -14,6 +14,7 @@ namespace Kurisu.Module
         public const string BagModule = "Bag.BagModule";
 
         public const string PveModule = "Pve.PveModule";
+
     }
 }
 

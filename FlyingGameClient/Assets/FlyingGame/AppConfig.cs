@@ -33,6 +33,7 @@ namespace Kurisu
             {
                 setting = new AppConfigSetting();
                 setting.EnableMusic = true;
+                setting.BgmVolume = 1;
                 setting.EnableSoundEffect = true;
             }
         }
@@ -44,6 +45,23 @@ namespace Kurisu
             if (setting != null)
             {
                 JsonUtils.WriteDataToJsonFile(Path, setting);
+            }
+        }
+
+        /// <summary>
+        /// 设置背景音乐声音的大小
+        /// </summary>
+        /// <param name="volume"></param>
+        public static float BgmVolume
+        {
+            get
+            {
+                return setting.BgmVolume;
+            }
+
+            set
+            {
+                setting.BgmVolume = value;
             }
         }
     }

@@ -31,6 +31,8 @@ namespace Kurisu.Service.Audio
                 Debugger.LogError("AudioManager", "Create() Cannot Find Camera In Scene!");
                 return;
             }
+
+            m_AudioSource.volume = AppConfig.BgmVolume;
         }
 
         /// <summary>
@@ -56,6 +58,32 @@ namespace Kurisu.Service.Audio
                 return;
             }
             m_bgmPlayer.Release();
+        }
+
+        public float BgmVolume
+        {
+            get
+            {
+                return m_AudioSource.volume;
+            }
+            set
+            {
+                SetBgmVolume(value);
+            }
+        }
+
+        private void SetBgmVolume(float volume)
+        {
+            m_AudioSource.volume = volume;
+            AppConfig.BgmVolume = volume;
+        }
+
+        /// <summary>
+        /// 保存配置
+        /// </summary>
+        public void SaveConfig()
+        {
+            AppConfig.Save();
         }
     }
 }

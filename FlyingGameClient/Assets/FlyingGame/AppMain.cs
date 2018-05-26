@@ -58,6 +58,7 @@ namespace Kurisu
             ModuleManager.Instance.CreateModule(ModuleDef.HomeModule);
             ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
             ModuleManager.Instance.CreateModule(ModuleDef.PveModule);
+            ModuleManager.Instance.CreateModule(ModuleDef.SettingModule);
         }
         
     }

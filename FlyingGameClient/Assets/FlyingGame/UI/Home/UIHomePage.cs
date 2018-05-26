@@ -111,7 +111,7 @@ namespace Kurisu.UI.Home
         /// </summary>
         public void OnSettingBtn()
         {
-
+            OpenModule(ModuleDef.SettingModule);
         }
 
 

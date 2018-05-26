@@ -146,8 +146,7 @@ namespace Kurisu.Service.UIManager
             {
                 m_pageTrackStack.Push(m_curPage);
             }
-            OpenPageWorker(scene, page, null);
-
+            OpenPageWorker(scene, page, arg);
         }
 
         /// <summary>

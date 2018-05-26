@@ -12,6 +12,11 @@ namespace Kurisu.Setting
         public bool EnableMusic;
 
         /// <summary>
+        /// 背景音乐音量大小
+        /// </summary>
+        public float BgmVolume;
+
+        /// <summary>
         /// 是否打开声音特效
         /// </summary>
         public bool EnableSoundEffect;
