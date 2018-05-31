@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Secens/Main.unity
+- path: Assets/Secens/MapEditor.unity
   isLoaded: 1
   isActive: 1

@@ -34,41 +34,6 @@
                     "configPath" : "Config/Map/ChapterMode/2/2_1",
                     "unlockedChapterNo" : 2,
                     "unlockedSmallChapterNo" : "2_2"
-                },
-                {
-                    "no" : "2_2",
-                    "name" : "关卡测试地图-2",
-                    "gameMode" : 2,
-                    "mapMode" : 0,
-                    "configPath" : "Config/Map/EndlessMode/1"
-                },
-                {
-                    "no" : "2_3",
-                    "name" : "关卡测试地图-3",
-                    "gameMode" : 2,
-                    "mapMode" : 0,
-                    "configPath" : "Config/Map/EndlessMode/1"
-                },
-                {
-                    "no" : "2_1",
-                    "name" : "关卡测试地图-1",
-                    "gameMode" : 2,
-                    "mapMode" : 0,
-                    "configPath" : "Config/Map/EndlessMode/1"
-                },
-                {
-                    "no" : "2_2",
-                    "name" : "关卡测试地图-2",
-                    "gameMode" : 2,
-                    "mapMode" : 0,
-                    "configPath" : "Config/Map/EndlessMode/1"
-                },
-                {
-                    "no" : "2_3",
-                    "name" : "关卡测试地图-3",
-                    "gameMode" : 2,
-                    "mapMode" : 0,
-                    "configPath" : "Config/Map/EndlessMode/1"
                 }
             ]
         }

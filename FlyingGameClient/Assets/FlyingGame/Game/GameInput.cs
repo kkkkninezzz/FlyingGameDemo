@@ -41,6 +41,40 @@ namespace Kurisu.Game
         /// </summary>
         //private ETCButton m_speedUpBtn;
 
+
+#if !UNITY_EDITOR && !UNITY_ANDROID && !UNITY_IOS
+        /// <summary>
+        /// 初始化，用来在当前场景添加GameInput对象
+        /// </summary>
+        public static void Create()
+        {
+            if (m_instance != null)
+            {
+                throw new Exception("GameInput 不能重复初始化");
+            }
+
+            // 实例化GameInput的prefab
+            GameObject prefab = Resources.Load<GameObject>("GameInputForPC");
+            GameObject go = GameObject.Instantiate(prefab);
+
+            m_instance = GameObjectUtils.EnsureComponent<GameInput>(go);
+        }
+
+        private void Update()
+        {
+            if (Input.GetButton(InputDefine.MFB))
+            {   //拉升
+                //按下WS
+                HandleVkey(GameVkey.MoveVertical, Input.GetAxis(InputDefine.MFB));
+            }
+            if (Input.GetButton(InputDefine.RLR))
+            {
+                //按下AD
+                HandleVkey(GameVkey.MoveHorizontal, Input.GetAxis(InputDefine.RLR));
+            }
+        }
+
+#else
         /// <summary>
         /// 初始化，用来在当前场景添加GameInput对象
         /// </summary>
@@ -57,28 +91,6 @@ namespace Kurisu.Game
             GameObject go = GameObject.Instantiate(prefab);
 
             m_instance = GameObjectUtils.EnsureComponent<GameInput>(go);
-        }
-
-        /// <summary>
-        /// 释放当前创建的GameInput对象
-        /// </summary>
-        public static void Release()
-        {
-            m_keyStateMap.Clear();
-            if (m_instance != null)
-            {
-                GameObject.Destroy(m_instance.gameObject);
-                m_instance = null;
-            }
-            OnVkey = null;
-        }
-
-        public static GameInput Instance
-        {
-            get
-            {
-                return m_instance;
-            }
         }
 
         private void Start()
@@ -101,6 +113,28 @@ namespace Kurisu.Game
             }
 
             RegisterListeners();
+        }
+#endif
+        /// <summary>
+        /// 释放当前创建的GameInput对象
+        /// </summary>
+        public static void Release()
+        {
+            m_keyStateMap.Clear();
+            if (m_instance != null)
+            {
+                GameObject.Destroy(m_instance.gameObject);
+                m_instance = null;
+            }
+            OnVkey = null;
+        }
+
+        public static GameInput Instance
+        {
+            get
+            {
+                return m_instance;
+            }
         }
 
         private void RegisterListeners()
