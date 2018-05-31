@@ -26,7 +26,7 @@ namespace Kurisu.UI
 
         public const string UIPveGameFailWindow = "Pve/UIPveGameFailWindow";
 
-        public const string UISettingPage = "UISettingPage";
+        public const string UISettingPage = "Setting/UISettingPage";
         #endregion
 
         /// <summary>

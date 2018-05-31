@@ -3,6 +3,7 @@ SceneListBegin?
 Assets/Secens/Main.unity
 SceneListEnd?
 a5dc8e1d45f7a04b5a38858efaebba9b Assembly-CSharp-firstpass.dll:HedgehogTeam.EasyTouch.EasyTouch
+2d6b1962fe0602160331374df50d2e58 Assembly-CSharp.dll:Kurisu.UI.Setting.UISettingPage
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 dbc29a6f2739d277c10da432d73adb6d UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8144169769d51429c4aedc8b0f92d47b UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -333,6 +334,7 @@ c740e153d09f71f9caf2dae12706e95a Assembly-CSharp.dll:Kurisu.UI.Chapter.UIChapter
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.SliderText
 e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 750189b42ec599a86f3eb66f7024f3e0 Assembly-CSharp-firstpass.dll:.ControlUIInput
+c63a6b4ffaeee482a265935387b64cc5 Assembly-CSharp.dll:Kurisu.GameEditor.Uitls.CircleSpawner
 7a9b2bc4c7be55d414c6022a3dda7baa Assembly-CSharp-firstpass.dll:.MultiCameraUI
 841e928fd64bc37071875f1aba3cb4bf Assembly-CSharp.dll:Flight.GameFlight
 0f3d4bb7128a287827d041c696039525 Assembly-CSharp.dll:UnityStandardAssets.Utility.AutoMobileShaderSwitch

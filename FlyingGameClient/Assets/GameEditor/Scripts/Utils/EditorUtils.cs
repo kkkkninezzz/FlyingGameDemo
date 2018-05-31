@@ -95,6 +95,15 @@ namespace Kurisu.GameEditor.Uitls
 
             return path.Remove(dotIndex).Remove(0, 17);
         }
+
+
+        public static void RemoveAllChildren(Transform Root)
+        {
+            for (int i = Root.childCount - 1; i >= 0; i--)
+            {
+                GameObject.DestroyImmediate(Root.GetChild(i).gameObject);
+            }
+        }
     }
 }
 #endif

@@ -28,7 +28,7 @@
             "chapterConfigs" : [
                 {
                     "no" : "2_1",
-                    "name" : "小试牛刀-3",
+                    "name" : "小小的挑战",
                     "gameMode" : 0,
                     "mapMode" : 1,
                     "configPath" : "Config/Map/ChapterMode/2/2_1",

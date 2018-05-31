@@ -23,16 +23,23 @@ namespace Kurisu.Game
         private static GameInput m_instance = null;
 
         //=======================================================================================================
+        private const string HORIZONTAL_JOYSTICK = "EasyTouchControlsCanvas/HorizontalJoystick";
+        private const string VERTICAL_JOYSTICK = "EasyTouchControlsCanvas/VerticalJoystick";
 
         /// <summary>
-        /// 用来控制移动的轮盘
+        /// 用来控制水平移动的轮盘
         /// </summary>
-        private ETCJoystick m_directionControlJoystick;
+        private ETCJoystick m_horizontalJoystick;
+
+        /// <summary>
+        /// 用来控制垂直移动的轮盘
+        /// </summary>
+        private ETCJoystick m_verticalJoystick;
 
         /// <summary>
         /// 用来加速的按钮
         /// </summary>
-        private ETCButton m_speedUpBtn;
+        //private ETCButton m_speedUpBtn;
 
         /// <summary>
         /// 初始化，用来在当前场景添加GameInput对象
@@ -76,12 +83,21 @@ namespace Kurisu.Game
 
         private void Start()
         {
-            m_directionControlJoystick = this.GetComponentInChildren<ETCJoystick>();
+            m_horizontalJoystick = this.transform.Find(HORIZONTAL_JOYSTICK).GetComponent<ETCJoystick>();
+            m_verticalJoystick = this.transform.Find(VERTICAL_JOYSTICK).GetComponent<ETCJoystick>();
+            /*
+            m_horizontalJoystick = this.GetComponentInChildren<ETCJoystick>();
             m_speedUpBtn = this.GetComponentInChildren<ETCButton>();
-
-            if (m_directionControlJoystick == null || m_speedUpBtn == null)
+            
+            if (m_horizontalJoystick == null || m_speedUpBtn == null)
             {
                 this.LogError("Start() m_joystick == null || m_speedUpBtn == null");
+            }
+            */
+            if (m_horizontalJoystick == null || m_verticalJoystick == null)
+            {
+                this.LogError("Start() HorizontalJoystick == null || VerticalJoystick == null");
+                return;
             }
 
             RegisterListeners();
@@ -89,30 +105,47 @@ namespace Kurisu.Game
 
         private void RegisterListeners()
         {
-            if (m_directionControlJoystick != null)
+            if (m_horizontalJoystick != null)
             {
-                m_directionControlJoystick.onMove.AddListener(OnJoystickMove);
-                m_directionControlJoystick.onMoveEnd.AddListener(OnJoystickMoveEnd);
+                m_horizontalJoystick.onMove.AddListener(OnHorizontalJoystickMove);
+                m_horizontalJoystick.onMoveEnd.AddListener(OnHorizontalJoystickMoveEnd);
             }
 
+            if (m_verticalJoystick != null)
+            {
+                m_verticalJoystick.onMove.AddListener(OnVerticalJoystickMove);
+                m_verticalJoystick.onMoveEnd.AddListener(OnVerticalJoystickMoveEnd);
+            }
+
+            /*
             if (m_speedUpBtn != null)
             {
                 m_speedUpBtn.onDown.AddListener(OnSpeedUpBtnDown);
                 m_speedUpBtn.onUp.AddListener(OnSpeedUpBtnUp);
             }
+            */
         }
 
         private void RemoveListeners()
         {
-            if (m_directionControlJoystick != null)
+            if (m_horizontalJoystick != null)
             {
-                m_directionControlJoystick.onMove.RemoveAllListeners();
+                m_horizontalJoystick.onMove.RemoveAllListeners();
+                m_horizontalJoystick.onMoveEnd.RemoveAllListeners();
             }
 
+            if (m_verticalJoystick != null)
+            {
+                m_verticalJoystick.onMove.RemoveAllListeners();
+                m_verticalJoystick.onMoveEnd.RemoveAllListeners();
+            }
+
+            /*
             if (m_speedUpBtn != null)
             {
                 m_speedUpBtn.onDown.RemoveAllListeners();
             }
+            */
         }
 
         /*
@@ -135,21 +168,36 @@ namespace Kurisu.Game
         //=======================================================================================================
 
         /// <summary>
-        /// 轮盘移动时
+        /// 水平轮盘移动时
         /// </summary>
         /// <param name="v2"></param>
-        private void OnJoystickMove(Vector2 v2)
+        private void OnHorizontalJoystickMove(Vector2 v2)
         {
             HandleVkey(GameVkey.MoveHorizontal, v2.x);
+        }
+
+        /// <summary>
+        /// 水平轮盘结束移动时
+        /// </summary>
+        private void OnHorizontalJoystickMoveEnd()
+        {
+            HandleVkey(GameVkey.MoveHorizontal, 0);
+        }
+
+        /// <summary>
+        /// 垂直轮盘移动时
+        /// </summary>
+        /// <param name="v2"></param>
+        private void OnVerticalJoystickMove(Vector2 v2)
+        {
             HandleVkey(GameVkey.MoveVertical, v2.y);
         }
 
         /// <summary>
-        /// 轮盘结束移动时
+        /// 垂直轮盘结束移动时
         /// </summary>
-        private void OnJoystickMoveEnd()
+        private void OnVerticalJoystickMoveEnd()
         {
-            HandleVkey(GameVkey.MoveHorizontal, 0);
             HandleVkey(GameVkey.MoveVertical, 0);
         }
 
