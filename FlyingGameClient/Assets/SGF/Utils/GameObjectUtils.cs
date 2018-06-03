@@ -171,6 +171,7 @@ namespace SGF.Utils
         /// <returns></returns>
         public static Quaternion ToQuaternion(QuaternionData data)
         {
+            
             return new Quaternion(data.x, data.y, data.z, data.z);
         }
 
