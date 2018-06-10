@@ -114,6 +114,13 @@ namespace Kurisu.UI.Home
             OpenModule(ModuleDef.SettingModule);
         }
 
+        /// <summary>
+        /// 帮助按钮
+        /// </summary>
+        public void OnHelpBtn()
+        {
+            OpenModule(ModuleDef.HelpModule);
+        }
 
         #endregion
     }

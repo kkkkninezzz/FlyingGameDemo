@@ -19,6 +19,7 @@ namespace Kurisu.Module.Home
             {
                 case ModuleDef.PveModule:
                 case ModuleDef.SettingModule:
+                case ModuleDef.HelpModule:
                     ModuleManager.Instance.ShowModule(name, arg);
                     break;
                 default:

@@ -163,13 +163,14 @@ namespace Kurisu.Game.Entity.FlyingVehicle
             if (m_isInStuntState)
                 return;
 
+            // 控制在速度小于给定值时不允许爬升
             if (m_curSpeed < m_config.MoveFBSpeed / 3.6f && speed < 0)
                 return;
 
             m_autoBalanceUD = false;
             Balance(Quaternion.Euler(m_config.AxisFB * speed, m_body.eulerAngles.y, m_body.eulerAngles.z), m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed);
 
-            //SaveTransData(GetRotationDataForX(m_config.AxisFB * speed, m_config.RoteFBSpeed * Time.deltaTime * m_curSpeed / m_config.MoveFBSpeed));
+            
         }
 
         /// <summary>

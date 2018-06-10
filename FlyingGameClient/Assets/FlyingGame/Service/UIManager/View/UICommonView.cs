@@ -21,10 +21,12 @@ namespace Kurisu.Service.UIManager.View
         {
             m_model = viewModel;
             m_isModelChanged = true;
+
+            
         }
 
         // Update is called once per frame
-        void Update()
+        void LateUpdate()
         {
             if (m_isModelChanged)
             {

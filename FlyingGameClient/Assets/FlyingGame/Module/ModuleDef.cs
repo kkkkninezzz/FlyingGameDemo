@@ -15,6 +15,7 @@ namespace Kurisu.Module
 
         public const string PveModule = "Pve.PveModule";
 
+        public const string HelpModule = "Help.HelpModule";
     }
 }
 

@@ -59,8 +59,21 @@ namespace Kurisu
             ModuleManager.Instance.CreateModule(ModuleDef.CharacterTouchModule);
             ModuleManager.Instance.CreateModule(ModuleDef.PveModule);
             ModuleManager.Instance.CreateModule(ModuleDef.SettingModule);
+            ModuleManager.Instance.CreateModule(ModuleDef.HelpModule);
         }
-        
+
+#if !UNITY_EDITOR
+        public void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Kurisu.Service.UIManager.UIWindow ui = UIAPI.ShowUIWindow(UIDef.UIGameExitWindow);
+                ui.transform.SetAsLastSibling();
+            }
+                
+        }
+#endif
+
     }
 }
 

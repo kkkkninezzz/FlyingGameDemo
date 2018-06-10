@@ -383,6 +383,7 @@
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterAnimStateDef.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\CharacterTouchModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\CharacterTouch\RestIdleBehaviour.cs" />
+    <Compile Include="Assets\FlyingGame\Module\Help\HelpModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\Home\HomeModule.cs" />
     <Compile Include="Assets\FlyingGame\Module\ModuleAPI.cs" />
     <Compile Include="Assets\FlyingGame\Module\ModuleDef.cs" />
@@ -419,6 +420,7 @@
     <Compile Include="Assets\FlyingGame\Setting\AppConfigData.cs" />
     <Compile Include="Assets\FlyingGame\Setting\MapSettingData.cs" />
     <Compile Include="Assets\FlyingGame\Setting\UserSetting\UnlockedChapterData.cs" />
+    <Compile Include="Assets\FlyingGame\UI\AppMain\UIGameExitWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIChapterNoBtn.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIChapterPage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Chapter\UIMapItem.cs" />
@@ -430,6 +432,7 @@
     <Compile Include="Assets\FlyingGame\UI\Common\UIMsgBox.cs" />
     <Compile Include="Assets\FlyingGame\UI\Common\UIScrollView.cs" />
     <Compile Include="Assets\FlyingGame\UI\Example\Example_MsBox.cs" />
+    <Compile Include="Assets\FlyingGame\UI\Help\UIHelpPage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Home\UIHomePage.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGameFailWindow.cs" />
     <Compile Include="Assets\FlyingGame\UI\Pve\UIPveGamePage.cs" />

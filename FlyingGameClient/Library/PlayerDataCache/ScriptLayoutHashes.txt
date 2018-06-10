@@ -1,4 +1,4 @@
-WindowsStandalone
+Android
 SceneListBegin?
 Assets/Secens/Main.unity
 SceneListEnd?
@@ -23,6 +23,7 @@ b5ca66b1ca44cedb035a626b0aa56be7 Assembly-CSharp.dll:Kurisu.GameEditor.Map.Birth
 d595b5bbbe6db228f12c3cf21561dfe4 Assembly-CSharp-firstpass.dll:.ETCSetDirectActionTransform
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.EventSystemChecker
 51d600eba0771bdc3d83bc9b66f028b4 Assembly-CSharp.dll:Kurisu.UI.Ccommon.UILabelBtnGroup
+25a8032d233df72c368030798802d97d Assembly-CSharp-firstpass.dll:.ExtrudeRandomEdges
 1fe675afcd84e9c0b62c8360377ae8d0 Assembly-CSharp.dll:.FlyingController2
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.TwoTouchMe
 a35dc9cca2faebc5f5f1aeb9e8e47bbe UnityEngine.UI.dll:UnityEngine.UI.AspectRatioFitter
@@ -97,6 +98,7 @@ f41c5222aaa4557bb9cafa1c24b37a94 Assembly-CSharp.dll:UnityStandardAssets.Cameras
 e01a2750041884536a19c4b593c0baf6 Assembly-CSharp.dll:Kurisu.UI.Home.UIHomePage
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.Ball
 d38c0b15b5e9573cc0ed5bda039b578b Assembly-CSharp.dll:UnityChan.AutoBlink
+9008bdf459020f5356e69af2650f275e Assembly-CSharp-firstpass.dll:ProBuilder2.Examples.IcoBumpin
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Module.ModuleAPI
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.UI.Ccommon.UIDynamicLabelBtnGroup
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.TwoDragMe
@@ -179,6 +181,7 @@ d16f26eaac7f64265ddab7a65f83bc52 Assembly-CSharp-firstpass.dll:HedgehogTeam.Easy
 96e7294f11e4ae1fe77dd4bcd658b56d Assembly-CSharp.dll:UnityStandardAssets.Cameras.LookatTarget
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.CharacterAnimationDungeon
 a7d3c6c6948d99dd4116e659ddcf5ac4 Assembly-CSharp.dll:UnityStandardAssets.CrossPlatformInput.ButtonHandler
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:ProBuilder2.Examples.HueCube
 196e20b59c146396e7239d5d7399e71d Assembly-CSharp-firstpass.dll:.MutliFingersScreenTouch
 6223eeb70ab0d168ea7a404e02d0226f Assembly-CSharp-firstpass.dll:.TouchPadUIEvent
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Game.GameCamera
@@ -206,6 +209,17 @@ c01de40ec76738587cd7745b6aa77e51 Assembly-CSharp.dll:Kurisu.Service.UIManager.Ex
 05524b8f659e7bfe5756d1335fec24ba Sirenix.Utilities.dll:Sirenix.Utilities.ProjectPathFinder
 32a78dd64cf780dbbe9863d707538d57 Assembly-CSharp.dll:Kurisu.GameEditor.Map.ChapterEditor
 206ab8260c4569eaffdb09d5ad381fb3 Assembly-CSharp.dll:Kurisu.UI.Pve.UIPveGameFailWindow
+a13e348db57cdb225ef648cd7f959981 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_BezierShape
+d65f8e166eb4df1e46eb9eaa8ee261c1 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_ColorPalette
+05524b8f659e7bfe5756d1335fec24ba ProBuilderCore-Unity5.dll:.pb_DummyScript
+de97379821afa9e2d0bd6e6ccee7b4a7 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_ElementGraphics
+d05d1726290c11f0086c3ed9a61ae76d ProBuilderCore-Unity5.dll:.pb_Entity
+08d320ebcef1851d2d5edc2e728a92ee ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_LineRenderer
+05524b8f659e7bfe5756d1335fec24ba ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_MeshRenderer
+2bc8bffa442d471f63726d9d95ec3942 ProBuilderCore-Unity5.dll:.pb_Object
+be298e9989a57b3144bbdecf37b84436 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_PolyShape
+8965b639c314e17576abd37f3ff28cd2 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_PreferenceDictionary
+b6994eef3ccb7ef36dbcb0ded4de4503 ProBuilderCore-Unity5.dll:ProBuilder2.Common.pb_Renderable
 dd091b7b7f40996f6594204a50c6c683 Assembly-CSharp.dll:Kurisu.Service.UIManager.Example.UIPage1
 43f825b7da3fae875adb261c8e31a7da Assembly-CSharp.dll:.FlyingController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.FlyingController3
@@ -283,6 +297,7 @@ f9c1022705fa96cc995e77a7d4960d78 Assembly-CSharp.dll:UnityChan.IKCtrlRightHand
 602017ac837ce39de79e6b98478ee720 Assembly-CSharp.dll:UnityStandardAssets.Utility.SimpleActivatorMenu
 930363aef610148d4f045b6d6aff14f2 Assembly-CSharp.dll:Kurisu.Service.Audio.BgmPlayer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.MultiLayerUI
+82c6192ece8decc1abce9eae5bc44e95 Assembly-CSharp-firstpass.dll:.HighlightNearestFace
 3126b34aeff78313188b04cdd96feb7f Assembly-CSharp.dll:Kurisu.Game.Entity.Map.NextPartLoader
 bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.AudioSpatializerMicrosoft
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.HoloLens.dll:UnityEngine.EventSystems.HoloLensInput
@@ -293,6 +308,7 @@ c121657ec3868404f0b3dca094ff5144 Assembly-CSharp-firstpass.dll:HedgehogTeam.Easy
 7429a8c074b4a8f73d9eef0144ca034a Assembly-CSharp-firstpass.dll:HedgehogTeam.EasyTouch.QuickEnterOverExist
 94678f7833bd0dd50297dbd289556f88 Assembly-CSharp-firstpass.dll:.ETCButton
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Service.UIManager.Example.UIWidget1
+420d73cb5979b4d126f3c0d301bcca59 Assembly-CSharp-firstpass.dll:ProBuilder2.Examples.CameraControls
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.Game.Entity.FlyingVehicle.FlyingVehicleView
 db3b233e35a88802fed1717d19c3d9ec Assembly-CSharp.dll:UnityStandardAssets.Utility.FollowTarget
@@ -305,6 +321,7 @@ a8796ecdc9d5c260bbe32f30c4b10708 Assembly-CSharp.dll:UnityStandardAssets.CrossPl
 c74f19d640aec18e8a68db5d18b2a7e3 Assembly-CSharp.dll:Kurisu.UI.Ccommon.UIMsgBox
 329188eea5090696a69f61c3d5789358 Assembly-CSharp.dll:UnityChan.FaceUpdate
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Kurisu.UI.Example.Example_MsBox
+c01de40ec76738587cd7745b6aa77e51 Assembly-CSharp.dll:Kurisu.UI.AppMain.UIGameExitWindow
 1845acdf09311a22a532fc1028e0775d Assembly-CSharp-firstpass.dll:.BallRunPlayer
 e5b297578672434876304be80fca6b94 Assembly-CSharp-firstpass.dll:.ETCJoystick
 0ad469aca31264c6140b1e503c43ab6b Assembly-CSharp.dll:UnityStandardAssets.Utility.TimedObjectDestructor
@@ -317,6 +334,7 @@ b8dbaba0490ba4b6cdadfc4782937f50 Assembly-CSharp.dll:UnityChan.SpringBone
 a0be3a90df779b743ce08964b5c71728 Assembly-CSharp.dll:UnityChan.RandomWind
 00a151844dbacabd8a6d3807a4d0f53d Assembly-CSharp.dll:UnityChan.UnityChanControlScriptWithRgidBody
 329188eea5090696a69f61c3d5789358 Assembly-CSharp.dll:Kurisu.Character.FaceUpdate
+fda0da14edd6380d91b7324af44b5b22 Assembly-CSharp.dll:Kurisu.UI.Help.UIHelpPage
 4221d6f2d120ea1c2b5b1485c67f9a95 Assembly-CSharp-firstpass.dll:.MultiLayerTouch
 af4c120c08a83517c5ff7a79f5380780 Assembly-CSharp-firstpass.dll:.ButtonUIEvent
 ba3bd209617a51f21ebc145dc5acefe8 Assembly-CSharp-firstpass.dll:.ETCArea
@@ -331,6 +349,7 @@ ab8ab25616ecf0e40cbbce210d53e636 Assembly-CSharp.dll:Kurisu.UI.Pve.UIPveGamePage
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.UIPinch
 b7da4938ba656b4180ccfe231912ed69 Assembly-CSharp.dll:Kurisu.Game.Entity.Map.PuzzleView
 c740e153d09f71f9caf2dae12706e95a Assembly-CSharp.dll:Kurisu.UI.Chapter.UIChapterPage
+32dcc1dca94294515dfea07e896e1a84 Assembly-CSharp-firstpass.dll:ProBuilder2.Examples.RuntimeEdit
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.SliderText
 e1ce179b956825a1333a0a697e0b083f Sirenix.Serialization.Config.dll:Sirenix.Serialization.GlobalSerializationConfig
 750189b42ec599a86f3eb66f7024f3e0 Assembly-CSharp-firstpass.dll:.ControlUIInput
